@@ -5,7 +5,7 @@
   <main>
     <section
       style="
-        background-image: url(../../../src/assets/images/landing.png);
+        /* background-image: url(../../../src/assets/images/landing.png); */
         height: 100vh;
         background-repeat: no-repeat;
         background-size: cover;
@@ -13,7 +13,7 @@
         background-attachment: fixed;
         /* margin-top: -88px; */
       "
-      class="d-flex align-items-center"
+      class="d-flex align-items-center landing-bg"
     >
       <div class="container">
         <div class="row">
@@ -461,6 +461,9 @@
 </template>
 
 <style scoped>
+.landing-bg {
+  background-image: url(../../../src/assets/images/landing.png);
+}
 .wm-lr {
   -webkit-writing-mode: vertical-lr;
   writing-mode: vertical-lr;
