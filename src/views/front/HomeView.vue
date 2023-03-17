@@ -59,9 +59,9 @@
       </div>
     </section>
     <section
-      class="py-8"
+      class="py-8 texture-bg-01"
       style="
-        background-image: url(../../../src/assets/images/texture1.png);
+        /* background-image: url(../../../src/assets/images/texture1.png); */
         background-repeat: no-repeat;
         background-size: cover;
         background-position: left top;
@@ -213,7 +213,7 @@
           <div data-aos="fade-up" data-aos-duration="3000" class="col-md-4"
           >
             <div class="border-0 px-7">
-              <div style="background-image: url(../../../src/assets/images/zongzi1.png);background-size: cover;background-size: 60%; background-position: center;" class="product-img d-md-flex justify-content-md-center align-items-md-center">
+              <div style="background-size: cover;background-size: 60%; background-position: center;" class="product-img zongzi1-bg d-md-flex justify-content-md-center align-items-md-center">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
                   :to="`/product/-NM27yCriEAoX1-aPW4j`"
@@ -253,7 +253,7 @@
           <div data-aos="fade-up" data-aos-duration="3000" class="col-md-4"
           >
             <div class="border-0 px-7">
-              <div style="background-image: url(../../../src/assets/images/zongzi2.png);background-size: cover;background-size: 60%; background-position: center;" class="product-img d-md-flex justify-content-md-center align-items-md-center">
+              <div style="background-size: cover;background-size: 60%; background-position: center;" class="product-img zongzi2-bg d-md-flex justify-content-md-center align-items-md-center">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
                   :to="`/product/-NM2d45PodDNatFQYTQ3`"
@@ -293,7 +293,7 @@
           <div data-aos="fade-up" data-aos-duration="3000" class="col-md-4"
           >
             <div class="border-0 px-7">
-              <div style="background-image: url(../../../src/assets/images/sauce.png);background-size: cover;background-size: 70%; background-position: center;" class="product-img d-md-flex justify-content-md-center align-items-md-center">
+              <div style="background-size: cover;background-size: 70%; background-position: center;" class="product-img sauce-bg d-md-flex justify-content-md-center align-items-md-center">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
                   :to="`/product/-NM2huSRBtLQp39YYdPB`"
@@ -379,9 +379,9 @@
       </div>
     </section>
     <section
-      class="py-8"
+      class="py-8 texture-bg-02"
       style="
-        background-image: url(../../../src/assets/images/texture2.png);
+        /* background-image: url(../../../src/assets/images/texture2.png); */
         background-repeat: no-repeat;
         background-size: cover;
         background-position: left top;
@@ -464,6 +464,21 @@
 .landing-bg {
   background-image: url(../../../src/assets/images/landing.png);
 }
+.texture-bg-01 {
+  background-image: url(../../../src/assets/images/texture1.png);
+}
+.texture-bg-02 {
+  background-image: url(../../../src/assets/images/texture2.png);
+}
+.zongzi1-bg {
+  background-image: url(../../../src/assets/images/zongzi1.png);
+}
+.zongzi2-bg {
+  background-image: url(../../../src/assets/images/zongzi2.png);
+}
+.sauce-bg {
+  background-image: url(../../../src/assets/images/sauce.png);
+}
 .wm-lr {
   -webkit-writing-mode: vertical-lr;
   writing-mode: vertical-lr;
@@ -490,7 +505,6 @@
   height: 320px;
   position: relative;
   background-color: #f0ede5;
-  /* background-image: url(../../assets/images/zongzi1.png); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
