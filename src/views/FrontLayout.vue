@@ -30,7 +30,7 @@
       <div class="d-md-flex justify-content-md-between py-7">
         <div>
           <h2 class="m-0">
-            <router-link to="/" class="d-block mb-10" style="width: 299px;height: 48px;background-image:url(../../src/assets/images/logo-footer-default.png); background-repeat: no-repeat; background-size: cover;"></router-link>
+            <router-link to="/" class="d-block mb-10" style="width: 299px;height: 48px;background-image:url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679126542123.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ErtmdGsStSzMTGeJbXm5FK%2F1qtn4%2BSJ98A%2B9YgyHA0l2egaQ1vJuJxiC2kyVOnxEUyf641bSK7CtTv7ebmGHNdEmeyfG18%2B%2B%2FbQHzW1WjZdx%2Ft4VYXt40P4KvVxI2D7HdboWyzHCAM%2BoilHaEWRUhAj0QSEqbkAfEnSH9W45agK%2B4M6qwxvUI1fnn29zvV6LfWsfFfE8kCek5tUhLPbNe7%2BpPCS4K0Ra1n9nKGyil8PUAiyASht1k5CgU2SkIF%2F3htwDnqVg6Bj%2BDCH45L61zAJByiuwn4WZpo0EyTskxe1w9jXGBeTmk8xhFt3IssQboiFAcNLPkxcqOSYEJKPJhw%3D%3D'); background-repeat: no-repeat; background-size: cover;"></router-link>
           </h2>
           <div class="d-md-flex align-items-md-center">
             <router-link to="/admin/products" style="background-color: #FFFFFF33;font-size: 12px;" class="text-decoration-none text-white p-2 me-2 fw-bold">後台管理</router-link>
@@ -126,7 +126,7 @@ export default {
         } else {
           // header.removeAttribute('class', 'scroll-header-bg')
           header.classList.remove('scroll-header-bg')
-          headerLogoImg.style['background-image'] = 'url(../../src/assets/images/logo-header-default.png)'
+          headerLogoImg.style['background-image'] = "url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679125705044.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=H4qNaamHNCtEoWotN%2BZjgVq9Qol%2FY6jm%2FllSdDj%2BwXuwn13x6YN3ypZShFeO8BX51n6YuWoAdKCbntjUIF4ip2sbmCRP5rNLUJ8bMT48SbAp6Qop%2FfwJf2SCWE6aabeBO7%2FkseGZhZwpYE4jJo317QquAXcPBoMlPcTyQ%2BszbiUfD6koa96ELS8WjU9PWgCQbbt4xT%2BFRnL%2B02vrQvCCx%2F52w%2F5RjMG2AHP7blu2Qa2VI%2BRjbZfis2sSxMbNPelcmrdqUumAXwLIV13KttpQJjiq31czfghNtRuB1meN21%2BBHfel226McNir2D4f%2FIiabFmOZRv8ZKRNquZkKs0QZg%3D%3D')"
           navTextColor.forEach(function (item) {
             item.classList.remove('nav-text-dark')
             item.classList.add('nav-text-white')
