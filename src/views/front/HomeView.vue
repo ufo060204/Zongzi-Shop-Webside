@@ -424,9 +424,7 @@
 .sauce-bg {
   background-image: url(../../../src/assets/images/sauce.png);
 } */
-.landing-img {
-  background-image: url(../../../src/assets/images/landing.png);
-}
+
 .wm-lr {
   -webkit-writing-mode: vertical-lr;
   writing-mode: vertical-lr;

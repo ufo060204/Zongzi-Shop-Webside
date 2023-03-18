@@ -1,11 +1,6 @@
 <template>
-  <section style="height: 88px; background-image: url(../../../src/assets/images/landing.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left top;
-    background-attachment: fixed;">
-  </section>
-  <section style="background-image: url(../../../src/assets/images/texture1.png);">
+  <section class="landing-img landing-header"></section>
+  <section class="bg-bg">
     <div class="container-md">
       <main class="py-8">
         <div v-if="cart.length === 0" class="row d-flex align-items-center justify-content-center">
@@ -136,17 +131,6 @@ export default {
     ...mapState(cartStore, ['cart', 'total', 'final_total'])
   },
   methods: {
-    // getCarts () {
-    //   this.$http
-    //     .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart`)
-    //     .then((res) => {
-    //       this.cart = res.data.data
-    //       console.log('這是購物車葉面列表', res.data.data)
-    //     })
-    //     .catch((err) => {
-    //       alert(err.data.message)
-    //     })
-    // },
     ...mapActions(cartStore, ['getCarts']),
     updateCartItem (item) {
       const data = {
@@ -171,19 +155,6 @@ export default {
           alert(err.data.message)
         })
     },
-    // deleteCartItem (item) {
-    //   this.loadingItem = item.id
-    //   this.$http
-    //     .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`)
-    //     .then((res) => {
-    //       this.loadingItem = ''
-    //       this.getCarts()
-    //       alert(res.data.message)
-    //     })
-    //     .catch((err) => {
-    //       alert(err.data.message)
-    //     })
-    // },
     ...mapActions(cartStore, ['deleteCartItem']),
     deleteAllCart () {
       this.$http

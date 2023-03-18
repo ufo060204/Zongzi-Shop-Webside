@@ -1,11 +1,6 @@
 <template>
-  <section style="height: 88px; background-image: url(../../../src/assets/images/landing.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left top;
-    background-attachment: fixed;">
-  </section>
-  <section style="background-image: url(../../../src/assets/images/texture1.png);">
+  <section class="landing-img landing-header"></section>
+  <section class="bg-bg">
     <div class="container-md">
       <main class="py-8">
         <ul class="list-unstyled d-md-flex justify-content-center">
