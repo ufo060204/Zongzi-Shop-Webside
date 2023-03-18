@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as s,b as e}from"./index-074d46a4.js";const c={},n={class:"container"},_=e("h1",null,"404",-1),a=e("h2",null,"這頁找不到！",-1),r=[_,a];function d(i,l){return t(),s("div",n,r)}const f=o(c,[["render",d]]);export{f as default};
