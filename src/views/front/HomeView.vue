@@ -5,7 +5,6 @@
   <main>
     <section
       style="
-        /* background-image: url(../../../src/assets/images/landing.png); */
         height: 100vh;
         background-repeat: no-repeat;
         background-size: cover;
@@ -13,7 +12,7 @@
         background-attachment: fixed;
         /* margin-top: -88px; */
       "
-      class="d-flex align-items-center landing-bg"
+      class="d-flex align-items-center landing-img"
     >
       <div class="container">
         <div class="row">
@@ -59,9 +58,9 @@
       </div>
     </section>
     <section
-      class="py-8 texture-bg-01"
+      class="py-8"
       style="
-        /* background-image: url(../../../src/assets/images/texture1.png); */
+        background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679115636333.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=WyBEJKfQTROnLwKr7SXyrWBqGPVWgYoo%2FkZfarfV4F0zXaVkwW%2BoXHaPDat7hLVAHb66GmAR2JDYzPtEiBy9Ibtcixs%2Fzx2K3J%2BwUEumgcRuCicXs8lqVN7iezp0IJCzGxhxPm0rj5LsteuA7qywatbc5L4gPUJa5%2FYCZoVjcZF6Tka6HXBrTvixlH%2FIg9NAJRNcWNglxJy7luxKpxUtUFCdCyCWH8w00QGzWhXLQQnbb9h9Ro9v%2F2JAdQPAyLPhCCr3pMXRI3zZAaqw73j7xw0weorzF4Am4vcaOcIy%2FNK5czPF3ubjVfs46t25qqiod5xZvJOLeLY%2BVtx06O5PCQ%3D%3D');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: left top;
@@ -213,7 +212,7 @@
           <div data-aos="fade-up" data-aos-duration="3000" class="col-md-4"
           >
             <div class="border-0 px-7">
-              <div style="background-size: cover;background-size: 60%; background-position: center;" class="product-img zongzi1-bg d-md-flex justify-content-md-center align-items-md-center">
+              <div style="background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679122640369.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ECc5CgWHI%2FbzNcrIRXWub01pyFCMkovCLTlZMvLYydlwrKiNhGfBXXfa28UO69YIYEdKuvkVc348mvEStQrDbixqhwq%2Bam4NlDzR4x5SsLm8MA6I2WCZcaV9%2F62igSB1NgcFx6yyHw9rCrWcwxSUDYel6jJaYEGngdeznelcTOdGAAlrLQCD7bRbNf5Q4Th%2FTqdqZiCsLno7SJUFnpJeOlsHL6W8yPDsNu%2FI3EBGpf0BTsYHFWzfc%2FKpg0UhsdTW5AxtMzsJ75LaGWmvlvKmpMf8OXaXCCUJq5P2VUJxSddBgHJgRONKhmLE1vTbReNBQjhFWNmRRj06fn6onQz7Tg%3D%3D'); background-size: cover;background-size: 60%; background-position: center;" class="product-img d-md-flex justify-content-md-center align-items-md-center">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
                   :to="`/product/-NM27yCriEAoX1-aPW4j`"
@@ -253,7 +252,7 @@
           <div data-aos="fade-up" data-aos-duration="3000" class="col-md-4"
           >
             <div class="border-0 px-7">
-              <div style="background-size: cover;background-size: 60%; background-position: center;" class="product-img zongzi2-bg d-md-flex justify-content-md-center align-items-md-center">
+              <div style="background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123198362.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MYX4dfnxJK3TeDhNuC%2BaQy4kWOFQ%2F7oU%2BTwevZErSUjvBzgUsmZEYZLOJDGB0%2Fy272S61yZb8natkAW8hq6sLgm8lanrd32%2By9UZDNDFdJ9qqVcIZozkUzgCcLxsy2PDzMzpMa9R7woX2KotFjOwMW9aPMERoGxmvPwkaLIk4KAjSVUBYc%2F9px%2BRFCbgYxAdke5bDK89UMhDu0tEhTGHeDjD5RWPlLiIZ%2FusWjwInOM%2F1lDToTc5F%2FwT%2F4jR11Ezu6tEELwdMIDSSetB80VXrJWBM9tZS%2FS7Q2K2xDt%2B65MNUNQ%2FEQL7cI2MoL4HbswnBb67Glv%2BfmL%2Bq5qbGy%2FqJg%3D%3D');background-size: cover;background-size: 60%; background-position: center;" class="product-img zongzi2-bg d-md-flex justify-content-md-center align-items-md-center">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
                   :to="`/product/-NM2d45PodDNatFQYTQ3`"
@@ -293,7 +292,7 @@
           <div data-aos="fade-up" data-aos-duration="3000" class="col-md-4"
           >
             <div class="border-0 px-7">
-              <div style="background-size: cover;background-size: 70%; background-position: center;" class="product-img sauce-bg d-md-flex justify-content-md-center align-items-md-center">
+              <div style="background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123253511.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fPsA7BdvnNZ93zAvJ9EqPUBvv4Qu6scveM2Y8N79L%2FXHJbmBCAazitevPvkaaGn2EAYKzYtTadJX5qJCeE15ohTkqaWUfefIrJVvZWc%2BNDhDFNCOQnbu8ExrPJbb0n%2Fis0q5AwZwhHNLCgzulYtf0s%2BS8o0NPhr8HNSsfHZm%2BRnrhwsNxzSzooHvMgxBzODzZQn7InMqueIIYeVAYsjjyBMN6pNJchPrO0BsCtNT64yjmVoCNMM8cKVroxR0igBK9T131UO6%2FA%2BxNHVLGhhiHvXApfe83mJZ024gKRr%2FGKt6DdBIJUXzA9YG4g1jaf4TdQe4bsm1N4Y%2FM5qpKVJppw%3D%3D');background-size: cover;background-size: 70%; background-position: center;" class="product-img d-md-flex justify-content-md-center align-items-md-center">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
                   :to="`/product/-NM2huSRBtLQp39YYdPB`"
@@ -331,57 +330,12 @@
             </div>
           </div>
         </div>
-        <!-- <div v-if="popular" class="row">
-          <div
-            v-for="(product, index) in popular"
-            :key="product.id"
-            class="col-md-4"
-          >
-            <div class="border-0 px-7">
-              <div :style="{ 'background-image': `url(${product.imageUrl})` }" class="product-img d-md-flex justify-content-md-center align-items-md-center">
-                <router-link
-                  class="text-decoration-none product-text stretched-link"
-                  :to="`/product/${product.id}`"
-                >
-                  查看更多
-                </router-link>
-                <span
-                  style="font-weight: 900; top: 0; left: 0"
-                  class="position-absolute text-primary fs-1"
-                  >0{{ index + 1 }}</span
-                >
-              </div>
-              <div>
-                <div class="mb-3">
-                  <h4 class="m-0 text-text-dark fw-bold text-center mb-3">
-                    {{ product.title }}
-                  </h4>
-                  <p
-                    style="font-size: 32px"
-                    class="m-0 text-primary fw-bold text-center"
-                  >
-                    $ {{ product.price }} 元
-                  </p>
-                </div>
-                <div class="text-center">
-                  <button
-                    @click="() => addToCart(product.id)"
-                    type="button"
-                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark"
-                  >
-                    加入購物車
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </section>
     <section
-      class="py-8 texture-bg-02"
+      class="py-8"
       style="
-        /* background-image: url(../../../src/assets/images/texture2.png); */
+        background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679115673055.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=UUtlULZDx%2Fu1TeA032%2BmaYh1JN%2F0xQ43B5GdJMGfw597EM1tyTbvZr7xOz9%2FshwvRfzWhY6oXwjrhw%2BAtmjfTFUM%2FjUgC1ixQe8LqNnQEDaQ3ZVL0UikQcEyPpnlNQHb%2FMBnt1%2B%2BhKIoELEfX8GwVGlGzxOzuGvA2z6U%2FiKE2jOS4LiM8LccTOjON4zFgLMLq%2FCTUtJonw8gRpSi0MJLl%2BEmiD23SrWatdIaMACGhbAJDYaDVAZISKhanvbISFrepLDDEgL%2FQ01AohwWdKTgDzZmQP5360d5CL%2FEuxYWuxNwZpIAYN4s384WK3POcRs0ta2GYXwsvfC3PXKr5fKtRw%3D%3D');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: left top;
@@ -461,23 +415,17 @@
 </template>
 
 <style scoped>
-.landing-bg {
-  background-image: url(../../../src/assets/images/landing.png);
-}
-.texture-bg-01 {
-  background-image: url(../../../src/assets/images/texture1.png);
-}
-.texture-bg-02 {
-  background-image: url(../../../src/assets/images/texture2.png);
-}
-.zongzi1-bg {
+/* .zongzi1-bg {
   background-image: url(../../../src/assets/images/zongzi1.png);
-}
-.zongzi2-bg {
+} */
+/* .zongzi2-bg {
   background-image: url(../../../src/assets/images/zongzi2.png);
 }
 .sauce-bg {
   background-image: url(../../../src/assets/images/sauce.png);
+} */
+.landing-img {
+  background-image: url(../../../src/assets/images/landing.png);
 }
 .wm-lr {
   -webkit-writing-mode: vertical-lr;

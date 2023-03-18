@@ -114,7 +114,7 @@ export default {
           // header.setAttribute('class', 'scroll-header-bg')
           // navTextColor.setAttribute('class', 'text-primary')
           header.classList.add('scroll-header-bg')
-          headerLogoImg.style['background-image'] = 'url(../../src/assets/images/logo-header-scroll.png)'
+          headerLogoImg.style['background-image'] = "url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679115945853.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=hl%2BYMGtpEytDvbP3GhuL%2Bkc6T%2BYsdedskYx1OuLVUpQFu2G8gePCxGoANOZ7WBU1KH6vUG0D4GZtTEHPkEAM6XcX7Ehq3zFg0lPNwJnk2wHLg7T1YUU9Zi613Js3ddxOr4rwZUukUL6elmt85ApZ2G8vMpN24CFwAfh1jecioSsbe2dFFxNjr0FZ5wUAmQdcyzhWiD0Gqp1w0brhx0ZRUg8q6S2YalnmYZw4xsmhPfdIxCfTychXEVb3hESuBMH5PwKdf23wPF5ljMvmAURSEA%2BlDss5b5El5pXQZkWZT3K9HcrN1BNUwcq5QGMwaXwpFYfwbs2XsNEZNTKRoOAR0g%3D%3D')"
           navTextColor.forEach(function (item) {
             item.classList.remove('nav-text-white')
             item.classList.add('nav-text-dark')

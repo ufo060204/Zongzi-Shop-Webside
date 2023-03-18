@@ -43,6 +43,7 @@ export default {
       this.$router.push('/login')
     },
     checkLogin () {
+      // 取出 token
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)ufoToken\s*=\s*([^;]*).*$)|^.*$/, '$1')
       this.$http.defaults.headers.common.Authorization = token
       const url = `${VITE_APP_URL}api/user/check`
