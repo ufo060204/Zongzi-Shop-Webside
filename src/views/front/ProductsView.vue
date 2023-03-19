@@ -3,18 +3,18 @@
   <section class="bg-bg">
     <div class="container-md">
       <main class="py-8">
-        <h1 class="text-center fs-2 pb-6 fw-bold">美味專區</h1>
+        <h1 class="text-center fs-2 pb-6 fw-bold">產品一覽</h1>
         <loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"
                 :is-full-page="fullPage"/>
-        <div data-aos="fade-up" data-aos-duration="3000" class="row row-cols-3">
+        <div data-aos="fade-up" data-aos-duration="3000" class="row row-cols-md-3">
           <div
             v-for="(product) in products"
             :key="product.id"
-            class="col mb-7"
+            class="col d-md-flex align-items-stretch"
           >
-            <div class="border-0 px-7">
+            <div class="border-0 card mb-6">
               <div
                 :style="{ 'background-image': `url(${product.imageUrl})` }"
                 class="product-img d-md-flex justify-content-md-center align-items-md-center"
@@ -25,69 +25,48 @@
                 >
                   查看更多
                 </router-link>
-                <!-- <span
-                  style="font-weight: 900; top: 0; left: 0"
-                  class="position-absolute text-primary fs-1"
-                  >0{{ index + 1 }}</span
-                > -->
               </div>
-              <div>
-                <div class="mb-3">
-                  <h4 class="m-0 text-text-dark fw-bold text-center mb-3">
-                    {{ product.title }}
-                  </h4>
-                  <p
-                    style="font-size: 32px"
-                    class="m-0 text-primary fw-bold text-center"
-                  >
-                    $ {{ product.price }} 元
-                  </p>
-                </div>
-                <div class="text-center">
-                  <button
-                    @click="() => addToCart(product.id)"
-                    type="button"
-                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark"
-                  >
-                    加入購物車
-                  </button>
-                  <!-- <a  class="d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark" href="#">加入購物車</a> -->
+              <div class="bg-white p-6 card-body">
+                <div class="d-flex flex-column justify-content-between h-100">
+                  <div>
+                    <div class="mb-3">
+                      <h4 class="text-text-dark fw-500 text-center mb-3">
+                        {{ product.title }}
+                        <span style="margin-top: 10px;" class="d-block fs-5">$ {{ product.price }} 元</span>
+                      </h4>
+                    </div>
+                    <p class="lh-lg">{{ product.content }}</p>
+                  </div>
+                  <div class="text-center">
+                    <button
+                      @click="() => addToCart(product.id)"
+                      type="button"
+                      class="btn btn-text-light cart-hover text-white w-100 d-block py-3 fs-5 fw-bold"
+                    >
+                      加入購物車
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- <div v-for="product in products" :key="product.id" class="col">
-            <div class="card mb-7 border-0 mx-7">
-              <RouterLink :to="`/product/${product.id}`">
-                <img style="height: 300px;" :src="product.imageUrl" class="card-img-top" alt="imageUrl">
-              </RouterLink>
-              <div style="background-color: #F0EDE5;" class="card-body">
-                <h5 class="card-title text-text-dark fw-bold">{{ product.title }}
-                </h5>
-                <p style="font-size: 32px;" class="card-text text-primary fw-bold">$ {{ product.price }} 元</p>
-                <button type="button" class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark" @click="() => addToCart(product.id)">加入購物車</button>
-              </div>
-            </div>
-          </div> -->
         </div>
       </main>
     </div>
   </section>
 </template>
 <style>
-.cart-hover:hover {
+/* .cart-hover:hover {
   background-color: #ffe8d9;
-}
+} */
 .product-img {
   height: 320px;
   position: relative;
   background-color: #f0ede5;
-  /* background-image: url(../../assets/images/zongzi1.png); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding: 60px;
-  margin-bottom: 32px;
   /* border-radius: 50%; */
 }
 /* .product-img:hover {
