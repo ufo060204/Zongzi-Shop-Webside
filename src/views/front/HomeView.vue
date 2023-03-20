@@ -460,10 +460,6 @@
 </template>
 
 <style scoped>
-/* .wm-lr {
-  -webkit-writing-mode: vertical-lr;
-  writing-mode: vertical-lr;
-} */
 .banner-link {
   background-color: #FF700C;
 }
@@ -476,9 +472,6 @@
 .cart-hover:hover {
   background-color: #FFE8D9;
 }
-/* .text-justify {
-  text-align-last: justify;
-} */
 .drop-shadow {
   filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.48));
 }

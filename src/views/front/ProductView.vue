@@ -1,65 +1,56 @@
 <template>
     <section class="landing-img landing-header"></section>
     <section class="bg-bg">
-      <div class="container-md">
+      <div class="container-lg">
         <loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"/>
-        <main class="py-8">
+        <main class="pb-8">
+          <div class="pt-8 d-flex align-items-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><router-link to="/">首頁</router-link></li>
+                <li class="breadcrumb-item"><router-link to="/products">美味專區</router-link></li>
+                <li class="breadcrumb-item active" aria-current="page">產品</li>
+              </ol>
+            </nav>
+          </div>
           <div class="card border-0 mb-3">
             <div class="row g-0">
-              <div class="col-md-6">
+              <div class="col-lg-6">
                 <img style="height: 100%;" :src="product.imageUrl" class="img-fluid rounded-start" alt="imageUrl">
               </div>
-              <div class="col-md-6">
-                <div style="padding-right: 96px;padding-left: 96px; height: 100%; border: 1px solid #BFB5AC;" class="card-body bg-bg rounded d-md-flex flex-column justify-content-between">
+              <div class="col-lg-6">
+                <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
                   <div>
-                    <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><router-link to="/">首頁</router-link></li>
-                        <li class="breadcrumb-item"><router-link to="/products">美味專區</router-link></li>
-                        <li class="breadcrumb-item active" aria-current="page">產品</li>
-                      </ol>
-                    </nav>
-                  </div>
-                  <div>
-                    <h1 style="font-size: 40px;" class="card-title fw-bold">{{ product.title }}</h1>
-                    <h5 class="fw-bold">分類：{{ product.category }}</h5>
-                    <h5 class="fw-bold">介紹：</h5>
-                    <p class="card-text fs-5">{{ product.description }}</p>
-                    <div class="d-flex align-items-center justify-content-end">
-                      <h5 class="text-decoration-line-through">原價$ {{ product.origin_price }}</h5>
-                      <h4 style="font-size: 32px;">$ <span class="text-primary fw-bold">{{ product.price }}</span> 元 / {{ product.unit }}</h4>
+                    <h1 class="card-title fs-3 py-4 text-center fw-500">{{ product.title }}</h1>
+                    <p class="card-text fs-5 lh-lg">{{ product.description }}</p>
+                    <div class="d-flex w-30">
+                      <div style="width: 40%;">
+                        <h5 class="py-3 mb-0 border-boderlight border-bottom">種類：</h5>
+                        <h5 class="py-3 mb-0 border-boderlight border-bottom">產地：</h5>
+                        <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">價格：</h4>
+                        <h5 class="py-3 mb-0 mt-3">
+                          <input readonly="readonly" style="width: 50%;" type="number" value="1">
+                        </h5>
+                      </div>
+                      <div class="d-flex flex-column align-items-center w-100">
+                        <div class="text-center w-100">
+                          <h5 class="py-3 mb-0 border-boderlight border-bottom">{{ product.category }}</h5>
+                          <h5 class="py-3 mb-0 border-boderlight border-bottom">台灣在地生產</h5>
+                          <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">{{ product.price }}  <span class="text-decoration-line-through fs-6">$ {{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
+                          <button type="button" class="btn btn-primary w-100 add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id)">加入購物車</button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="d-flex justify-content-between">
-                    <button class="back d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark" type="button">
-                      <router-link class="text-decoration-none text-text-dark" to="/products" title="回到產品頁面">返回</router-link>
-                    </button>
-                    <button type="button" class="add-cart-text d-inline-block text-white py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark" @click="() => addToCart(product.id)">加入購物車</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- <div class="card bg-transparent border-0">
-            <div class="row row-cols-2">
-              <div class="col">
-                <img :src="product.imageUrl" class="card-top-img product-img img-fluid rounded-start" alt="imageUrl">
-              </div>
-              <div class="col">
-                <div class="card-body">
-                  <h1 class="card-title text-text-dark fw-bold fs-2">{{ product.title }}</h1>
-                  <p class="card-text fs-5">{{ product.description }}</p>
-                  <p class="card-text text-primary fw-bold fs-4">$ {{ product.price }} 元 / {{ product.unit }}</p>
-                  <button class="btn btn-outline-primary" type="button">
-                    <router-link class="text-decoration-none" to="/products" title="回到產品頁面">返回</router-link>
-                  </button>
-                  <button type="button" class="d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark" @click="() => addToCart(product.id)">加入購物車</button>
-                </div>
-              </div>
-            </div>
-          </div> -->
+          <button class="btn d-block py-3 fs-5 w-100 fw-bold text-decoration-none border border-text-dark" type="button">
+            <router-link class="text-decoration-none text-text-dark" to="/products" title="回到產品頁面">返回產品</router-link>
+          </button>
         </main>
       </div>
     </section>
@@ -69,18 +60,18 @@
   .product-img {
     object-fit: cover;
   }
-  .back:hover {
+  /* .back:hover {
     background: #fff;
   }
   .back:hover {
     background: #FFE8D9;
-  }
-  .add-cart-text {
+  } */
+  /* .add-cart-text {
     background-color: #FF700C;
   }
   .add-cart-text:hover {
     background-color: #BD5309;
-  }
+  } */
 </style>
 
 <script>

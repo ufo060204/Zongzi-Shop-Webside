@@ -1,5 +1,8 @@
 .landing-img {
 	background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679132572732.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=INoTkjElCsahj3sGoHRo67dwSBWOFTrqg5002U5EwX1Q8QQmuh0KBaoJFh8Hp7IPHPHQH8kljeXkGUA6gIkVvJEgwcpbSGHi18mNz0oxkXL5XeiSBmOKKGSkrMuP6n0QSqO0DcB3WvCz1ClRzvlpIFEF%2BMVm%2FZgs%2FghnvPcj29Dlkvc%2FBRrUrWD7A4YOTclLfsmpY2Pf%2FpUIUN75UghHWWxISAyXSDIVl4MlUeMmgZzG%2BcMJMYnd2Jk%2FaEZcfQBS8IqMAuexsY6bh9HElZZkuTwjB8NGIPz2aQHDigdFUn9jmN3heNzu5gdndZjVq7ypiNSzyi19HgO0BG1iJjGBcg%3D%3D');
+	@include pad {
+		background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679288876425.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=hCRoGpLv2R7XPjnkFkd%2BP6R7jOPwzFYgWFMgsJjdg%2B9PtlCJgCOqOy9sVROTSGEL1UMQDc2NEFBCUO2rRVeSbOFCpXNe3Pq5KP7pO6mGJ%2BhP51Tavn%2BqkYBoQ75%2BrH8xXZJzzSICFFi57mlh%2BI%2BDTCNa79Ud0OsFjHVA1llII%2Fw8FK73cfoluLt7ld16ZlVAi7%2B4shtFvYaWpyr7kZD%2FCxVxkwieDvN947dLLfpoQBcoufBVm6TuM0DM6lK3P2GqFgY2aR4%2Bj9KjwTgN8Em6tyztih4QBFwAP5tkoOZUZVoP4wwX3DbFverphlqqNS2qb%2FhYghARyZEqqMHM98DfMg%3D%3D');
+	}
 }
 
 .landing-header {

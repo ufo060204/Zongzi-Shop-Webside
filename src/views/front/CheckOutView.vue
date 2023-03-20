@@ -1,16 +1,16 @@
 <template>
   <section class="landing-img landing-header"></section>
   <section class="bg-bg">
-    <div class="container-md">
+    <div class="container-lg">
       <main class="py-8">
         <ul class="list-unstyled d-md-flex justify-content-center">
-          <li style="background-color: #ffe8d9" class="me-6 py-3 px-7">確認商品</li>
-          <li class="me-6 bg-primary py-3 px-7">填寫資料</li>
-          <li style="background-color: #ffe8d9" class="me-6 py-3 px-7">確認付款</li>
-          <li style="background-color: #ffe8d9" class="py-3 px-7">完成付款</li>
+          <li class="border border-boderlight py-3 px-7">確認商品</li>
+          <li class="bg-white border border-boderlight py-3 px-7">填寫資料</li>
+          <li class="border border-boderlight py-3 px-7">確認付款</li>
+          <li class="border border-boderlight py-3 px-7">完成付款</li>
         </ul>
-        <div class="row row-cols-2">
-          <div class="col">
+        <div class="row">
+          <div class="col-lg-6">
             <div class="border border-text-dark p-6">
               <table class="table align-middle text-center table-borderless">
                 <thead>
@@ -21,7 +21,7 @@
                     <th>單價</th>
                   </tr>
                 </thead>
-                <tbody class="border-bottom border-top border-text-dark border-2">
+                <tbody class="border-bottom border-top border-text-light border-2">
                   <template v-if="cart">
                     <tr v-for="item in cart" :key="item.id">
                       <td>
@@ -50,18 +50,14 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                    <td colspan="3" class="text-end">總計</td>
-                    <td class="text-end fw-bold fs-5">NT$ {{ total }}</td>
+                    <td colspan="2" class="text-end">總計</td>
+                    <td colspan="2" class="text-end fw-bold fs-5">NT$ {{ total }}</td>
                   </tr>
-                  <!-- <tr>
-                    <td colspan="3" class="text-end text-success">折扣價</td>
-                    <td class="text-end text-success">{{ final_total }}</td>
-                  </tr> -->
                 </tfoot>
               </table>
             </div>
           </div>
-          <div class="col">
+          <div class="col-lg-6">
             <div>
               <v-form
                 ref="form"
@@ -151,16 +147,13 @@
                     v-model="form.message"
                   ></textarea>
                 </div>
-                <!-- <div class="text-end">
-                  <button type="submit" class="btn btn-danger">送出訂單</button>
-                </div> -->
-                <div class="d-md-flex justify-content-md-between align-items-md-center">
+                <div class="d-lg-flex justify-content-lg-between align-items-lg-center">
                 <router-link
                   to="/cart"
-                  class="text-decoration-none fw-bold me-6 btn btn-outline-primary"
+                  class="text-decoration-none d-inline-block btn btn-outline-text-light"
                   >上一頁</router-link
                 >
-                <button class="btn btn-outline-primary" type="submit">下一步</button>
+                <button class="btn btn-outline-primary d-block" type="submit">下一步</button>
                 </div>
               </v-form>
             </div>

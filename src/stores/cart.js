@@ -27,8 +27,8 @@ const cartStore = defineStore('cart', {
           this.total = res.data.data.total
           this.final_total = res.data.data.final_total
           // this.status = true
-          console.log('total', this.total)
-          console.log('這是購物車頁面', this.cart)
+          // console.log('total', this.total)
+          // console.log('這是購物車頁面', this.cart)
         })
         .catch((err) => {
           alert(err.data.message)
@@ -89,7 +89,7 @@ const cartStore = defineStore('cart', {
           axios
             .post(api)
             .then((res) => {
-              console.log(res)
+              // console.log(res)
               this.cart = []
               // alert(res.data.message)
               Swal.fire(
@@ -105,10 +105,6 @@ const cartStore = defineStore('cart', {
   },
   // getters 概念同「computed」
   getters: {
-    // 解構資料來自於 state
-    // doubleNumber ({ number }) {
-    //   return number * 2
-    // }
   }
 })
 

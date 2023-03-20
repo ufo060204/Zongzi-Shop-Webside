@@ -48,10 +48,10 @@
             <h5 class="mb-0 fw-bold text-primary">電子信箱</h5>
             <p class="mb-0 text-white fs-5">zongzi0624@gmail.com</p>
             <h5 class="mb-0 fw-bold text-primary">社群平台</h5>
-            <ul class="d-md-flex list-unstyled">
-              <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
-              <li><a href=""></a></li>
-              <li><a href=""></a></li>
+            <ul style="max-width: 128px;" class="mb-0 d-flex justify-content-between list-unstyled">
+              <li><a style="font-size: 23px;" class="text-white d-block" href=""><font-awesome-icon icon="fa-brands fa-facebook" /></a></li>
+              <li><a style="font-size: 23px;" class="text-white" href=""><font-awesome-icon icon="fa-brands fa-instagram" /></a></li>
+              <li><a style="font-size: 23px;" class="text-white" href=""><font-awesome-icon icon="fa-brands fa-twitter" /></a></li>
             </ul>
           </div>
         </div>

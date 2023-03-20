@@ -1,7 +1,7 @@
 <template>
   <section class="landing-img landing-header"></section>
   <section class="bg-bg">
-    <div class="container-md">
+    <div class="container-lg">
       <main class="py-8">
         <h1 class="text-center fs-2 pb-6 fw-bold">產品一覽</h1>
         <loading v-model:active="isLoading"

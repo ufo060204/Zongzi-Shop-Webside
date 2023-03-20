@@ -1,6 +1,16 @@
 import { createApp } from 'vue'
 import Loading, { LoadingPlugin } from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
+/* import the fontawesome core */
+import 'hover.css'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+/* import specific icons */
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+/* add some free styles */
+import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 import { createPinia } from 'pinia'
 
@@ -17,6 +27,8 @@ import App from './App.vue'
 import router from './router'
 
 import './assets/all.scss'
+/* add icons to the library */
+library.add(faShoppingCart, faTwitter, faFacebook, faInstagram)
 
 // defineRule('required', required)
 // defineRule('email', email)
@@ -37,6 +49,8 @@ const app = createApp(App)
 app.use(LoadingPlugin, {
   color: '##FF700C'
 })
+
+app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('VForm', Form)
 app.component('VField', Field)
 app.component('ErrorMessage', ErrorMessage)
