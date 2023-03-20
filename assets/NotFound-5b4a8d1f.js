@@ -1,0 +1,1 @@
+import{_ as o,c as t,o as s,b as e}from"./index-acd3bbed.js";const c={},n={class:"container"},_=e("h1",null,"404",-1),a=e("h2",null,"這頁找不到！",-1),r=[_,a];function d(i,l){return s(),t("div",n,r)}const f=o(c,[["render",d]]);export{f as default};
