@@ -1,30 +1,32 @@
 <template>
-  後台產品列表
+  後台文章列表
   <div class="container">
     <div class="text-end mt-4">
       <button class="btn btn-primary" @click="() => openModal('create')">
-        建立新的產品
+        建立新的文章
       </button>
     </div>
     <table class="table mt-4">
       <thead>
         <tr>
-          <th width="120">分類</th>
-          <th>產品名稱</th>
-          <th width="120">原價</th>
-          <th width="120">售價</th>
-          <th width="100">是否啟用</th>
+          <th width="120">日期</th>
+          <th>標題</th>
+          <th width="120">作者</th>
+          <th width="120">描述</th>
+          <th width="120">內容</th>
+          <th width="100">是否公開</th>
           <th width="120">編輯</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="product in products" :key="product.id">
-          <td>{{ product.category }}</td>
+          <td>{{ product.create_at }}</td>
           <td>{{ product.title }}</td>
-          <td class="text-end">{{ product.origin_price }}</td>
-          <td class="text-end">{{ product.price }}</td>
+          <td>{{ product.author }}</td>
+          <td>{{ product.description }}</td>
+          <td><button type="button" @click="() => getContent(product.id)">查看</button></td>
           <td>
-            <span class="text-success" v-if="product.is_enabled">啟用</span>
+            <span class="text-success" v-if="product.isPublic">公開</span>
             <span v-else>未啟用</span>
           </td>
           <td>
@@ -44,7 +46,7 @@
         </tr>
       </tbody>
     </table>
-    <BackPagination v-if="page" :pages="page" :get-products="getProducts"></BackPagination>
+    <!-- <BackPagination v-if="page" :pages="page" :get-products="getProducts"></BackPagination> -->
   </div>
   <!-- productModal start -->
   <div
@@ -59,7 +61,7 @@
       <div class="modal-content border-0">
         <div class="modal-header bg-dark text-white">
           <h5 id="productModalLabel" class="modal-title">
-            <span>{{ isNew ? '新增產品' : '編輯產品' }}</span>
+            <span>{{ isNew ? '新增文章' : '編輯文章' }}</span>
           </h5>
           <button
             type="button"
@@ -153,73 +155,73 @@
 
               <div class="row">
                 <div class="mb-3 col-md-6">
-                  <label for="category" class="form-label">分類</label>
+                  <!-- <label for="category" class="form-label"></label>
                   <input
                     id="category"
                     type="text"
                     class="form-control"
-                    placeholder="請輸入分類"
-                    v-model="tempProduct.category"
-                  />
+                    placeholder="請輸入"
+                    v-model="tempProduct.description"
+                  /> -->
                 </div>
                 <div class="mb-3 col-md-6">
-                  <label for="price" class="form-label">單位</label>
+                  <label for="price" class="form-label">作者</label>
                   <input
-                    id="unit"
+                    id="author"
                     type="text"
                     class="form-control"
-                    placeholder="請輸入單位"
-                    v-model="tempProduct.unit"
+                    placeholder="請輸入作者"
+                    v-model="tempProduct.author"
                   />
                 </div>
               </div>
 
               <div class="row">
                 <div class="mb-3 col-md-6">
-                  <label for="origin_price" class="form-label">原價</label>
+                  <label for="create_at" class="form-label">日期</label>
                   <!-- 確保型別正確加上 .number -->
                   <input
-                    id="origin_price"
+                    id="create_at"
                     type="number"
                     min="0"
                     class="form-control"
-                    placeholder="請輸入原價"
-                    v-model.number="tempProduct.origin_price"
+                    placeholder="請輸入日期"
+                    v-model.number="tempProduct.create_at"
                   />
                 </div>
                 <div class="mb-3 col-md-6">
-                  <label for="price" class="form-label">售價</label>
+                  <!-- <label for="price" class="form-label">售價</label> -->
                   <!-- 確保型別正確加上 .number -->
-                  <input
+                  <!-- <input
                     id="price"
                     type="number"
                     min="0"
                     class="form-control"
                     placeholder="請輸入售價"
                     v-model.number="tempProduct.price"
-                  />
+                  /> -->
                 </div>
               </div>
               <hr />
 
               <div class="mb-3">
-                <label for="description" class="form-label">產品描述</label>
+                <label for="content" class="form-label">文章內容</label>
                 <textarea
-                  id="description"
+                  id="content"
                   type="text"
                   class="form-control"
-                  placeholder="請輸入產品描述"
+                  placeholder="請輸入文章內容"
                   v-model="tempProduct.content"
                 >
                 </textarea>
               </div>
               <div class="mb-3">
-                <label for="content" class="form-label">說明內容</label>
+                <label for="description" class="form-label">文章</label>
                 <textarea
                   id="description"
                   type="text"
                   class="form-control"
-                  placeholder="請輸入說明內容"
+                  placeholder="請輸入文章描述"
                   v-model="tempProduct.description"
                 >
                 </textarea>
@@ -227,15 +229,15 @@
               <div class="mb-3">
                 <div class="form-check">
                   <input
-                    id="is_enabled"
+                    id="isPublic"
                     class="form-check-input"
                     type="checkbox"
-                    :true-value="1"
-                    :false-value="0"
-                    v-model="tempProduct.is_enabled"
+                    :true-value= true
+                    :false-value= false
+                    v-model="tempProduct.isPublic"
                   />
-                  <label class="form-check-label" for="is_enabled"
-                    >是否啟用</label
+                  <label class="form-check-label" for="isPublic"
+                    >是否公開</label
                   >
                 </div>
               </div>
@@ -294,7 +296,7 @@
 
 <script>
 import Modal from 'bootstrap/js/dist/modal'
-import BackPagination from '../../components/BackPagination.vue'
+// import BackPagination from '../../components/BackPagination.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
@@ -305,22 +307,34 @@ export default {
         imagesUrl: []
       },
       isNew: false, // 確認是編輯或是新增所使用的
-      page: {},
+      // page: {},
       productModal: '',
       delProductModal: ''
+      // content: ''
     }
   },
   methods: {
-    getProducts (page = 1) { // 參數預設值，沒有的話會是 undefined
-      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/products/?page=${page}`
-      // this.current_page = page
+    getProducts () {
+      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/articles`
       this.$http
         .get(url)
         .then((res) => {
-          this.products = res.data.products
-          this.page = res.data.pagination
-          // console.log(this.products)
-          // console.log(this.page)
+          this.products = res.data.articles
+          // this.page = res.data.pagination
+          console.log(this.products)
+          console.log(res)
+        })
+        .catch((err) => {
+          alert(err.data.message)
+        })
+    },
+    getContent (id) {
+      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/article/${id}`
+      this.$http
+        .get(url)
+        .then((res) => {
+          console.log(res.data.article.content)
+          // this.content = res.data.articles.content
         })
         .catch((err) => {
           alert(err.data.message)
@@ -348,14 +362,13 @@ export default {
     },
     updateProduct () {
       // const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product`;
-      let url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product`
+      let url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/article`
       // 用 this.isNew 判斷 API 要怎麼運行
       let method = 'post'
       if (!this.isNew) {
-        url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product/${this.tempProduct.id}`
+        url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/article/${this.tempProduct.id}`
         method = 'put'
       }
-
       // 資料在 data 裡面
       // 用變數 method 來帶入 post
       this.$http[method](url, { data: this.tempProduct })
@@ -375,7 +388,7 @@ export default {
       this.tempProduct.imagesUrl.push('')
     },
     deleteProduct () {
-      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product/${this.tempProduct.id}`
+      const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/article/${this.tempProduct.id}`
       this.$http
         .delete(url)
         .then((res) => {
@@ -389,7 +402,7 @@ export default {
     }
   },
   components: {
-    BackPagination
+    // BackPagination
   },
   mounted () {
     this.getProducts()

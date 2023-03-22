@@ -11,7 +11,7 @@
             <router-link to="/admin/products" class="nav-link">後台產品列表</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/admin/orders" class="nav-link">後台訂單列表</router-link>
+            <router-link to="/admin/article" class="nav-link">後台文章列表</router-link>
           </li>
           <li class="nav-item">
             <router-link to="/" class="nav-link">回前台首頁</router-link>

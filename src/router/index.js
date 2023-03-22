@@ -11,6 +11,10 @@ const routes = [
         component: () => import('../views/front/HomeView.vue')
       },
       {
+        path: 'Home/:id',
+        component: () => import('../views/front/ArticleView.vue')
+      },
+      {
         path: 'about',
         name: 'About',
         component: () => import('../views/front/AboutView.vue')
@@ -54,8 +58,8 @@ const routes = [
         component: () => import('../views/admin/AdminProducts.vue')
       },
       {
-        path: 'orders',
-        component: () => import('../views/admin/AdminOrders.vue')
+        path: 'article',
+        component: () => import('../views/admin/AdminArticle.vue')
       }
     ]
   },

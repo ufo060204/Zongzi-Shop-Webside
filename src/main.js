@@ -4,6 +4,9 @@ import 'vue-loading-overlay/dist/css/index.css'
 /* import the fontawesome core */
 import 'hover.css'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'

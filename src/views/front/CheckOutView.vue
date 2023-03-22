@@ -173,8 +173,6 @@ export default {
     return {
       products: [],
       productId: '',
-      // cart: {},
-      // loadingItem: '',
       form: {
         user: {
           name: '張育成',
@@ -190,18 +188,6 @@ export default {
     ...mapState(cartStore, ['cart', 'total', 'final_total'])
   },
   methods: {
-    // getCarts () {
-    //   this.$http
-    //     .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart`)
-    //     .then((res) => {
-    //       this.cart = res.data.data
-    //       console.log('購物車清單', this.cart)
-    //     })
-    //     .catch((err) => {
-    //       alert(err.data.message)
-    //     })
-    // },
-    // ...mapActions(cartStore, 'getCarts'),
     updateCartItem (item) {
       const data = {
         product_id: item.product.id,
@@ -252,8 +238,8 @@ export default {
         .then((res) => {
           const orderId = res.data.orderId
           this.$router.push(`/orderCheck/${orderId}`)
-          console.log(orderId)
-          console.log(res.data.message)
+          // console.log(orderId)
+          // console.log(res.data.message)
         })
         .catch((err) => {
           console.log(err)

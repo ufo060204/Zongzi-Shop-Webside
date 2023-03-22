@@ -132,7 +132,7 @@ export default {
         .then((res) => {
           this.products = res.data.products
           this.isLoading = false
-          console.log('產品列表', this.products)
+          // console.log('產品列表', this.products)
         })
         .catch((err) => {
           alert(err.message)

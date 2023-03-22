@@ -4,11 +4,11 @@
     <div class="container-lg">
       <main class="py-8">
         <div v-if="cart.length === 0" class="row d-flex align-items-center justify-content-center">
-          <div class="col-6 d-flex align-items-center justify-content-center flex-column py-6 border border-text-dark bg-bg">
-            <h1>購物車</h1>
+          <div class="col-6 d-flex align-items-center justify-content-center flex-column py-6 border border-text-light bg-bg">
+            <h1 class="fs-2">購物車</h1>
             <img class="my-6 img-fluid" style="height: 150px;" src="../../assets/images/SignWarning.png" alt="SignWarning">
-            <h2>您的購物車中沒有商品</h2>
-            <router-link to="/products" class="add-cart-text d-inline-block text-white py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark">前往購物</router-link>
+            <h2 class="fs-4">您的購物車中沒有商品</h2>
+            <router-link to="/products" class="btn btn-primary d-inline-block text-white py-3 px-7 fs-5 fw-bold text-decoration-none ">前往購物</router-link>
           </div>
         </div>
         <div v-else>

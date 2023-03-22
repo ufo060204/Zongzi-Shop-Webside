@@ -14,6 +14,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@popperjs/core": "^2.11.6",
     "@vee-validate/i18n": "^4.8.0",
     "@vee-validate/rules": "^4.8.0",
     "aos": "^2.3.4",

@@ -1,0 +1,37 @@
+.nav-display {
+	display: none;
+	@include pad {
+		display: flex;
+	}
+}
+.nav-bg-mobile {
+	@include pad {
+		background-color: #F0EDE5 !important;
+	}
+}
+.nav-collapse-menu {
+	@include pad {
+		padding-top: 28px;
+	}
+}
+.nav-ul-mobile {
+	@include pad {
+		text-align: center;
+	}
+}
+.nav-li-mobile {
+	@include pad {
+		margin-right: 0 !important;
+		padding: 8px 0;
+	}
+}
+.nav-cart-mobile {
+	@include pad {
+		display: none;
+	}
+}
+.footer-admin {
+	@include pad {
+		display: none;
+	}
+}

@@ -409,11 +409,10 @@
                     src="../../assets/images/Rectangle-m.png"
                     alt="Rectangle-m"
                   />
-                  <a
-                    class="text-decoration-none fw-bold fs-5 stretched-link"
-                    href="#"
-                    >查看更多</a
-                  >
+                  <router-link to="/home/-NR8JzTIYKZ08sSYBdjQ" class="text-decoration-none fw-bold fs-5 stretched-link"
+                      href="#">
+                      查看更多
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -443,11 +442,10 @@
                       src="../../assets/images/Rectangle-m.png"
                       alt="Rectangle-m"
                     />
-                    <a
-                      class="text-decoration-none fw-bold fs-5 stretched-link"
-                      href="#"
-                      >查看更多</a
-                    >
+                    <router-link to="/home/-NR8M15bmBcBIIfsBqid" class="text-decoration-none fw-bold fs-5 stretched-link"
+                      href="#">
+                      查看更多
+                    </router-link>
                   </div>
                 </div>
               </div>
@@ -527,6 +525,7 @@ export default {
     return {
       products: [],
       popular: [],
+      articles: [],
       isLoading: false,
       color: '#FF700C'
     }
@@ -542,32 +541,32 @@ export default {
         .then((res) => {
           this.products = res.data.products
           this.isLoading = false
-          console.log('產品列表', this.products)
-          // this.getPopular()
+          // console.log('產品列表', this.products)
         })
         .catch((err) => {
           alert(err.message)
         })
     },
-    // addToCart (id) {
-    //   const data = {
-    //     product_id: id,
-    //     qty: 1
-    //   }
+    ...mapActions(cartStore, ['addToCart'])
+    // getPopular () {
+    //   this.popular = this.products.slice(0, 3)
+    //   console.log(this.popular)
+    // },
+    // getArticles () {
+    //   const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/articles`
     //   this.$http
-    //     .post(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart`, { data })
+    //     .get(url)
     //     .then((res) => {
-    //       alert(res.data.message)
+    //       this.articles = res.data.articles
+    //       // this.page = res.data.pagination
+    //       console.log(this.articles)
+    //       console.log(res)
     //     })
     //     .catch((err) => {
-    //       alert(err.message)
+    //       alert(err.data.message)
     //     })
-    // },
-    ...mapActions(cartStore, ['addToCart']),
-    getPopular () {
-      this.popular = this.products.slice(0, 3)
-      console.log(this.popular)
-    }
+    // }
+
   },
   mounted () {
     this.getProducts()

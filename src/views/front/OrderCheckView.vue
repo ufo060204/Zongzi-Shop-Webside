@@ -79,7 +79,7 @@ export default {
         .then((res) => {
           // console.log(res)
           this.order = res.data.order
-          console.log('訂單列表', this.order)
+          // console.log('訂單列表', this.order)
         })
         .catch((err) => {
           console.log(err)
