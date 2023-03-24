@@ -1,5 +1,6 @@
 <template>
   後台文章列表
+  <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <div class="container">
     <div class="text-end mt-4">
       <button class="btn btn-primary" @click="() => openModal('create')">
@@ -46,7 +47,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- <BackPagination v-if="page" :pages="page" :get-products="getProducts"></BackPagination> -->
   </div>
   <!-- productModal start -->
   <div
@@ -89,8 +89,6 @@
               </div>
               <div>
                 <h4>多圖設置</h4>
-                <!-- key 值建議用 id 去帶，沒有的話再用其他方式 -->
-                <!-- 判斷  tempProduct.imagesUrl 是一個陣列-->
                 <template v-if="Array.isArray(tempProduct.imagesUrl)">
                   <div
                     v-for="(img, key) in tempProduct.imagesUrl"
@@ -107,15 +105,6 @@
                       class="img-fluid mb-2"
                     />
                   </div>
-                  <!-- 判斷新增、刪除出現的時機 -->
-                  <!--
-                    if -> 新增
-                    欄位是有填寫資料時
-                    當如果是空的時候
-
-                    else -> 刪除
-                    當是空著時候，就不能刪除
-                  -->
                   <button
                     class="btn btn-outline-primary btn-sm d-block w-100"
                     @click="() => tempProduct.imagesUrl.push('')"
@@ -179,7 +168,6 @@
               <div class="row">
                 <div class="mb-3 col-md-6">
                   <label for="create_at" class="form-label">日期</label>
-                  <!-- 確保型別正確加上 .number -->
                   <input
                     id="create_at"
                     type="number"
@@ -190,16 +178,6 @@
                   />
                 </div>
                 <div class="mb-3 col-md-6">
-                  <!-- <label for="price" class="form-label">售價</label> -->
-                  <!-- 確保型別正確加上 .number -->
-                  <!-- <input
-                    id="price"
-                    type="number"
-                    min="0"
-                    class="form-control"
-                    placeholder="請輸入售價"
-                    v-model.number="tempProduct.price"
-                  /> -->
                 </div>
               </div>
               <hr />
@@ -307,20 +285,21 @@ export default {
         imagesUrl: []
       },
       isNew: false, // 確認是編輯或是新增所使用的
-      // page: {},
+      isLoading: false,
+      color: '#FF700C',
       productModal: '',
       delProductModal: ''
-      // content: ''
     }
   },
   methods: {
     getProducts () {
       const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/articles`
+      this.isLoading = true
       this.$http
         .get(url)
         .then((res) => {
           this.products = res.data.articles
-          // this.page = res.data.pagination
+          this.isLoading = false
           console.log(this.products)
           console.log(res)
         })
@@ -334,7 +313,6 @@ export default {
         .get(url)
         .then((res) => {
           console.log(res.data.article.content)
-          // this.content = res.data.articles.content
         })
         .catch((err) => {
           alert(err.data.message)
@@ -402,14 +380,11 @@ export default {
     }
   },
   components: {
-    // BackPagination
   },
   mounted () {
     this.getProducts()
     this.productModal = new Modal(this.$refs.productModal)
     this.delProductModal = new Modal(this.$refs.delProductModal)
-    // this.delProductModal.show()
-    // this.productModal.show()
   }
 }
 </script>

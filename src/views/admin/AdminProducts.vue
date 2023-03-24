@@ -1,5 +1,6 @@
 <template>
   後台產品列表
+  <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <div class="container">
     <div class="text-end mt-4">
       <button class="btn btn-primary" @click="() => openModal('create')">
@@ -44,7 +45,7 @@
         </tr>
       </tbody>
     </table>
-    <BackPagination v-if="page" :pages="page" :get-products="getProducts"></BackPagination>
+    <BackPagination v-if="page" :pages="page" @emitPages="getProducts"></BackPagination>
   </div>
   <!-- productModal start -->
   <div
@@ -306,6 +307,8 @@ export default {
       },
       isNew: false, // 確認是編輯或是新增所使用的
       page: {},
+      isLoading: false,
+      color: '#FF700C',
       productModal: '',
       delProductModal: ''
     }
@@ -314,11 +317,13 @@ export default {
     getProducts (page = 1) { // 參數預設值，沒有的話會是 undefined
       const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/products/?page=${page}`
       // this.current_page = page
+      this.isLoading = true
       this.$http
         .get(url)
         .then((res) => {
           this.products = res.data.products
           this.page = res.data.pagination
+          this.isLoading = false
           // console.log(this.products)
           // console.log(this.page)
         })

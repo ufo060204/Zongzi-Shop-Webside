@@ -30,10 +30,15 @@
                 <div class="d-flex flex-column justify-content-between h-100">
                   <div>
                     <div class="mb-3">
-                      <h4 class="text-text-dark fw-500 text-center mb-3">
+                      <router-link
+                        class="text-decoration-none"
+                        :to="`/product/${product.id}`"
+                      >
+                        <h4 class="text-text-dark fw-500 text-center mb-3">
                         {{ product.title }}
                         <span style="margin-top: 10px;" class="d-block fs-5">$ {{ product.price }} 元</span>
                       </h4>
+                      </router-link>
                     </div>
                     <p class="lh-lg">{{ product.content }}</p>
                   </div>

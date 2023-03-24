@@ -1,3 +1,9 @@
+.bg-attachment-fixed {
+	@include pad {
+		background-attachment: scroll !important;
+	}
+}
+
 .home-banner-triangle-pc {
 	@include pad {
 		display: none !important;

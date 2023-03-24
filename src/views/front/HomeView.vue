@@ -12,7 +12,7 @@
         background-attachment: fixed;
         /* margin-top: -88px; */
       "
-      class="d-flex align-items-center landing-img"
+      class="d-flex align-items-center landing-img bg-attachment-fixed"
     >
       <div class="container-lg">
         <div class="row">
