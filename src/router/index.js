@@ -63,16 +63,31 @@ const routes = [
       }
     ]
   },
+  // 404 頁面
   {
     path: '/:pathMatch(.*)*',
     component: () => import('../views/NotFound.vue')
   }
+  // 重新導向
+  // {
+  //   path: '/newPage/:pathMatch(.*)*',
+  //   redirect: {
+  //     name: 'Home'
+  //   }
+  // }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
+  routes,
   linkActiveClass: 'active',
-  routes
+  scrollBehavior (to, from, savedPosition) {
+    console.log(to, from, savedPosition)
+    return {
+      top: 0
+    }
+  }
+
 })
 
 export default router

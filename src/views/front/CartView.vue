@@ -43,17 +43,21 @@
                     </td>
                     <td>
                       {{ item.product.title }}
+                      <span class="text-success fs-6" v-if="item.coupon">已套用優惠券</span>
                     </td>
                     <td>NT$ {{ item.product.price }}</td>
                     <td>
                       <div class="input-group input-group-sm">
-                        <select name="" id="" class="form-control" v-model="item.qty" @change="_$event =>updateCartItem(item)" v-bind:disabled="item.id === loadingItem">
+                        <select name="" id="" class="form-control text-center" v-model="item.qty" @change="_$event =>updateCartItem(item)" v-bind:disabled="item.id === loadingItem">
                           <option :value="i" v-for="i in 20" :key="i + '1234'">{{ i }}</option>
                         </select>
                       </div>
                     </td>
-                    <td class="fw-bold">
+                    <td class="fw-bold" v-if="this.total === this.final_total">
                       NT$ {{ item.total }}
+                    </td>
+                    <td class="fw-bold" v-if="this.total !== this.final_total">
+                      NT$ {{ item.final_total }} <span class="fs-6 text-decoration-line-through">{{ item.total }}</span>
                     </td>
                     <td>
                       <button type="button" class="btn btn-outline-danger btn-sm" @click="() => deleteCartItem(item)"
@@ -67,9 +71,15 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <td colspan="3"></td>
+                  <td colspan="2">
+                    <input type="text" class="form-control" placeholder="請輸入優惠代碼" v-model="couponCode">
+                  </td>
+                  <td colspan="1">
+                    <button type="btn" class="btn btn-outline-primary" @click="() => checkCoupon()">使用優惠券</button>
+                  </td>
                   <td class="bg-text-dark text-white fw-bolder fs-4">總計</td>
-                  <td colspan="2" class="text-end fs-4 fw-bolder text-black bg-white">NT$ {{ total }}</td>
+                  <td v-if="this.total === this.final_total" colspan="2" class="text-end fs-4 fw-bolder text-black bg-white">NT$ {{ total }}</td>
+                  <td v-if="this.total !== this.final_total" colspan="2" class="text-end fs-4 fw-bolder text-black bg-white">NT$ <span class="text-danger fs-3">{{ final_total }}</span> <span class="fs-5 text-decoration-line-through"> {{ total }}</span></td>
                 </tr>
               </tfoot>
             </table>
@@ -108,6 +118,7 @@ export default {
       productId: '',
       // cart: {},
       loadingItem: '',
+      couponCode: '',
       form: {
         user: {
           name: '',
@@ -147,23 +158,55 @@ export default {
           alert(err.data.message)
         })
     },
-    ...mapActions(cartStore, ['deleteCartItem']),
-    deleteAllCart () {
-      this.$http
-        .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/carts`)
+    checkCoupon () {
+      const data = {
+        code: this.couponCode
+      }
+      const api = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`
+      this.$http.post(api, { data })
         .then((res) => {
+          alert(res.data.message)
           this.getCarts()
-          // alert(res.data.message)
-          Swal.fire({
-            icon: 'success',
-            title: '刪除全部品項成功',
-            showConfirmButton: false,
-            timer: 1500
-          })
+          // console.log(res)
         })
         .catch((err) => {
-          alert(err.data.message)
+          console.log(err.data.message)
         })
+    },
+    ...mapActions(cartStore, ['deleteCartItem']),
+    deleteAllCart () {
+      Swal.fire({
+        title: '刪除確認?',
+        text: '確定要清除購物車的所有商品嗎？',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '是的'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.$http
+            .delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/carts`)
+            .then((res) => {
+              this.getCarts()
+              Swal.fire(
+                '刪除成功',
+                '購物車的商品已清空',
+                'success'
+              )
+              // alert(res.data.message)
+              // Swal.fire({
+              //   icon: 'success',
+              //   title: '刪除全部品項成功',
+              //   showConfirmButton: false,
+              //   timer: 1500
+              // })
+            })
+            .catch((err) => {
+              alert(err.data.message)
+            })
+        }
+      })
     }
   },
   mounted () {

@@ -12,7 +12,7 @@
           <div
             v-for="(product) in products"
             :key="product.id"
-            class="col d-md-flex align-items-stretch"
+            class="col d-md-flex card-group"
           >
             <div class="border-0 card mb-6">
               <div
@@ -36,7 +36,7 @@
                       >
                         <h4 class="text-text-dark fw-500 text-center mb-3">
                         {{ product.title }}
-                        <span style="margin-top: 10px;" class="d-block fs-5">$ {{ product.price }} 元</span>
+                        <span style="margin-top: 10px;" class="d-block fs-5">$NT {{ product.price }} 元</span>
                       </h4>
                       </router-link>
                     </div>
@@ -61,9 +61,6 @@
   </section>
 </template>
 <style>
-/* .cart-hover:hover {
-  background-color: #ffe8d9;
-} */
 .product-img {
   height: 320px;
   position: relative;
@@ -72,11 +69,7 @@
   background-size: cover;
   background-position: center;
   padding: 60px;
-  /* border-radius: 50%; */
 }
-/* .product-img:hover {
-  border-radius: 50%;
-} */
 .product-img::after {
   content: "";
   background-color: #00000080;
@@ -87,7 +80,6 @@
   width: 100%;
   height: 100%;
   opacity: 0;
-  /* border-radius: 50%; */
 }
 .product-img:hover:after {
   opacity: 1;

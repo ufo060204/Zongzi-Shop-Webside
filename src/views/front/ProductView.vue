@@ -18,7 +18,7 @@
           <div class="card border-0 mb-3">
             <div class="row g-0">
               <div class="col-lg-6">
-                <img style="height: 100%;" :src="product.imageUrl" class="img-fluid rounded-start" alt="imageUrl">
+                <img style="height: 100%;" :src="product.imageUrl" class="img-fluid product-img rounded-start" alt="imageUrl">
               </div>
               <div class="col-lg-6">
                 <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
@@ -31,15 +31,29 @@
                         <h5 class="py-3 mb-0 border-boderlight border-bottom">產地：</h5>
                         <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">價格：</h4>
                         <h5 class="py-3 mb-0 mt-3">
-                          <input readonly="readonly" style="width: 50%;" type="number" value="1">
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <button type="button" class="btn btn-outline-primary" :disabled="qty <= 1" @click="() => qty -= 1" id="button-addon1">
+                                <i class="bi bi-dash"></i>
+                              </button>
+                            </div>
+                            <input type="form" ref="qty" class="form-control text-center" v-model.number="qty" aria-label="Example text with two button addons">
+                            <div class="input-group-append">
+                              <button type="button" class="btn btn-outline-primary" @click="() => qty += 1" id="button-addon2">
+                                <i class="bi bi-plus"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <span v-if="checkBuyNum.boolean" class="text-danger">{{ checkBuyNum.message }}</span>
+                          <!-- <input readonly="readonly" style="width: 50%;" type="number" value="1"> -->
                         </h5>
                       </div>
                       <div class="d-flex flex-column align-items-center w-100">
                         <div class="text-center w-100">
                           <h5 class="py-3 mb-0 border-boderlight border-bottom">{{ product.category }}</h5>
                           <h5 class="py-3 mb-0 border-boderlight border-bottom">台灣在地生產</h5>
-                          <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">{{ product.price }}  <span class="text-decoration-line-through fs-6">$ {{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
-                          <button type="button" class="btn btn-primary w-100 add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id)">加入購物車</button>
+                          <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">NT$ {{ product.price }}  <span class="text-decoration-line-through fs-6">{{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
+                          <button type="button" class="btn btn-primary w-100 add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id, qty)">加入購物車</button>
                         </div>
                       </div>
                     </div>
@@ -54,24 +68,99 @@
         </main>
       </div>
     </section>
+    <!-- <section class="bg-bg">
+      <div class="container-lg">
+        <main class="pb-8">
+          <div data-aos="fade-up" data-aos-duration="3000" class="row row-cols-md-4">
+            <div
+              v-for="(category) in categoryProducts"
+              :key="category.id"
+              class="col d-md-flex card-group"
+            >
+              <div class="border-0 card mb-6">
+                <div
+                  :style="{ 'background-image': `url(${category.imageUrl})` }"
+                  class="product-category-img d-md-flex justify-content-md-center align-items-md-center"
+                >
+                  <router-link
+                    class="text-decoration-none product-text stretched-link"
+                    :to="`/product/${category.id}`"
+                  >
+                    查看更多
+                  </router-link>
+                </div>
+                <div class="bg-white p-6 card-body">
+                  <div class="d-flex flex-column justify-content-between h-100">
+                    <div>
+                      <div class="mb-3">
+                        <router-link
+                          class="text-decoration-none"
+                          :to="`/product/${category.id}`"
+                        >
+                          <h4 class="text-text-dark fw-500 text-center mb-3">
+                          {{ category.title }}
+                          <span style="margin-top: 10px;" class="d-block fs-5">$NT {{ category.price }} 元</span>
+                        </h4>
+                        </router-link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section> -->
+    <section>
+      <div class="container-lg">
+        <main class="py-8">
+          <SwiperView :categoryProducts='categoryProducts'></SwiperView>
+        </main>
+      </div>
+    </section>
 </template>
 
 <style>
   .product-img {
     object-fit: cover;
   }
-  /* .back:hover {
-    background: #fff;
-  }
-  .back:hover {
-    background: #FFE8D9;
-  } */
-  /* .add-cart-text {
-    background-color: #FF700C;
-  }
-  .add-cart-text:hover {
-    background-color: #BD5309;
-  } */
+  .product-category-img {
+  height: 320px;
+  position: relative;
+  background-color: #f0ede5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 60px;
+}
+.product-category-img::after {
+  content: "";
+  background-color: #00000080;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.product-category-img:hover:after {
+  opacity: 1;
+}
+.product-text {
+  padding: 16px 48px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid #fff;
+  opacity: 0;
+  z-index: 10;
+}
+.product-text:hover {
+  opacity: 1;
+  color: #fff;
+}
 </style>
 
 <script>
@@ -79,17 +168,25 @@ import { mapActions } from 'pinia'
 import cartStore from '../../stores/cart'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
+import SwiperView from '../../components/SwiperView.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data () {
     return {
       product: {},
+      productId: '',
       isLoading: false,
-      color: '#FF700C'
+      color: '#FF700C',
+      qty: 1,
+      categoryProducts: [],
+      checkBuyNum: {
+        boolean: false,
+        message: ''
+      }
     }
   },
   components: {
-    Loading
+    Loading, SwiperView
   },
   methods: {
     getProduct () {
@@ -98,28 +195,52 @@ export default {
       this.$http
         .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/product/${id}`)
         .then(res => {
+          this.productId = id
           this.product = res.data.product
+          this.getCategoryProducts()
           this.isLoading = false
         })
         .catch((err) => {
           alert(err.message)
         })
     },
+    getCategoryProducts () {
+      this.isLoading = true
+      const { category } = this.product
+      // console.log(category)
+      this.$http
+        .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
+        .then(res => {
+          this.categoryProducts = res.data.products
+          console.log('相似類別', res.data)
+          // this.product = res.data.product
+          // this.isLoading = false
+        })
+        .catch((err) => {
+          alert(err.message)
+        })
+    },
     ...mapActions(cartStore, ['addToCart'])
-    // addToCart (id) {
-    //   const data = {
-    //     product_id: id,
-    //     qty: 1
-    //   }
-    //   this.$http
-    //     .post(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart`, { data })
-    //     .then((res) => {
-    //       alert(res.data.message)
-    //     })
-    //     .catch((err) => {
-    //       alert(err.message)
-    //     })
-    // }
+  },
+  watch: {
+    qty () {
+      if (this.qty < 1) {
+        this.checkBuyNum.boolean = true
+        this.qty = 1
+        this.checkBuyNum.message = '數量不能小於0'
+      } else if (this.qty > 1) {
+        this.checkBuyNum.boolean = false
+      }
+    },
+    // 產品 id 改變後重新渲染畫面
+    '$route.params.id': {
+      handler (changedId) {
+        this.id = changedId
+        if (this.id) {
+          this.getProduct()
+        }
+      }
+    }
   },
   mounted () {
     this.getProduct()

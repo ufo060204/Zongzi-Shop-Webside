@@ -13,7 +13,8 @@ const cartStore = defineStore('cart', {
       final_total: 0,
       isLoading: false,
       color: '#FF700C',
-      fullPage: true
+      fullPage: true,
+      qty: 1
     }
   },
   // actions 概念同「methods」
@@ -34,10 +35,10 @@ const cartStore = defineStore('cart', {
           alert(err.data.message)
         })
     },
-    addToCart (id) {
+    addToCart (id, qty = 1) {
       const data = {
         product_id: id,
-        qty: 1
+        qty
       }
       axios
         .post(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart`, { data })
