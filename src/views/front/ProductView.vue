@@ -5,7 +5,7 @@
         <loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"/>
-        <main class="pb-8">
+        <main class="pb-7">
           <div class="pt-8 d-flex align-items-end">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
@@ -52,7 +52,7 @@
                           <h5 class="py-3 mb-0 border-boderlight border-bottom">{{ product.category }}</h5>
                           <h5 class="py-3 mb-0 border-boderlight border-bottom">台灣在地生產</h5>
                           <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">NT$ {{ product.price }}  <span class="text-decoration-line-through fs-6">{{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
-                          <button type="button" class="btn btn-primary w-100 add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id, qty)">加入購物車</button>
+                          <button type="button" style="width: 90%;" class="btn btn-primary add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id, qty)">加入購物車</button>
                         </div>
                       </div>
                     </div>
@@ -67,9 +67,25 @@
         </main>
       </div>
     </section>
+    <section class="bg-bg">
+      <div class="container-lg">
+        <div class="main pb-8">
+          <div class="card card-body fs-5">
+            <h4 class="mb-5 text-center text-text-dark">
+            老闆不藏私，美味的小撇步！
+            </h4>
+            <p>1.使用蒸籠或傳統電鍋，請勿使用微波爐。</p>
+            <p>2.如果是用蒸籠，內鍋約 2500cc 到 3000cc 的水，大火蒸 40 分鐘(中間不宜加水)，熄火後再悶 5分鐘。</p>
+            <p>3.如果使用傳統電鍋，內放置蒸架及盤子(物使用鍋子)，電鍋底部放 2杯水(量米杯)，開關跳起時在悶約 5 到 10 分鐘(勿悶過久，避免口感不佳唷！)</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section>
       <div class="container-lg">
-        <main class="py-8">
+        <main class="py-8 text-center">
+          <h4 class="text-text-dark mb-7">你可能也想嘗點其他的</h4>
+          <hr>
           <SwiperView :categoryProducts='categoryProducts'></SwiperView>
         </main>
       </div>

@@ -398,10 +398,10 @@
                 alt="img3"/>
               <div class="p-4">
                 <h4 class="mb-3 text-text-dark fw-bold">
-                  春節優惠活動，全店商品八折
+                  歡慶開館 40 周年紀念，全店商品八折
                 </h4>
                 <p style="color: #594a3e" class="mb-3 fs-5">
-                  01/29 前結帳時輸入，優惠碼 Happy2023 可享 8 折優惠！
+                  12/31 前結帳時輸入，優惠碼 zongzi40 可享 8 折優惠！
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <img

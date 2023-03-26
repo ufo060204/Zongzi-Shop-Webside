@@ -24,7 +24,8 @@
                 <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
                   <div>
                     <h1 class="card-title fs-3 py-4 text-center fw-500">{{ article.description }}</h1>
-                    <p class="card-text fs-5 lh-lg">{{ article.content }}</p>
+                    <div class="zongzi-text"></div>
+                    <!-- <p class="card-text fs-5 lh-lg zongzi-text"></p> -->
                   </div>
                 </div>
               </div>
@@ -74,11 +75,13 @@ export default {
   methods: {
     getArticle () {
       this.isLoading = true
+      const zongziText = document.querySelector('.zongzi-text')
       const { id } = this.$route.params
       this.$http
         .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/article/${id}`)
         .then(res => {
           this.article = res.data.article
+          zongziText.innerHTML = res.data.article.content
           this.isLoading = false
         })
         .catch((err) => {
