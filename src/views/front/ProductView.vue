@@ -212,7 +212,7 @@ export default {
         .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
         .then(res => {
           this.categoryProducts = res.data.products
-          console.log('相似類別', res.data)
+          // console.log('相似類別', res.data)
           // this.product = res.data.product
           // this.isLoading = false
         })

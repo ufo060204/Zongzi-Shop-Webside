@@ -75,7 +75,7 @@
                     <input type="text" class="form-control" placeholder="請輸入優惠代碼" v-model="couponCode">
                   </td>
                   <td colspan="1">
-                    <button type="btn" class="btn btn-outline-primary" @click="() => checkCoupon()">使用優惠券</button>
+                    <button type="btn" class="btn btn-outline-zongzi w-100" @click="() => checkCoupon()">使用優惠券</button>
                   </td>
                   <td class="bg-text-dark text-white fw-bolder fs-4">總計</td>
                   <td v-if="this.total === this.final_total" colspan="2" class="text-end fs-4 fw-bolder text-black bg-white">NT$ {{ total }}</td>
@@ -85,8 +85,8 @@
             </table>
           </div>
           <div class="d-md-flex justify-content-md-between align-items-md-center">
-            <router-link to="/products" class="text-decoration-none btn btn-outline-text-light">上一頁</router-link>
-            <router-link to="/checkout" class="text-decoration-none btn btn-outline-text-light">下一步</router-link>
+            <router-link to="/products" class="text-decoration-none btn btn-outline-text-light"><i class="bi bi-arrow-left"></i>上一頁</router-link>
+            <router-link to="/checkout" class="text-decoration-none btn btn-outline-text-light">下一步<i class="bi bi-arrow-right"></i></router-link>
           </div>
         </div>
       </main>

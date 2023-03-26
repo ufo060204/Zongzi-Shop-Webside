@@ -51,7 +51,7 @@
                 <tfoot>
                   <tr>
                     <td colspan="2" class="text-end">總計</td>
-                    <td colspan="2" class="text-end fw-bold fs-5">NT$ {{ total }}</td>
+                    <td colspan="2" class="text-end fw-bold fs-5 text-danger">NT$ {{ final_total }}</td>
                   </tr>
                 </tfoot>
               </table>
@@ -151,9 +151,9 @@
                 <router-link
                   to="/cart"
                   class="text-decoration-none d-inline-block btn btn-outline-text-light"
-                  >上一頁</router-link
+                  ><i class="bi bi-arrow-left"></i>上一頁</router-link
                 >
-                <button class="btn btn-outline-primary d-block" type="submit">下一步</button>
+                <button class="btn btn-outline-primary d-block" type="submit">下一步<i class="bi bi-arrow-right"></i></button>
                 </div>
               </v-form>
             </div>

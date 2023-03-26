@@ -18,7 +18,7 @@
             </div>
           </div>
         </h1>
-        <nav class="nav-collapse-menu collapse d-md-block" id="collapseMenu">
+        <nav ref="navCollapse" class="nav-collapse-menu collapse d-md-block" id="collapseMenu">
           <ul class="d-md-flex nav-ul-mobile list-unstyled mb-0">
             <li>
               <router-link to="/about" class="d-block nav-li-mobile text-decoration-none fw-bold me-6 nav-text-white">品牌故事</router-link>
@@ -113,6 +113,11 @@ export default {
   computed: {
     ...mapState(cartStore, ['cart'])
   },
+  watch: {
+    $route (to, form) {
+      this.collapseHide()
+    }
+  },
   methods: {
     scrollHeader () {
       const header = document.querySelector('header')
@@ -145,11 +150,15 @@ export default {
         }
       })
     },
+    collapseHide () {
+      this.$refs.navCollapse.classList.remove('show')
+    },
     ...mapActions(cartStore, ['getCarts'])
   },
   mounted () {
     this.scrollHeader()
     this.getCarts()
+    this.collapseHide()
   }
 }
 
