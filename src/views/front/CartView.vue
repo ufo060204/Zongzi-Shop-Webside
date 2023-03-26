@@ -71,12 +71,14 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <td colspan="2">
-                    <input type="text" class="form-control" placeholder="請輸入優惠代碼" v-model="couponCode">
+                  <td colspan="3">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="請輸入優惠代碼" v-model="couponCode">
+                      <button type="btn" class="btn btn-outline-zongzi " @click="() => checkCoupon()">使用優惠券</button>
+                    </div>
                   </td>
-                  <td colspan="1">
-                    <button type="btn" class="btn btn-outline-zongzi w-100" @click="() => checkCoupon()">使用優惠券</button>
-                  </td>
+                  <!-- <td colspan="1">
+                  </td> -->
                   <td class="bg-text-dark text-white fw-bolder fs-4">總計</td>
                   <td v-if="this.total === this.final_total" colspan="2" class="text-end fs-4 fw-bolder text-black bg-white">NT$ {{ total }}</td>
                   <td v-if="this.total !== this.final_total" colspan="2" class="text-end fs-4 fw-bolder text-black bg-white">NT$ <span class="text-danger fs-3">{{ final_total }}</span> <span class="fs-5 text-decoration-line-through"> {{ total }}</span></td>

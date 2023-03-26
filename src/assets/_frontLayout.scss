@@ -1,3 +1,8 @@
+.nav-text-white {
+	@include pad {
+		color: #3D2F24 !important;
+	}
+}
 .nav-display {
 	display: none;
 	@include pad {

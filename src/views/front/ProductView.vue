@@ -25,8 +25,8 @@
                   <div>
                     <h1 class="card-title fs-3 py-4 text-center fw-500">{{ product.title }}</h1>
                     <p class="card-text fs-5 lh-lg">{{ product.description }}</p>
-                    <div class="d-flex w-30">
-                      <div style="width: 40%;">
+                    <div class="row g-0">
+                      <div class="col-5">
                         <h5 class="py-3 mb-0 border-boderlight border-bottom">種類：</h5>
                         <h5 class="py-3 mb-0 border-boderlight border-bottom">產地：</h5>
                         <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">價格：</h4>
@@ -47,13 +47,13 @@
                           <span v-if="checkBuyNum.boolean" class="text-danger">{{ checkBuyNum.message }}</span>
                         </h5>
                       </div>
-                      <div class="d-flex flex-column align-items-center w-100">
-                        <div class="text-center w-100">
-                          <h5 class="py-3 mb-0 border-boderlight border-bottom">{{ product.category }}</h5>
-                          <h5 class="py-3 mb-0 border-boderlight border-bottom">台灣在地生產</h5>
-                          <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">NT$ {{ product.price }}  <span class="text-decoration-line-through fs-6">{{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
-                          <button type="button" style="width: 90%;" class="btn btn-primary add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id, qty)">加入購物車</button>
-                        </div>
+                      <div class="col-7 text-center">
+                        <h5 class="py-3 mb-0 border-boderlight border-bottom">{{ product.category }}</h5>
+                        <h5 class="py-3 mb-0 border-boderlight border-bottom">台灣在地生產</h5>
+                        <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">NT$ {{ product.price }}  <span class="text-decoration-line-through fs-6">{{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
+                        <button type="button" style="width: 90%;" class="btn btn-primary add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id, qty)">加入購物車</button>
+                        <!-- <div class="">
+                        </div> -->
                       </div>
                     </div>
                   </div>

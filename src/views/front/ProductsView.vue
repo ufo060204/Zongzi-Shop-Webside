@@ -2,18 +2,20 @@
   <section class="landing-img landing-header"></section>
   <section class="bg-bg">
     <div class="container-lg">
-      <main class="py-8">
-        <h1 class="text-center fs-2 pb-6 fw-bold">產品一覽</h1>
-        <div class="text-center mb-4">
-          <button type="button" class="btn btn-outline-text-light" @click="() => getProducts()">全部</button>
-          <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '鹹粽')">鹹粽</button>
-          <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '甜粽')">甜粽</button>
-          <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '其他')">其他</button>
-        </div>
-        <loading v-model:active="isLoading"
+      <loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"
                 :is-full-page="fullPage"/>
+      <main class="py-8">
+        <h1 class="text-center fs-2 pb-6 fw-bold">產品一覽</h1>
+        <div class="row">
+          <div class="btn-group mb-4 mx-auto col-lg-6">
+            <button type="button" class="btn btn-outline-text-light" @click="() => getProducts()">全部</button>
+            <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '鹹粽')">鹹粽</button>
+            <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '甜粽')">甜粽</button>
+            <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '其他')">其他</button>
+          </div>
+        </div>
         <div data-aos="fade-up" data-aos-duration="3000" class="row row-cols-md-3">
           <div
             v-for="(product) in products"
