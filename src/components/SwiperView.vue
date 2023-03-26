@@ -16,17 +16,14 @@
           class="col d-md-flex card-group"
         >
           <div class="border-0 card mb-6">
-            <div
+            <router-link :to="`/product/${category.id}`"
               :style="{ 'background-image': `url(${category.imageUrl})` }"
               class="product-category-img d-md-flex justify-content-md-center align-items-md-center"
             >
-              <router-link
-                class="text-decoration-none product-text stretched-link"
-                :to="`/product/${category.id}`"
-              >
+              <div class="text-decoration-none product-text stretched-link">
                 查看更多
-              </router-link>
-            </div>
+              </div>
+            </router-link>
             <div class="bg-white p-6 card-body">
               <div class="d-flex flex-column justify-content-between h-100">
                 <div>

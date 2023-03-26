@@ -18,7 +18,7 @@
           <div class="card border-0 mb-3">
             <div class="row g-0">
               <div class="col-lg-6">
-                <img style="height: 100%;" :src="product.imageUrl" class="img-fluid product-img rounded-start" alt="imageUrl">
+                <img :src="product.imageUrl" style="height: 100%;" class="img-fluid one-product-img" alt="imageUrl">
               </div>
               <div class="col-lg-6">
                 <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
@@ -45,7 +45,6 @@
                             </div>
                           </div>
                           <span v-if="checkBuyNum.boolean" class="text-danger">{{ checkBuyNum.message }}</span>
-                          <!-- <input readonly="readonly" style="width: 50%;" type="number" value="1"> -->
                         </h5>
                       </div>
                       <div class="d-flex flex-column align-items-center w-100">
@@ -68,50 +67,6 @@
         </main>
       </div>
     </section>
-    <!-- <section class="bg-bg">
-      <div class="container-lg">
-        <main class="pb-8">
-          <div data-aos="fade-up" data-aos-duration="3000" class="row row-cols-md-4">
-            <div
-              v-for="(category) in categoryProducts"
-              :key="category.id"
-              class="col d-md-flex card-group"
-            >
-              <div class="border-0 card mb-6">
-                <div
-                  :style="{ 'background-image': `url(${category.imageUrl})` }"
-                  class="product-category-img d-md-flex justify-content-md-center align-items-md-center"
-                >
-                  <router-link
-                    class="text-decoration-none product-text stretched-link"
-                    :to="`/product/${category.id}`"
-                  >
-                    查看更多
-                  </router-link>
-                </div>
-                <div class="bg-white p-6 card-body">
-                  <div class="d-flex flex-column justify-content-between h-100">
-                    <div>
-                      <div class="mb-3">
-                        <router-link
-                          class="text-decoration-none"
-                          :to="`/product/${category.id}`"
-                        >
-                          <h4 class="text-text-dark fw-500 text-center mb-3">
-                          {{ category.title }}
-                          <span style="margin-top: 10px;" class="d-block fs-5">$NT {{ category.price }} 元</span>
-                        </h4>
-                        </router-link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
-    </section> -->
     <section>
       <div class="container-lg">
         <main class="py-8">
@@ -122,7 +77,7 @@
 </template>
 
 <style>
-  .product-img {
+  .one-product-img {
     object-fit: cover;
   }
   .product-category-img {

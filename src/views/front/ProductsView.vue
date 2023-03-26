@@ -15,30 +15,22 @@
             class="col d-md-flex card-group"
           >
             <div class="border-0 card mb-6">
-              <div
+              <router-link :to="`/product/${product.id}`"
                 :style="{ 'background-image': `url(${product.imageUrl})` }"
-                class="product-img d-md-flex justify-content-md-center align-items-md-center"
+                class="product-img d-md-flex justify-content-md-center align-items-md-center text-decoration-none"
               >
-                <router-link
-                  class="text-decoration-none product-text stretched-link"
-                  :to="`/product/${product.id}`"
-                >
+                <div class="text-decoration-none product-text stretched-link">
                   查看更多
-                </router-link>
-              </div>
+                </div>
+              </router-link>
               <div class="bg-white p-6 card-body">
                 <div class="d-flex flex-column justify-content-between h-100">
                   <div>
                     <div class="mb-3">
-                      <router-link
-                        class="text-decoration-none"
-                        :to="`/product/${product.id}`"
-                      >
-                        <h4 class="text-text-dark fw-500 text-center mb-3">
+                      <h4 class="text-text-dark fw-500 text-center mb-3">
                         {{ product.title }}
                         <span style="margin-top: 10px;" class="d-block fs-5">$NT {{ product.price }} 元</span>
                       </h4>
-                      </router-link>
                     </div>
                     <p class="lh-lg">{{ product.content }}</p>
                   </div>
