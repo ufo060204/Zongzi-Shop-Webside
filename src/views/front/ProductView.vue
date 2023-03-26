@@ -18,7 +18,7 @@
           <div class="card border-0 mb-3">
             <div class="row g-0">
               <div class="col-lg-6">
-                <img :src="product.imageUrl" style="height: 100%;" class="img-fluid one-product-img" alt="imageUrl">
+                <img :src="product.imageUrl" class="img-fluid one-product-img" alt="imageUrl">
               </div>
               <div class="col-lg-6">
                 <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
@@ -93,8 +93,14 @@
 </template>
 
 <style>
+  @media (max-width: 768px) {
+      .one-product-img {
+        height: auto !important;
+      }
+    }
   .one-product-img {
     object-fit: cover;
+    height: 100%;
   }
   .product-category-img {
   height: 320px;
