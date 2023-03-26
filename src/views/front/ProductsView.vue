@@ -4,6 +4,12 @@
     <div class="container-lg">
       <main class="py-8">
         <h1 class="text-center fs-2 pb-6 fw-bold">產品一覽</h1>
+        <div class="text-center mb-4">
+          <button type="button" class="btn btn-outline-text-light" @click="() => getProducts()">全部</button>
+          <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '鹹粽')">鹹粽</button>
+          <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '甜粽')">甜粽</button>
+          <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '其他')">其他</button>
+        </div>
         <loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"
@@ -89,6 +95,7 @@
   opacity: 1;
   color: #fff;
 }
+
 </style>
 
 <script>
@@ -106,7 +113,8 @@ export default {
       page: {},
       isLoading: false,
       color: '#FF700C',
-      fullPage: true
+      fullPage: true,
+      isActive: '全部'
     }
   },
   components: {
@@ -124,23 +132,21 @@ export default {
           // console.log('產品列表', this.products)
         })
         .catch((err) => {
-          alert(err.message)
+          alert(err.response.data.message)
         })
     },
-    // addToCart (id) {
-    //   const data = {
-    //     product_id: id,
-    //     qty: 1
-    //   }
-    //   this.$http
-    //     .post(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart`, { data })
-    //     .then((res) => {
-    //       alert(res.data.message)
-    //     })
-    //     .catch((err) => {
-    //       alert(err.message)
-    //     })
-    // },
+    productFilter (category) {
+      this.isLoading = true
+      this.$http
+        .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
+        .then((res) => {
+          this.products = res.data.products
+          this.isLoading = false
+        })
+        .catch((err) => {
+          alert(err.response.data.message)
+        })
+    },
     ...mapActions(cartStore, ['addToCart'])
   },
   mounted () {
