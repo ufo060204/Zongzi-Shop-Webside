@@ -31,18 +31,15 @@
                           class="img-fluid"
                           alt="imageUrl"
                           />
-                          <!-- <RouterLink :to="`/product/${item.id}`">
-                        </RouterLink> -->
                       </td>
                       <td>
-                        {{ item.product.title }}
-                        <!-- <div class="text-success">已套用優惠券</div> -->
+                        {{ item.product.title }}<br>
+                        <span class="text-success fs-6" v-if="item.coupon">已套用優惠券</span>
                       </td>
                       <td>
                         {{ item.qty }}
                       </td>
                       <td>
-                        <!-- <small class="text-success">折扣價：</small> -->
                         NT$ {{ item.total }}
                       </td>
                     </tr>

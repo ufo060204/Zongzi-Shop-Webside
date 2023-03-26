@@ -1,13 +1,21 @@
 <template>
   <div>
     <swiper
-      :slidesPerView="4"
+      :slidesPerView="1"
       :spaceBetween="30"
       :freeMode="true"
       :pagination="{
         clickable: true,
       }"
       :modules="modules"
+      :breakpoints=" {
+        768: {
+            slidesPerView: 2
+        },
+        992: {
+            slidesPerView: 4
+        }
+    }"
       class="mySwiper"
     >
       <swiper-slide v-for="category in categoryProducts"
@@ -18,7 +26,7 @@
           <div class="border-0 card mb-6">
             <router-link :to="`/product/${category.id}`"
               :style="{ 'background-image': `url(${category.imageUrl})` }"
-              class="product-category-img d-md-flex justify-content-md-center align-items-md-center"
+              class="text-decoration-none product-category-img d-md-flex justify-content-md-center align-items-md-center"
             >
               <div class="text-decoration-none product-text stretched-link">
                 查看更多

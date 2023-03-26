@@ -84,7 +84,7 @@
     <section>
       <div class="container-lg">
         <main class="py-8 text-center">
-          <h4 class="text-text-dark mb-7">你可能也想嘗點其他的</h4>
+          <h4 class="text-text-dark mb-7">還想來點...你怎能錯過！</h4>
           <hr>
           <SwiperView :categoryProducts='categoryProducts'></SwiperView>
         </main>
@@ -109,7 +109,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 60px;
 }
 .product-category-img::after {
   content: "";

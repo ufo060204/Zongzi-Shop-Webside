@@ -165,12 +165,27 @@ export default {
       const api = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`
       this.$http.post(api, { data })
         .then((res) => {
-          alert(res.data.message)
+          if (res.data.success === true) {
+            Swal.fire(
+              '套用成功',
+              '已套用優惠券 zongzi40',
+              'success'
+            )
+          } else if (res.data.success === false) {
+            Swal.fire({
+              icon: 'error',
+              title: '套用失敗',
+              text: '找不到優惠券QQ',
+              footer: '<a href="https://ufo060204.github.io/Zongzi-Shop-Webside/#/home/-NR8JzTIYKZ08sSYBdjQ">前往領取優惠碼'
+            })
+          }
+          // console.log(res)
+          // alert(res.data.message)
           this.getCarts()
           // console.log(res)
         })
         .catch((err) => {
-          console.log(err.data.message)
+          console.log(err.response.data.message)
         })
     },
     ...mapActions(cartStore, ['deleteCartItem']),

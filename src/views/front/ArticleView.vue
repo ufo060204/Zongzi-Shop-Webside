@@ -15,25 +15,24 @@
               </ol>
             </nav>
           </div>
-          <div class="card border-0 mb-3">
-            <div class="row g-0">
-              <div class="col-lg-12">
-                <img style="height: 100%;" :src="article.imageUrl" class="img-fluid rounded-start w-100" alt="imageUrl">
-              </div>
-              <div class="col-lg-12">
-                <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
-                  <div>
-                    <h1 class="card-title fs-3 py-4 text-center fw-500">{{ article.description }}</h1>
-                    <div class="zongzi-text"></div>
-                    <!-- <p class="card-text fs-5 lh-lg zongzi-text"></p> -->
-                  </div>
+          <!-- <div class="card border-0 mb-3">
+          </div> -->
+          <div class="row g-0 justify-content-center">
+            <div class="col-lg-9">
+              <img style="height: 100%;" :src="article.imageUrl" class="text-center img-fluid rounded-start" alt="imageUrl">
+            </div>
+            <div class="col-lg-9">
+              <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
+                <div>
+                  <h1 class="fw-bolder fs-4 py-4 text-center">{{ article.description }}</h1>
+                  <div class="zongzi-text fs-5"></div>
                 </div>
               </div>
             </div>
+            <button class="col-lg-9 btn d-block py-3 fs-5 fw-bold text-decoration-none border border-text-dark" type="button">
+              <router-link class="text-decoration-none text-text-dark" to="/products" title="前往產品頁面">前往產品</router-link>
+            </button>
           </div>
-          <button class="btn d-block py-3 fs-5 w-100 fw-bold text-decoration-none border border-text-dark" type="button">
-            <router-link class="text-decoration-none text-text-dark" to="/products" title="前往產品頁面">前往產品</router-link>
-          </button>
         </main>
       </div>
     </section>
@@ -43,18 +42,6 @@
   .product-img {
     object-fit: cover;
   }
-  /* .back:hover {
-    background: #fff;
-  }
-  .back:hover {
-    background: #FFE8D9;
-  } */
-  /* .add-cart-text {
-    background-color: #FF700C;
-  }
-  .add-cart-text:hover {
-    background-color: #BD5309;
-  } */
 </style>
 
 <script>
