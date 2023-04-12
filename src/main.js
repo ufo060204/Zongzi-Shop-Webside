@@ -17,6 +17,9 @@ import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg
 
 import { createPinia } from 'pinia'
 
+// 加入 CKEditor
+import CKEditor from '@ckeditor/ckeditor5-vue'
+
 import { Field, Form, ErrorMessage, defineRule, configure } from 'vee-validate'
 // import { required, email, min } from '@vee-validate/rules'
 import AllRules from '@vee-validate/rules'
@@ -52,7 +55,8 @@ const app = createApp(App)
 app.use(LoadingPlugin, {
   color: '##FF700C'
 })
-
+// 載入元件
+app.use(CKEditor)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.component('VForm', Form)
 app.component('VField', Field)
