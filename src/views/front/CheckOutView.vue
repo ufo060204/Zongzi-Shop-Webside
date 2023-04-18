@@ -3,10 +3,13 @@
   <section class="bg-bg">
     <div class="container-lg">
       <main class="py-8">
-        <ul class="list-unstyled d-md-flex justify-content-center">
+        <ul class="list-unstyled d-md-flex justify-content-center text-center">
           <li class="border border-boderlight py-3 px-7">確認商品</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="bg-white border border-boderlight py-3 px-7">填寫資料</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">確認付款</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">完成付款</li>
         </ul>
         <div class="row">
@@ -63,7 +66,7 @@
                 @submit="sendOrder"
               >
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
+                  <label for="email" class="form-label"><span class="text-danger">*</span> Email</label>
                   <v-field
                     id="email"
                     name="email"
@@ -81,7 +84,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="name" class="form-label">收件人姓名</label>
+                  <label for="name" class="form-label"><span class="text-danger">*</span> 收件人姓名</label>
                   <v-field
                     id="name"
                     name="姓名"
@@ -99,7 +102,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="tel" class="form-label">收件人電話</label>
+                  <label for="tel" class="form-label"><span class="text-danger">*</span> 收件人電話</label>
                   <v-field
                     id="tel"
                     name="電話"
@@ -117,7 +120,7 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="address" class="form-label">收件人地址</label>
+                  <label for="address" class="form-label"><span class="text-danger">*</span> 收件人地址</label>
                   <v-field
                     id="address"
                     name="地址"
@@ -144,13 +147,13 @@
                     v-model="form.message"
                   ></textarea>
                 </div>
-                <div class="d-lg-flex justify-content-lg-between align-items-lg-center">
+                <div class="d-flex justify-content-between align-items-center">
                 <router-link
                   to="/cart"
-                  class="text-decoration-none d-inline-block btn btn-outline-text-light"
+                  class="text-decoration-none d-inline-block btn btn-outline-text-light rounded-0"
                   ><i class="bi bi-arrow-left"></i>上一頁</router-link
                 >
-                <button class="btn btn-outline-primary d-block" type="submit">下一步<i class="bi bi-arrow-right"></i></button>
+                <button class="btn btn-outline-primary d-block rounded-0" type="submit">下一步<i class="bi bi-arrow-right"></i></button>
                 </div>
               </v-form>
             </div>
@@ -163,7 +166,7 @@
 
 <script>
 import { mapState } from 'pinia'
-import cartStore from '../../stores/cart'
+import cartStore from '@/stores/cart'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data () {
@@ -172,12 +175,12 @@ export default {
       productId: '',
       form: {
         user: {
-          name: '張育成',
-          email: 'yuga@gmail.com',
-          tel: '0973101123',
-          address: '台東縣東河鄉本部落30號'
+          name: '',
+          email: '',
+          tel: '',
+          address: ''
         },
-        message: '你好，謝謝'
+        message: ''
       }
     }
   },
@@ -235,17 +238,14 @@ export default {
         .then((res) => {
           const orderId = res.data.orderId
           this.$router.push(`/orderCheck/${orderId}`)
-          // console.log(orderId)
-          // console.log(res.data.message)
         })
         .catch((err) => {
-          console.log(err)
+          alert(err.data.message)
           this.$router.push('/products')
         })
     }
   },
   mounted () {
-    // this.getCarts()
   }
 }
 </script>

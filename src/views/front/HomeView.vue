@@ -251,7 +251,7 @@
           <router-link :to="`/product/-NM27yCriEAoX1-aPW4j`" data-aos="fade-up" data-aos-duration="3000" class="col-lg-4 text-decoration-none"
           >
             <div class="border-0 px-7 popular-card">
-              <div class="product-img d-md-flex justify-content-md-center align-items-md-center">
+              <div class="product-img d-flex justify-content-center align-items-center">
                 <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679122640369.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ECc5CgWHI%2FbzNcrIRXWub01pyFCMkovCLTlZMvLYydlwrKiNhGfBXXfa28UO69YIYEdKuvkVc348mvEStQrDbixqhwq%2Bam4NlDzR4x5SsLm8MA6I2WCZcaV9%2F62igSB1NgcFx6yyHw9rCrWcwxSUDYel6jJaYEGngdeznelcTOdGAAlrLQCD7bRbNf5Q4Th%2FTqdqZiCsLno7SJUFnpJeOlsHL6W8yPDsNu%2FI3EBGpf0BTsYHFWzfc%2FKpg0UhsdTW5AxtMzsJ75LaGWmvlvKmpMf8OXaXCCUJq5P2VUJxSddBgHJgRONKhmLE1vTbReNBQjhFWNmRRj06fn6onQz7Tg%3D%3D" alt="">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
@@ -293,7 +293,7 @@
           <router-link :to="`/product/-NM2d45PodDNatFQYTQ3`" data-aos="fade-up" data-aos-duration="3000" class="col-lg-4 text-decoration-none"
           >
             <div class="border-0 px-7 popular-card">
-              <div class="product-img d-md-flex justify-content-md-center align-items-md-center">
+              <div class="product-img d-flex justify-content-center align-items-center">
                 <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123198362.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MYX4dfnxJK3TeDhNuC%2BaQy4kWOFQ%2F7oU%2BTwevZErSUjvBzgUsmZEYZLOJDGB0%2Fy272S61yZb8natkAW8hq6sLgm8lanrd32%2By9UZDNDFdJ9qqVcIZozkUzgCcLxsy2PDzMzpMa9R7woX2KotFjOwMW9aPMERoGxmvPwkaLIk4KAjSVUBYc%2F9px%2BRFCbgYxAdke5bDK89UMhDu0tEhTGHeDjD5RWPlLiIZ%2FusWjwInOM%2F1lDToTc5F%2FwT%2F4jR11Ezu6tEELwdMIDSSetB80VXrJWBM9tZS%2FS7Q2K2xDt%2B65MNUNQ%2FEQL7cI2MoL4HbswnBb67Glv%2BfmL%2Bq5qbGy%2FqJg%3D%3D" alt="">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
@@ -335,7 +335,7 @@
           <router-link :to="`/product/-NM2huSRBtLQp39YYdPB`" data-aos="fade-up" data-aos-duration="3000" class="col-lg-4 text-decoration-none"
           >
             <div class="border-0 px-7 popular-card">
-              <div class="product-img d-md-flex justify-content-md-center align-items-md-center">
+              <div class="product-img d-flex justify-content-center align-items-center">
                 <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123253511.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fPsA7BdvnNZ93zAvJ9EqPUBvv4Qu6scveM2Y8N79L%2FXHJbmBCAazitevPvkaaGn2EAYKzYtTadJX5qJCeE15ohTkqaWUfefIrJVvZWc%2BNDhDFNCOQnbu8ExrPJbb0n%2Fis0q5AwZwhHNLCgzulYtf0s%2BS8o0NPhr8HNSsfHZm%2BRnrhwsNxzSzooHvMgxBzODzZQn7InMqueIIYeVAYsjjyBMN6pNJchPrO0BsCtNT64yjmVoCNMM8cKVroxR0igBK9T131UO6%2FA%2BxNHVLGhhiHvXApfe83mJZ024gKRr%2FGKt6DdBIJUXzA9YG4g1jaf4TdQe4bsm1N4Y%2FM5qpKVJppw%3D%3D" alt="">
                 <router-link
                   class="text-decoration-none product-text stretched-link"
@@ -461,68 +461,9 @@
   </main>
 </template>
 
-<style scoped>
-.banner-link {
-  background-color: #FF700C;
-}
-.banner-link:hover {
-  background-color: #BD5309;
-}
-.product-link:hover {
-  background-color: #FF700C;
-}
-.cart-hover:hover {
-  background-color: #FFE8D9;
-}
-.drop-shadow {
-  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.48));
-}
-.product-img {
-  /* height: 320px; */
-  width: 100%;
-  aspect-ratio: 1/1;
-  position: relative;
-  background-color: #f0ede5;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  /* padding: 60px; */
-  margin-bottom: 32px;
-  border-radius: 50%
-}
-.product-img::after {
-  content: '';
-  background-color: #00000080;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  border-radius: 50%
-}
-.product-img:hover:after {
-  opacity: 1;
-}
-.product-text {
-  /* position: absolute; */
-  padding: 16px 48px;
-  font-size: 20px;
-  color: #fff;
-  font-weight: 700;
-  border: 1px solid #fff;
-  opacity: 0;
-  z-index: 10;
-}
-.product-text:hover {
-  opacity: 1;
-}
-</style>
-
 <script>
 import { mapActions } from 'pinia'
-import cartStore from '../../stores/cart'
+import cartStore from '@/stores/cart'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
@@ -548,35 +489,71 @@ export default {
         .then((res) => {
           this.products = res.data.products
           this.isLoading = false
-          // console.log('產品列表', this.products)
         })
         .catch((err) => {
           alert(err.message)
         })
     },
     ...mapActions(cartStore, ['addToCart'])
-    // getPopular () {
-    //   this.popular = this.products.slice(0, 3)
-    //   console.log(this.popular)
-    // },
-    // getArticles () {
-    //   const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/articles`
-    //   this.$http
-    //     .get(url)
-    //     .then((res) => {
-    //       this.articles = res.data.articles
-    //       // this.page = res.data.pagination
-    //       console.log(this.articles)
-    //       console.log(res)
-    //     })
-    //     .catch((err) => {
-    //       alert(err.data.message)
-    //     })
-    // }
-
   },
   mounted () {
     this.getProducts()
   }
 }
 </script>
+
+<style scoped>
+.banner-link {
+  background-color: #FF700C;
+}
+.banner-link:hover {
+  background-color: #BD5309;
+}
+.product-link:hover {
+  background-color: #FF700C;
+}
+.cart-hover:hover {
+  background-color: #FFE8D9;
+}
+.drop-shadow {
+  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.48));
+}
+.product-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+  background-color: #f0ede5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 32px;
+  border-radius: 50%
+}
+.product-img::after {
+  content: '';
+  background-color: #00000080;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 50%
+}
+.product-img:hover:after {
+  opacity: 1;
+}
+.product-text {
+  padding: 16px 48px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid #fff;
+  opacity: 0;
+  z-index: 10;
+}
+.product-text:hover {
+  opacity: 1;
+}
+</style>

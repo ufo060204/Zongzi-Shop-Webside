@@ -4,7 +4,7 @@
     <div class="container-lg">
       <main class="py-8">
         <div v-if="cart.length === 0" class="row d-flex align-items-center justify-content-center">
-          <div class="col-6 d-flex align-items-center justify-content-center flex-column py-6 border border-text-light bg-bg">
+          <div class="col-md-6 col-10 d-flex align-items-center justify-content-center flex-column py-6 border border-text-light bg-bg">
             <h1 class="fs-2">購物車</h1>
             <img class="my-6 img-fluid" style="height: 150px;" src="../../assets/images/SignWarning.png" alt="SignWarning">
             <h2 class="fs-4">您的購物車中沒有商品</h2>
@@ -12,105 +12,94 @@
           </div>
         </div>
         <div v-else>
-          <ul class="list-unstyled d-md-flex justify-content-center">
+          <ul class="list-unstyled d-md-flex justify-content-center text-center">
             <li class="bg-white border border-boderlight py-3 px-7">確認商品</li>
+            <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
             <li class="border border-boderlight py-3 px-7">填寫資料</li>
+            <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
             <li class="border border-boderlight py-3 px-7">確認付款</li>
+            <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
             <li class="border border-boderlight py-3 px-7">完成付款</li>
           </ul>
-          <div class="text-end">
-            <button class="btn btn-outline-danger" type="button" @click="() => deleteAllCart()">
+          <div class="text-end mb-3">
+            <button class="btn btn-outline-danger rounded-0" type="button" @click="() => deleteAllCart()">
               清空購物車
             </button>
           </div>
-          <div class="table-responsive">
-            <table class="table align-middle table-bordered border-white text-center">
-              <thead>
-                <tr class="fs-5">
-                  <th class="bg-text-dark text-white">圖片</th>
-                  <th class="bg-text-dark text-white">品名</th>
-                  <th class="bg-text-dark text-white">單價</th>
-                  <th class="bg-text-dark text-white">數量</th>
-                  <th class="bg-text-dark text-white">小計</th>
-                  <th class="bg-text-dark text-white"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <template v-if="cart">
-                  <tr class="fs-4" v-for="item in cart" :key="item.id">
-                    <td>
-                      <img :src="item.product.imageUrl" class="table-image" alt="imageUrl">
-                    </td>
-                    <td>
+          <div class="text-center container-lg border border-white border-2 mb-3">
+            <ul class="bg-text-dark list-unstyled row mobile-cart mb-0">
+              <li class="fs-5 fw-bold text-white py-2 col-4 border-end border-white">圖片</li>
+              <li class="fs-5 fw-bold text-white py-2 col-2 border-end border-white">品名</li>
+              <li class="fs-5 fw-bold text-white py-2 col-2 border-end border-white">單價</li>
+              <li class="fs-5 fw-bold text-white py-2 col-1 border-end border-white">數量</li>
+              <li class="fs-5 fw-bold text-white py-2 col-2 border-end border-white">小計</li>
+              <li class="fs-5 fw-bold text-white py-2 col-1">刪除</li>
+            </ul>
+            <template v-if="cart">
+              <ul class="fs-4 list-unstyled row align-items-center border-bottom py-3 mb-0 border-white" v-for="item in cart" :key="item.id">
+                <li class="col-md-4 col-6">
+                  <img :src="item.product.imageUrl" class="table-image" alt="imageUrl">
+                </li>
+                <div class="col-md-8 col-6">
+                  <div class="row align-items-center">
+                    <li class="col-md-3 my-1">
                       {{ item.product.title }}
-                      <span class="text-success fs-6" v-if="item.coupon">已套用優惠券</span>
-                    </td>
-                    <td>NT$ {{ item.product.price }}</td>
-                    <td>
+                      <span class="text-success d-block fs-6" v-if="item.coupon">已套用優惠券</span>
+                    </li>
+                    <li class="col-md-3 my-1">NT$ {{ item.product.price }}</li>
+                    <li class="col-md my-1">
                       <div class="input-group input-group-sm">
                         <select name="" id="" class="form-control text-center" v-model="item.qty" @change="_$event =>updateCartItem(item)" v-bind:disabled="item.id === loadingItem">
                           <option :value="i" v-for="i in 20" :key="i + '1234'">{{ i }}</option>
                         </select>
                       </div>
-                    </td>
-                    <td class="fw-bold" v-if="this.total === this.final_total">
+                    </li>
+                    <li class="fw-bold col-md-3 my-1" v-if="this.total === this.final_total">
                       NT$ {{ item.total }}
-                    </td>
-                    <td class="fw-bold" v-if="this.total !== this.final_total">
+                    </li>
+                    <li class="fw-bold col-md-3 my-1" v-if="this.total !== this.final_total">
                       NT$ {{ item.final_total }} <span class="fs-6 text-decoration-line-through">{{ item.total }}</span>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-outline-danger btn-sm" @click="() => deleteCartItem(item)"
+                    </li>
+                    <li class="col-md my-1">
+                      <button type="button" class="btn btn-outline-text-dark btn-sm" @click="() => deleteCartItem(item)"
                       v-bind:disabled="item.id === loadingItem">
                         <i class="fas fa-spinner fa-pulse" v-if="loadingItem === item.id"></i>
                         x
                       </button>
-                    </td>
-                  </tr>
-                </template>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="3">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="請輸入優惠代碼" v-model="couponCode">
-                      <button type="btn" class="btn btn-outline-zongzi " @click="() => checkCoupon()">使用優惠券</button>
-                    </div>
-                  </td>
-                  <!-- <td colspan="1">
-                  </td> -->
-                  <td class="bg-text-dark text-white fw-bolder fs-4">總計</td>
-                  <td v-if="this.total === this.final_total" colspan="2" class="text-end fs-4 fw-bolder text-black bg-white">NT$ {{ total }}</td>
-                  <td v-if="this.total !== this.final_total" colspan="2" class="text-end fs-4 fw-bolder text-black bg-white">NT$ <span class="text-danger fs-3">{{ final_total }}</span> <span class="fs-5 text-decoration-line-through"> {{ total }}</span></td>
-                </tr>
-              </tfoot>
-            </table>
+                    </li>
+                  </div>
+                </div>
+              </ul>
+            </template>
+            <ul class="list-unstyled row">
+              <li class="col-lg-7"></li>
+              <li class="col-lg-5">
+                <div class="input-group">
+                  <input type="text" class="form-control rounded-0 py-2" placeholder="請輸入優惠代碼" v-model="couponCode">
+                  <button type="btn" class="btn btn-outline-zongzi rounded-0" @click="() => checkCoupon()">套用優惠碼</button>
+                </div>
+              </li>
+            </ul>
+            <ul class="list-unstyled row mb-0">
+              <li class="col-lg-8 py-2 mobile-cart"></li>
+              <li class="col-lg-2 col-6 py-2 bg-text-dark text-white fw-bolder fs-4">總計</li>
+              <li v-if="this.total === this.final_total" class="col-lg-2 py-2 col-6 text-end fs-4 fw-bolder text-black bg-white">NT$ {{ total }}</li>
+              <li v-if="this.total !== this.final_total" class="col-lg-2 py-2 col-6 text-end fs-4 fw-bolder text-black bg-white">NT$ <span class="text-danger fs-3">{{ final_total }}</span> <span class="fs-5 text-decoration-line-through"> {{ total }}</span></li>
+            </ul>
           </div>
-          <div class="d-md-flex justify-content-md-between align-items-md-center">
-            <router-link to="/products" class="text-decoration-none btn btn-outline-text-light"><i class="bi bi-arrow-left"></i>上一頁</router-link>
-            <router-link to="/checkout" class="text-decoration-none btn btn-outline-text-light">下一步<i class="bi bi-arrow-right"></i></router-link>
+          <div class="d-flex justify-content-between align-items-center">
+            <router-link to="/products" class="text-decoration-none btn btn-outline-text-light rounded-0"><i class="bi bi-arrow-left"></i>上一頁</router-link>
+            <router-link to="/checkout" class="text-decoration-none btn btn-outline-text-light rounded-0">下一步<i class="bi bi-arrow-right"></i></router-link>
           </div>
         </div>
       </main>
     </div>
   </section>
 </template>
-<style>
-  .table-image {
-    max-width: 200px;
-    max-height: 200px;
-    object-fit: cover;
-  }
-  .add-cart-text {
-    background-color: #FF700C;
-  }
-  .add-cart-text:hover {
-    background-color: #BD5309;
-  }
-</style>
+
 <script>
 import { mapActions, mapState } from 'pinia'
-import cartStore from '../../stores/cart'
+import cartStore from '@/stores/cart'
 import Swal from 'sweetalert2'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
@@ -118,7 +107,6 @@ export default {
     return {
       products: [],
       productId: '',
-      // cart: {},
       loadingItem: '',
       couponCode: '',
       form: {
@@ -148,7 +136,6 @@ export default {
         .then((res) => {
           this.getCarts()
           this.loadingItem = ''
-          // alert(res.data.message)
           Swal.fire({
             icon: 'success',
             title: '已更新數量',
@@ -181,13 +168,10 @@ export default {
               footer: '<a href="https://ufo060204.github.io/Zongzi-Shop-Webside/#/home/-NR8JzTIYKZ08sSYBdjQ">前往領取優惠碼'
             })
           }
-          // console.log(res)
-          // alert(res.data.message)
           this.getCarts()
-          // console.log(res)
         })
         .catch((err) => {
-          console.log(err.response.data.message)
+          alert(err.response.data.message)
         })
     },
     ...mapActions(cartStore, ['deleteCartItem']),
@@ -211,13 +195,6 @@ export default {
                 '購物車的商品已清空',
                 'success'
               )
-              // alert(res.data.message)
-              // Swal.fire({
-              //   icon: 'success',
-              //   title: '刪除全部品項成功',
-              //   showConfirmButton: false,
-              //   timer: 1500
-              // })
             })
             .catch((err) => {
               alert(err.data.message)
@@ -231,3 +208,17 @@ export default {
   }
 }
 </script>
+
+<style>
+  .table-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .add-cart-text {
+    background-color: #FF700C;
+  }
+  .add-cart-text:hover {
+    background-color: #BD5309;
+  }
+</style>

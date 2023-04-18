@@ -11,7 +11,8 @@ export default defineConfig({
       include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
     })
   ],
-  base: '/Zongzi-Shop-Webside/',
+  // base: '/Zongzi-Shop-Webside/',
+  base: process.env.NODE_ENV === 'production' ? '/Zongzi-Shop-Webside/' : '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

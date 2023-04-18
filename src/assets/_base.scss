@@ -12,3 +12,9 @@
 	background-position: left top;
 	background-attachment: fixed;
 }
+
+.shopping-process-icon {
+	@include pad {
+		transform: rotate(90deg)
+	}
+}

@@ -2,7 +2,7 @@
   <section class="landing-img landing-header"></section>
   <section class="bg-bg">
     <div class="container-lg">
-      <loading v-model:active="isLoading"
+      <Loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"
                 :is-full-page="fullPage"/>
@@ -10,19 +10,51 @@
         <h1 class="text-center fs-2 pb-6 fw-bold">產品一覽</h1>
         <div class="row">
           <div class="btn-group mb-4 mx-auto col-lg-6">
-            <button type="button" class="btn btn-outline-text-light" @click="() => getProducts()">全部</button>
-            <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '鹹粽')">鹹粽</button>
-            <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '甜粽')">甜粽</button>
-            <button type="button" class="btn btn-outline-text-light" @click="() => productFilter (category = '其他')">其他</button>
+            <button type="button" class="btn btn-outline-text-light" :class="{ active: isActive === '全部' }" @click="() => productFilter(category = '全部')">全部</button>
+            <button type="button" class="btn btn-outline-text-light" :class="{ active: isActive === '鹹粽' }" @click="() => productFilter (category = '鹹粽')">鹹粽</button>
+            <button type="button" class="btn btn-outline-text-light" :class="{ active: isActive === '甜粽' }" @click="() => productFilter (category = '甜粽')">甜粽</button>
+            <button type="button" class="btn btn-outline-text-light" :class="{ active: isActive === '其他' }" @click="() => productFilter (category = '其他')">其他</button>
           </div>
         </div>
-        <div data-aos="fade-up" data-aos-duration="3000" class="row row-cols-md-3">
+        <div data-aos="fade-up" data-aos-duration="3000" class="row row-cols-1 row-cols-md-3">
           <div
             v-for="(product) in products"
             :key="product.id"
-            class="col d-md-flex card-group"
+            class="col d-md-flex"
           >
-            <div class="border-0 card mb-6">
+            <router-link :to="`/product/${product.id}`" class="border-0 card mb-6 p-0">
+              <div
+                :style="{ 'background-image': `url(${product.imageUrl})` }"
+                class="product-img d-md-flex justify-content-md-center align-items-md-center text-decoration-none"
+              >
+                <div class="text-decoration-none product-text stretched-link">
+                  查看更多
+                </div>
+              </div>
+              <div class="bg-white p-6 card-body">
+                <div class="d-flex flex-column justify-content-between h-100">
+                  <div>
+                    <div class="mb-3">
+                      <h4 class="text-text-dark fw-500 text-center mb-3">
+                        {{ product.title }}
+                        <span style="margin-top: 10px;" class="d-block fs-5">$NT {{ product.price }} 元</span>
+                      </h4>
+                    </div>
+                    <p class="lh-lg text-text-dark">{{ product.content }}</p>
+                  </div>
+                  <div class="text-center">
+                    <button
+                      @click.prevent="() => addToCart(product.id)"
+                      type="button"
+                      class="btn btn-text-light cart-hover text-white w-100 d-block py-3 fs-5 fw-bold"
+                    >
+                      加入購物車
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </router-link>
+            <!-- <div class="border-0 card mb-6 p-0">
               <router-link :to="`/product/${product.id}`"
                 :style="{ 'background-image': `url(${product.imageUrl})` }"
                 class="product-img d-md-flex justify-content-md-center align-items-md-center text-decoration-none"
@@ -53,22 +85,83 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </main>
     </div>
   </section>
 </template>
+
+<script>
+import { mapActions } from 'pinia'
+import cartStore from '@/stores/cart'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+
+export default {
+  data () {
+    return {
+      products: [],
+      page: {},
+      isLoading: false,
+      color: '#FF700C',
+      fullPage: true,
+      isActive: '全部'
+    }
+  },
+  components: {
+    Loading
+  },
+  methods: {
+    getProducts () {
+      this.isLoading = true
+      this.$http
+        .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/all`)
+        .then((res) => {
+          this.products = res.data.products
+          this.isLoading = false
+        })
+        .catch((err) => {
+          alert(err.response.data.message)
+        })
+    },
+    productFilter (category) {
+      this.isLoading = true
+      this.isActive = category
+      if (category === '全部') {
+        this.getProducts()
+      } else {
+        this.$http
+          .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
+          .then((res) => {
+            this.products = res.data.products
+            this.isLoading = false
+          })
+          .catch((err) => {
+            alert(err.response.data.message)
+          })
+      }
+    },
+    ...mapActions(cartStore, ['addToCart'])
+  },
+  mounted () {
+    this.getProducts()
+  }
+}
+</script>
+
 <style>
 .product-img {
+  width: 100%;
   height: 320px;
   position: relative;
   background-color: #f0ede5;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 60px;
+  /* padding: 60px; */
 }
 .product-img::after {
   content: "";
@@ -97,62 +190,4 @@
   opacity: 1;
   color: #fff;
 }
-
 </style>
-
-<script>
-import { mapActions } from 'pinia'
-import { RouterLink } from 'vue-router'
-import cartStore from '../../stores/cart'
-import Loading from 'vue-loading-overlay'
-import 'vue-loading-overlay/dist/css/index.css'
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
-
-export default {
-  data () {
-    return {
-      products: [],
-      page: {},
-      isLoading: false,
-      color: '#FF700C',
-      fullPage: true,
-      isActive: '全部'
-    }
-  },
-  components: {
-    RouterLink,
-    Loading
-  },
-  methods: {
-    getProducts () {
-      this.isLoading = true
-      this.$http
-        .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/all`)
-        .then((res) => {
-          this.products = res.data.products
-          this.isLoading = false
-          // console.log('產品列表', this.products)
-        })
-        .catch((err) => {
-          alert(err.response.data.message)
-        })
-    },
-    productFilter (category) {
-      this.isLoading = true
-      this.$http
-        .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
-        .then((res) => {
-          this.products = res.data.products
-          this.isLoading = false
-        })
-        .catch((err) => {
-          alert(err.response.data.message)
-        })
-    },
-    ...mapActions(cartStore, ['addToCart'])
-  },
-  mounted () {
-    this.getProducts()
-  }
-}
-</script>

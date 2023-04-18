@@ -2,7 +2,7 @@
     <section class="landing-img landing-header"></section>
     <section class="bg-bg">
       <div class="container-lg">
-        <loading v-model:active="isLoading"
+        <Loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"/>
         <main class="pb-7">
@@ -52,8 +52,6 @@
                         <h5 class="py-3 mb-0 border-boderlight border-bottom">台灣在地生產</h5>
                         <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">NT$ {{ product.price }}  <span class="text-decoration-line-through fs-6">{{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
                         <button type="button" style="width: 90%;" class="btn btn-primary add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id, qty)">加入購物車</button>
-                        <!-- <div class="">
-                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -86,65 +84,18 @@
         <main class="py-8 text-center">
           <h4 class="text-text-dark mb-7">還想來點...你怎能錯過！</h4>
           <hr>
-          <SwiperView :categoryProducts='categoryProducts'></SwiperView>
+          <SwiperView :categoryProducts='categoryProducts'/>
         </main>
       </div>
     </section>
 </template>
 
-<style>
-  @media (max-width: 768px) {
-      .one-product-img {
-        height: auto !important;
-      }
-    }
-  .one-product-img {
-    object-fit: cover;
-    height: 100%;
-  }
-  .product-category-img {
-  height: 320px;
-  position: relative;
-  background-color: #f0ede5;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-.product-category-img::after {
-  content: "";
-  background-color: #00000080;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-.product-category-img:hover:after {
-  opacity: 1;
-}
-.product-text {
-  padding: 16px 48px;
-  font-size: 20px;
-  color: #fff;
-  font-weight: 700;
-  border: 1px solid #fff;
-  opacity: 0;
-  z-index: 10;
-}
-.product-text:hover {
-  opacity: 1;
-  color: #fff;
-}
-</style>
-
 <script>
 import { mapActions } from 'pinia'
-import cartStore from '../../stores/cart'
+import cartStore from '@/stores/cart'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
-import SwiperView from '../../components/SwiperView.vue'
+import SwiperView from '@/components/SwiperView.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
   data () {
@@ -183,14 +134,10 @@ export default {
     getCategoryProducts () {
       this.isLoading = true
       const { category } = this.product
-      // console.log(category)
       this.$http
         .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
         .then(res => {
           this.categoryProducts = res.data.products
-          // console.log('相似類別', res.data)
-          // this.product = res.data.product
-          // this.isLoading = false
         })
         .catch((err) => {
           alert(err.message)
@@ -223,3 +170,51 @@ export default {
   }
 }
 </script>
+
+<style>
+  @media (max-width: 768px) {
+      .one-product-img {
+        height: auto !important;
+      }
+    }
+  .one-product-img {
+    object-fit: cover;
+    height: 100%;
+  }
+  .product-category-img {
+  /* height: 320px; */
+  height: 250px;
+  position: relative;
+  background-color: #f0ede5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.product-category-img::after {
+  content: "";
+  background-color: #00000080;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.product-category-img:hover:after {
+  opacity: 1;
+}
+.product-text {
+  padding: 16px 48px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  border: 1px solid #fff;
+  opacity: 0;
+  z-index: 10;
+}
+.product-text:hover {
+  opacity: 1;
+  color: #fff;
+}
+</style>

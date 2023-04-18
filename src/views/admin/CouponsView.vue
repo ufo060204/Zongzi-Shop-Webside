@@ -167,11 +167,10 @@ export default {
         .then((res) => {
           this.coupons = res.data.coupons
           this.isLoading = false
-          console.log(res.data)
         })
         .catch((err) => {
           this.isLoading = false
-          console.log(err.response)
+          alert(err.response)
         })
     },
     openCouponModal (isNew, item) {
@@ -203,12 +202,11 @@ export default {
           this.isLoading = false
           this.getCoupon()
           this.couponModal.hide()
-          console.log(res)
           alert(res.data.data.message)
         })
         .catch((err) => {
           this.isLoading = false
-          console.log(err.response)
+          alert(err.response)
         })
     },
     dateFilter (time) {
@@ -223,12 +221,11 @@ export default {
           this.isLoading = false
           this.getCoupon()
           this.delCouponModal.hide()
-          console.log(res.data)
           alert(res.data.data.message)
         })
         .catch((err) => {
           this.isLoading = false
-          console.log(err.response)
+          alert(err.response)
         })
     }
 
@@ -236,9 +233,7 @@ export default {
   mounted () {
     this.getCoupon()
     this.couponModal = new Modal(this.$refs.couponModal)
-    // this.couponModal.show()
     this.delCouponModal = new Modal(this.$refs.delCouponModal)
-    // this.delCouponModal.show()
   }
 }
 </script>

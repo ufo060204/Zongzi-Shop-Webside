@@ -5,56 +5,58 @@
       <main v-if="this.order.user" class="py-8 text-center">
         <ul class="list-unstyled d-md-flex justify-content-center">
           <li class="border border-boderlight py-3 px-7">確認商品</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">填寫資料</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="bg-white border border-boderlight py-3 px-7">確認付款</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">完成付款</li>
         </ul>
         <div class="row justify-content-lg-center">
           <div class="col-lg-6">
-            <table class="table align-middle text-text-dark table-light border-bottom border-borderlight fs-4">
-              <thead>
-                <tr>
-                  <th class="p-3">姓名</th>
-                  <td class="p-3">{{ this.order.user.name }}</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th class="p-3">Email</th>
-                  <td class="p-3">{{ this.order.user.email }}</td>
-                </tr>
-                <tr>
-                  <th class="p-3">電話</th>
-                  <td class="p-3">{{ this.order.user.tel}}</td>
-                </tr>
-                <tr>
-                  <th class="p-3">地址</th>
-                  <td class="p-3">{{ this.order.user.address }}</td>
-                </tr>
-                <tr>
-                  <th class="p-3">訂購產品</th>
-                  <td class="p-3">
-                    <ul class="list-unstyled">
-                      <li v-for="product in this.order.products" :key="product.id">
-                        {{ product.product.title }} X {{ product.qty }}
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="p-3">付款金額</th>
-                  <td class="p-3">$NT {{ this.order.total}}</td>
-                </tr>
-                <tr>
-                  <th class="p-3">付款狀態</th>
-                  <td class="p-3" v-if="!this.order.is_paid">未付款</td>
-                  <td class="p-3" v-else>已付款</td>
-                </tr>
-              </tbody>
+            <table style="box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);" class=" table text-text-dark bg-white fs-5">
+              <tr class="bg-boderlight">
+                <th class="py-3 fs-4">訂單資訊</th>
+              </tr>
+              <tr style="margin: 0 -6px;" class="row border-bottom py-3">
+                <th class="col-md-5">姓名</th>
+                <td class="col-md-7">{{ this.order.user.name }}</td>
+              </tr>
+              <tr class="row border-bottom py-3 m-0 align-items-center">
+                <th class="col-md-5">Email</th>
+                <td style="word-wrap:break-word;" class="col-md-7">{{ this.order.user.email }}</td>
+              </tr>
+              <tr class="row border-bottom py-3 m-0 align-items-center">
+                <th class="col-md-5">電話</th>
+                <td class="col-md-7">{{ this.order.user.tel}}</td>
+              </tr>
+              <tr class="row border-bottom py-3 m-0 align-items-center">
+                <th class="col-md-5">地址</th>
+                <td style="word-wrap:break-word;" class="col-md-7">{{ this.order.user.address }}</td>
+              </tr>
+              <tr class="row border-bottom py-3 m-0 align-items-center">
+                <th class="col-md-5">訂購產品</th>
+                <td class="col-md-7">
+                  <ul class="list-unstyled bg-white mb-0">
+                    <li v-for="product in this.order.products" :key="product.id">
+                      {{ product.product.title }} X {{ product.qty }}
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr class="row border-bottom py-3 m-0">
+                <th class="col-md-5">付款金額</th>
+                <td class="col-md-7">$NT {{ this.order.total}}</td>
+              </tr>
+              <tr class="row border-bottom py-3 m-0">
+                <th class="col-md-5">付款狀態</th>
+                <td class="col-md-7" v-if="!this.order.is_paid">未付款</td>
+                <td class="col-md-7" v-else>已付款</td>
+              </tr>
             </table>
           </div>
         </div>
-        <button @click="() => pay()" type="button" class="btn btn-outline-primary">確認付款</button>
+        <button @click="() => pay()" type="button" class="btn btn-outline-primary btn-lg rounded-0">確認付款</button>
       </main>
     </div>
   </section>
@@ -77,12 +79,10 @@ export default {
       this.$http
         .get(api)
         .then((res) => {
-          // console.log(res)
           this.order = res.data.order
-          // console.log('訂單列表', this.order)
         })
         .catch((err) => {
-          console.log(err)
+          alert(err.message)
         })
     },
     pay () {
@@ -100,7 +100,6 @@ export default {
           this.$http
             .post(api)
             .then((res) => {
-              // console.log(res)
               this.cart = []
               Swal.fire(
                 '付款完成',
@@ -114,8 +113,6 @@ export default {
     }
   },
   mounted () {
-    // this.orderId = this.$route.params.id
-    // console.log(this.$route.params)
     this.getOrder()
   }
 }

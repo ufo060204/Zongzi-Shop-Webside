@@ -7,16 +7,15 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Home',
+        name: 'home',
         component: () => import('../views/front/HomeView.vue')
       },
       {
-        path: 'Home/:id',
+        path: 'home/:id',
         component: () => import('../views/front/ArticleView.vue')
       },
       {
         path: 'about',
-        name: 'About',
         component: () => import('../views/front/AboutView.vue')
       },
       {
@@ -76,13 +75,6 @@ const routes = [
     path: '/:pathMatch(.*)*',
     component: () => import('../views/NotFound.vue')
   }
-  // 重新導向
-  // {
-  //   path: '/newPage/:pathMatch(.*)*',
-  //   redirect: {
-  //     name: 'Home'
-  //   }
-  // }
 ]
 
 const router = createRouter({

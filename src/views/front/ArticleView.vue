@@ -15,8 +15,6 @@
               </ol>
             </nav>
           </div>
-          <!-- <div class="card border-0 mb-3">
-          </div> -->
           <div class="row g-0 justify-content-center">
             <div class="col-lg-9">
               <img style="height: 100%;" :src="article.imageUrl" class="text-center img-fluid rounded-start" alt="imageUrl">
@@ -37,12 +35,6 @@
       </div>
     </section>
 </template>
-
-<style>
-  .product-img {
-    object-fit: cover;
-  }
-</style>
 
 <script>
 import Loading from 'vue-loading-overlay'
@@ -81,3 +73,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .product-img {
+    object-fit: cover;
+  }
+</style>

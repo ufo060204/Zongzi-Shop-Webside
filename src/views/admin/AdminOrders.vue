@@ -212,7 +212,7 @@
       </div>
     </div>
     <!-- delOrderModal end -->
-    <BackPagination :pages="page" @emitPages="getOrder"></BackPagination>
+    <BackPagination :pages="page" @emitPages="getOrder"/>
   </div>
 </template>
 <script>
@@ -245,7 +245,6 @@ export default {
         .then((res) => {
           this.orders = res.data.orders
           this.page = res.data.pagination
-          console.log(this.orders)
           this.isLoading = false
         })
         .catch((err) => {
@@ -257,7 +256,6 @@ export default {
       this.orderModal.show()
       this.isNew = false
       this.tempOrder = { ...item }
-      // const orderComponent = this.$refs.orderModal
     },
     openDelModal (item) {
       this.delOrderModal.show()
@@ -272,14 +270,13 @@ export default {
       this.$http.put(api, { data: paid })
         .then((res) => {
           this.isLoading = false
-          console.log(res.data.message)
           alert(res.data.message)
           this.getOrder()
           this.orderModal.hide()
         })
         .catch((err) => {
           this.isLoading = false
-          console.log(err.response)
+          alert(err.response)
         })
     },
     delOrder () {
@@ -288,13 +285,12 @@ export default {
       this.$http.delete(api)
         .then((res) => {
           this.isLoading = false
-          console.log(res.data.message)
           alert(res.data.message)
           this.getOrder(this.page)
           this.delOrderModal.hide()
         })
         .catch((err) => {
-          console.log(err.response)
+          alert(err.response)
         })
     },
     dateFilter (time) {
@@ -305,9 +301,7 @@ export default {
   mounted () {
     this.getOrder()
     this.orderModal = new Modal(this.$refs.orderModal)
-    // this.orderModal.show()
     this.delOrderModal = new Modal(this.$refs.delOrderModal)
-    // this.delOrderModal.show()
   }
 }
 </script>

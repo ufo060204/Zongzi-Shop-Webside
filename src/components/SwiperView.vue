@@ -1,8 +1,9 @@
 <template>
   <div>
     <swiper
-      :slidesPerView="1"
       :spaceBetween="30"
+      :slidesPerView="slidesPerView"
+      :direction="direction"
       :freeMode="true"
       :pagination="{
         clickable: true,
@@ -10,11 +11,13 @@
       :modules="modules"
       :breakpoints=" {
         768: {
-            slidesPerView: 2
+            slidesPerView: 4,
+            direction: 'horizontal',
         },
-        992: {
-            slidesPerView: 4
-        }
+        // 992: {
+        //     slidesPerView: 4,
+        //     direction: 'horizontal',
+        // }
     }"
       class="mySwiper"
     >
@@ -26,7 +29,7 @@
           <div class="border-0 card mb-6">
             <router-link :to="`/product/${category.id}`"
               :style="{ 'background-image': `url(${category.imageUrl})` }"
-              class="text-decoration-none product-category-img d-md-flex justify-content-md-center align-items-md-center"
+              class="text-decoration-none product-category-img d-flex justify-content-center align-items-center"
             >
               <div class="text-decoration-none product-text stretched-link">
                 查看更多
@@ -70,7 +73,9 @@ export default {
   props: ['categoryProducts'],
   data () {
     return {
-      modules: [FreeMode, Pagination]
+      modules: [FreeMode, Pagination],
+      direction: 'vertical',
+      slidesPerView: 3
     }
   },
   components: {
@@ -79,36 +84,39 @@ export default {
   }
 }
 </script>
-<style scoped>
-#app {
-  height: 100%;
-}
-html,
-body {
-  position: relative;
-  height: 100%;
-}
+<style scoped lang="scss">
+// #app {
+//   height: 100%;
+// }
+// html,
+// body {
+//   position: relative;
+//   height: 100%;
+// }
 
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-}
+// body {
+//   background: #eee;
+//   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//   font-size: 14px;
+//   color: #000;
+//   margin: 0;
+//   padding: 0;
+// }
 
 .swiper {
   width: 100%;
-  height: 100%;
+  max-height: 1200px;
+  // height: 1000px;
 }
 
 .swiper-slide {
+  // width: 100%;
+  // height: 100%;
   text-align: center;
-  font-size: 18px;
-  background: #fff;
+  // font-size: 18px;
+  // background: #fff;
 
-  /* Center slide text vertically */
+  // Center slide text vertically
   display: flex;
   justify-content: center;
   align-items: center;

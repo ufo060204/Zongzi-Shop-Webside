@@ -22,8 +22,8 @@
         <tr v-for="product in products" :key="product.id">
           <td>{{ product.category }}</td>
           <td>{{ product.title }}</td>
-          <td class="text-end">{{ product.origin_price }}</td>
-          <td class="text-end">{{ product.price }}</td>
+          <td>{{ product.origin_price }}</td>
+          <td>{{ product.price }}</td>
           <td>
             <span class="text-success" v-if="product.is_enabled">啟用</span>
             <span v-else>未啟用</span>
@@ -45,7 +45,7 @@
         </tr>
       </tbody>
     </table>
-    <BackPagination v-if="page" :pages="page" @emitPages="getProducts"></BackPagination>
+    <BackPagination v-if="page" :pages="page" @emitPages="getProducts"/>
   </div>
   <!-- productModal start -->
   <div
@@ -324,8 +324,6 @@ export default {
           this.products = res.data.products
           this.page = res.data.pagination
           this.isLoading = false
-          // console.log(this.products)
-          // console.log(this.page)
         })
         .catch((err) => {
           alert(err.data.message)
@@ -352,7 +350,6 @@ export default {
       }
     },
     updateProduct () {
-      // const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product`;
       let url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product`
       // 用 this.isNew 判斷 API 要怎麼運行
       let method = 'post'
@@ -400,8 +397,6 @@ export default {
     this.getProducts()
     this.productModal = new Modal(this.$refs.productModal)
     this.delProductModal = new Modal(this.$refs.delProductModal)
-    // this.delProductModal.show()
-    // this.productModal.show()
   }
 }
 </script>

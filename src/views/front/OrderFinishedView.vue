@@ -5,8 +5,11 @@
       <main class="py-8 text-center">
         <ul class="list-unstyled d-md-flex justify-content-center">
           <li class="border border-boderlight py-3 px-7">確認商品</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">填寫資料</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">確認付款</li>
+          <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="bg-white border border-boderlight py-3 px-7">完成付款</li>
         </ul>
         <div class="row d-flex align-items-center justify-content-center">
@@ -21,5 +24,3 @@
     </div>
   </section>
 </template>
-<style>
-</style>

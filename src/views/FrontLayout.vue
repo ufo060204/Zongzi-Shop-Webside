@@ -37,7 +37,7 @@
       </div>
     </div>
   </header>
-  <RouterView></RouterView>
+  <RouterView/>
   <footer style="background-color: #241000;">
     <div class="container-md">
       <div class="d-md-flex justify-content-md-between py-7">
@@ -46,7 +46,7 @@
             <router-link to="/" class="d-block mb-10" style="width: 299px;height: 48px;background-image:url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679126542123.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ErtmdGsStSzMTGeJbXm5FK%2F1qtn4%2BSJ98A%2B9YgyHA0l2egaQ1vJuJxiC2kyVOnxEUyf641bSK7CtTv7ebmGHNdEmeyfG18%2B%2B%2FbQHzW1WjZdx%2Ft4VYXt40P4KvVxI2D7HdboWyzHCAM%2BoilHaEWRUhAj0QSEqbkAfEnSH9W45agK%2B4M6qwxvUI1fnn29zvV6LfWsfFfE8kCek5tUhLPbNe7%2BpPCS4K0Ra1n9nKGyil8PUAiyASht1k5CgU2SkIF%2F3htwDnqVg6Bj%2BDCH45L61zAJByiuwn4WZpo0EyTskxe1w9jXGBeTmk8xhFt3IssQboiFAcNLPkxcqOSYEJKPJhw%3D%3D'); background-repeat: no-repeat; background-size: cover;"></router-link>
           </h2>
           <div class="d-md-flex align-items-md-center footer-admin">
-            <router-link to="/admin/products" style="background-color: #FFFFFF33;font-size: 12px;" class="text-decoration-none text-white p-2 me-2 fw-bold">後台管理</router-link>
+            <router-link to="/login" style="background-color: #FFFFFF33;font-size: 12px;" class="footer-link p-2 me-2 fw-bold">後台管理</router-link>
             <p style="color: #FFFFFF80;font-size: 14px;" class="m-0">此專題僅供作品展示，非商業用途使用</p>
           </div>
         </div>
@@ -55,16 +55,20 @@
             <h5 class="mb-0 fw-bold text-primary">店鋪地址</h5>
             <p class="mb-0 text-white fs-5">358 苗栗縣苑裡鎮天下路87號</p>
             <h5 class="mb-0 fw-bold text-primary">聯絡電話</h5>
-            <p class="m-0 text-white fs-5">0988-789456</p>
+            <p class="m-0">
+              <a class="footer-link fs-5" href="tel:0988-789456">0988-789456</a>
+            </p>
           </div>
           <div class="ps-6 d-md-flex flex-md-column justify-content-md-between" style="border-left: 1px solid #FFFFFF80;">
             <h5 class="mb-0 fw-bold text-primary">電子信箱</h5>
-            <p class="mb-0 text-white fs-5">zongzi0624@gmail.com</p>
+            <p class="mb-0">
+              <a class="footer-link fs-5" href="mailto:zongzi0624@gmail.com">zongzi0624@gmail.com</a>
+            </p>
             <h5 class="mb-0 fw-bold text-primary">社群平台</h5>
             <ul style="max-width: 128px;" class="mb-0 d-flex justify-content-between list-unstyled">
-              <li><a style="font-size: 23px;" class="text-white d-block" href=""><font-awesome-icon icon="fa-brands fa-facebook" /></a></li>
-              <li><a style="font-size: 23px;" class="text-white" href=""><font-awesome-icon icon="fa-brands fa-instagram" /></a></li>
-              <li><a style="font-size: 23px;" class="text-white" href=""><font-awesome-icon icon="fa-brands fa-twitter" /></a></li>
+              <li><a style="font-size: 23px;" class="footer-link d-block" target="_blank" href="https://www.facebook.com/"><font-awesome-icon icon="fa-brands fa-facebook" /></a></li>
+              <li><a style="font-size: 23px;" class="footer-link" target="_blank" href="https://www.instagram.com/"><font-awesome-icon icon="fa-brands fa-instagram" /></a></li>
+              <li><a style="font-size: 23px;" class="footer-link" target="_blank" href="https://twitter.com/"><font-awesome-icon icon="fa-brands fa-twitter" /></a></li>
             </ul>
           </div>
         </div>
@@ -72,31 +76,6 @@
     </div>
   </footer>
 </template>
-
-<style>
-  .scroll-header-bg {
-    background-color: #FFFFFF;
-    filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.08));
-  }
-  .nav-text-white {
-    color: #FFFFFF;
-  }
-  .nav-text-white:hover {
-    color: #FF700C;
-  }
-  .nav-text-dark {
-    color: #3D2F24;
-  }
-  .nav-link:hover {
-  color: #FF700C;
-  }
-  .header-logo-img {
-    background-image: url(../../src/assets/images/logo-header-default.png);
-  }
-  .transition {
-    transition: all 0.5s ease;
-  }
-</style>
 
 <script>
 import { mapActions, mapState } from 'pinia'
@@ -161,5 +140,36 @@ export default {
     this.collapseHide()
   }
 }
-
 </script>
+
+<style>
+  .scroll-header-bg {
+    background-color: #FFFFFF;
+    filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.08));
+  }
+  .nav-text-white {
+    color: #FFFFFF;
+  }
+  .nav-text-white:hover {
+    color: #FF700C;
+  }
+  .nav-text-dark {
+    color: #3D2F24;
+  }
+  .nav-link:hover {
+  color: #FF700C;
+  }
+  .header-logo-img {
+    background-image: url(../../src/assets/images/logo-header-default.png);
+  }
+  .transition {
+    transition: all 0.5s ease;
+  }
+  .footer-link {
+    color: #FFFFFF;
+  }
+  .footer-link:hover {
+    color: #FFFFFF;
+    opacity: 0.8;
+  }
+</style>

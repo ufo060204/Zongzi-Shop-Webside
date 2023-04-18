@@ -247,13 +247,11 @@
     </div>
   </div>
   <!-- delArticleModal end-->
-  <!-- <BackPagination :pages="page" @emitPages="getOrder"></BackPagination> -->
 </template>
 
 <script>
 import Modal from 'bootstrap/js/dist/modal'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
-// import BackPagination from '../../components/BackPagination.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
@@ -291,12 +289,11 @@ export default {
           if (res.data.success) {
             this.articles = res.data.articles
             this.pagination = res.data.pagination
-            console.log(res.data)
           }
         })
         .catch((err) => {
           this.isLoading = false
-          console.log('error', err.response, err.request, err.message)
+          alert('error', err.response, err.request, err.message)
         })
     },
     getArticle (id) {
@@ -306,17 +303,15 @@ export default {
         .get(api)
         .then((res) => {
           this.isLoading = false
-          // console.log(res.data.article)
           if (res.data.success) {
             this.tempArticle = res.data.article
-            console.log(this.tempArticle)
             this.openArticleModal(false, res.data.article)
             this.isNew = false
           }
         })
         .catch((err) => {
           this.isLoading = false
-          console.log(err.response)
+          alert(err.response)
         })
     },
     updateArticle (item) {
@@ -330,7 +325,6 @@ export default {
         method = 'put'
         status = '更新貼文'
       }
-      // this.articleModal.show()
       console.log(this.tempArticle)
       this.$http[method](api, { data: this.tempArticle })
         .then((res) => {
@@ -375,12 +369,11 @@ export default {
         })
         .catch((err) => {
           this.isLoading = false
-          console.log(err.response)
+          alert(err.response)
         })
     }
   },
   components: {
-    // BackPagination
   },
   mounted () {
     this.getArticles()
