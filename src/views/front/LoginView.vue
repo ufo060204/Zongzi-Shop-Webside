@@ -5,8 +5,8 @@
     <main>
       <div class="container">
         <div style="height: 100vh;" class="row justify-content-center align-items-center">
-          <div class="col-md-4">
-            <h1 class="text-center fs-4">後台管理</h1>
+          <div style="box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);" class="col-md-4 border border-boderlight py-9">
+            <h1 class="text-center fs-4 mb-5">後台管理</h1>
             <form id="form" class="form-signin">
               <div class="form-floating mb-3">
                 <input

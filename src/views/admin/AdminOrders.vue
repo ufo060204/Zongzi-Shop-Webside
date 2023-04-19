@@ -1,7 +1,7 @@
 <template>
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
-  <div class="container">
-    <table class="table mt-4">
+  <div class="container-lg">
+    <table class="table mt-4 table-responsive">
       <thead>
         <tr>
           <th width="120">時間</th>

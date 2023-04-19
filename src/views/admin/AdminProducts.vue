@@ -1,6 +1,6 @@
 <template>
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
-  <div class="container">
+  <div class="container-lg">
     <div class="text-end mt-4">
       <button class="btn btn-primary" @click="() => openModal('create')">
         建立新的產品

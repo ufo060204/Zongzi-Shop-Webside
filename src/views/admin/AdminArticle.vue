@@ -1,13 +1,12 @@
 <template>
-  後台文章列表
   <VueLoading :active="isLoading" :color="color" :z-index="9999" />
-  <div class="container">
+  <div class="container-lg">
     <div class="text-end mt-4">
       <button class="btn btn-primary" @click="() => openArticleModal(true)">
         建立新的文章
       </button>
     </div>
-    <table class="table mt-4">
+    <table class="table mt-4 table-responsive">
       <thead>
         <tr>
           <th width="120">標題</th>
@@ -50,8 +49,8 @@
         </tr>
       </tbody>
     </table>
+    <BackPagination :pages="page" @emitPages="getArticles"/>
   </div>
-  <BackPagination :pages="page" @emitPages="getArticles"/>
   <!-- articleModal start -->
   <div
     id="articleModal"
