@@ -56,14 +56,14 @@
     >
       <div class="container-lg">
         <div class="row row-cols-lg-2 row-cols-1 mb-8 align-items-md-center intro-row">
-          <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
+          <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col">
             <img
               src="../../assets/images/img1.png"
               alt="img1"
               class="img-fluid intro-img"
             />
           </div>
-          <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
+          <div data-aos="zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
             <div
               style="padding: 48px 72px;"
               class="w-100 d-md-flex intro-text-straight">
@@ -150,7 +150,7 @@
           </div>
         </div>
         <div class="row row-cols-lg-2 row-cols-1 align-items-md-center flex-column-reverse flex-lg-row">
-          <div data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
+          <div data-aos="zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
             <div style="padding: 48px 72px;" class="w-100 d-md-flex intro-text-straight">
               <div class="w-100 d-md-flex justify-content-md-between ">
                 <h3 class="m-0 fw-bold text-text-dark pe-6">
@@ -233,7 +233,7 @@
               </div>
             </div>
           </div>
-          <div data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
+          <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col">
             <img
               src="../../assets/images/img2.png"
               alt="img1"
@@ -390,7 +390,7 @@
         <h2 class="mb-10 text-center fw-bold news-title">最新消息</h2>
         <div class="row">
           <div data-aos="zoom-in" data-aos-duration="2000" class="col-lg-6">
-            <div class="d-lg-flex border-0 m-0">
+            <div class="d-lg-flex border-0 m-0 h-100">
               <img
                 style="max-width: 270px; object-fit: cover"
                 class="d-block news-img"
@@ -422,35 +422,33 @@
             </div>
           </div>
           <div data-aos="zoom-in" data-aos-duration="2000" class="col-lg-6">
-            <div data-aos="zoom-in" data-aos-duration="2000" class="col">
-              <div class="d-lg-flex border-0 m-0">
-                <img
-                  style="max-width: 270px; object-fit: cover"
-                  class="d-block news-img"
-                  src="../../assets/images/img4.png"
-                  alt="img3"/>
-                <div class="p-4">
-                  <h4 class="mb-3 text-text-dark fw-bold">
-                    感謝美食節目、新聞媒體報導
-                  </h4>
-                  <p style="color: #594a3e" class="mb-3 fs-5">
-                    飄香 40 年台灣在地傳統美食 - 吉祥粽香藏館
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <img
-                      src="../../assets/images/polygon-small.svg"
-                      alt="polygon-small"
-                    />
-                    <img
-                      class="img-fluid"
-                      src="../../assets/images/Rectangle-m.png"
-                      alt="Rectangle-m"
-                    />
-                    <router-link to="/home/-NR8M15bmBcBIIfsBqid" class="text-decoration-none fw-bold fs-5 stretched-link"
-                      href="#">
-                      查看更多
-                    </router-link>
-                  </div>
+            <div class="d-lg-flex border-0 m-0 h-100">
+              <img
+                style="max-width: 270px; object-fit: cover"
+                class="d-block news-img"
+                src="../../assets/images/img4.png"
+                alt="img3"/>
+              <div class="p-4">
+                <h4 class="mb-3 text-text-dark fw-bold">
+                  感謝美食節目、新聞媒體報導
+                </h4>
+                <p style="color: #594a3e" class="mb-3 fs-5">
+                  飄香 40 年台灣在地傳統美食 - 吉祥粽香藏館
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <img
+                    src="../../assets/images/polygon-small.svg"
+                    alt="polygon-small"
+                  />
+                  <img
+                    class="img-fluid"
+                    src="../../assets/images/Rectangle-m.png"
+                    alt="Rectangle-m"
+                  />
+                  <router-link to="/home/-NR8M15bmBcBIIfsBqid" class="text-decoration-none fw-bold fs-5 stretched-link"
+                    href="#">
+                    查看更多
+                  </router-link>
                 </div>
               </div>
             </div>
