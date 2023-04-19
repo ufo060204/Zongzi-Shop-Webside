@@ -149,15 +149,8 @@
             </div>
           </div>
         </div>
-        <div class="row row-cols-lg-2 row-cols-1 align-items-md-center">
-          <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
-            <img
-              src="../../assets/images/img2.png"
-              alt="img1"
-              class="img-fluid intro-img"
-            />
-          </div>
-          <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
+        <div class="row row-cols-lg-2 row-cols-1 align-items-md-center flex-column-reverse flex-lg-row">
+          <div data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
             <div style="padding: 48px 72px;" class="w-100 d-md-flex intro-text-straight">
               <div class="w-100 d-md-flex justify-content-md-between ">
                 <h3 class="m-0 fw-bold text-text-dark pe-6">
@@ -215,7 +208,7 @@
                     提供多種口味的粽子供消費者做選擇 從傳統的肉粽到創新的水果粽都有，無添加防腐劑，顧客能夠安心享用到新鮮美味的粽子。
                   </h5>
                 </div>
-                <div class="">
+                <div>
                   <h5 class="m-0 position-relative">
                     <router-link
                       to="/products"
@@ -239,6 +232,13 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
+            <img
+              src="../../assets/images/img2.png"
+              alt="img1"
+              class="img-fluid intro-img"
+            />
           </div>
         </div>
       </div>

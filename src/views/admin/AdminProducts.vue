@@ -1,5 +1,4 @@
 <template>
-  後台產品列表
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <div class="container">
     <div class="text-end mt-4">
@@ -57,7 +56,7 @@
     aria-hidden="true"
   >
     <div class="modal-dialog modal-xl">
-      <div class="modal-content border-0">
+      <form @submit.prevent="updateProduct" class="modal-content border-0">
         <div class="modal-header bg-dark text-white">
           <h5 id="productModalLabel" class="modal-title">
             <span>{{ isNew ? '新增產品' : '編輯產品' }}</span>
@@ -149,6 +148,7 @@
                   class="form-control"
                   placeholder="請輸入標題"
                   v-model="tempProduct.title"
+                  required
                 />
               </div>
 
@@ -161,6 +161,7 @@
                     class="form-control"
                     placeholder="請輸入分類"
                     v-model="tempProduct.category"
+                    required
                   />
                 </div>
                 <div class="mb-3 col-md-6">
@@ -171,6 +172,7 @@
                     class="form-control"
                     placeholder="請輸入單位"
                     v-model="tempProduct.unit"
+                    required
                   />
                 </div>
               </div>
@@ -186,6 +188,7 @@
                     class="form-control"
                     placeholder="請輸入原價"
                     v-model.number="tempProduct.origin_price"
+                    required
                   />
                 </div>
                 <div class="mb-3 col-md-6">
@@ -198,6 +201,7 @@
                     class="form-control"
                     placeholder="請輸入售價"
                     v-model.number="tempProduct.price"
+                    required
                   />
                 </div>
               </div>
@@ -252,14 +256,13 @@
             取消
           </button>
           <button
-            type="button"
+            type="submit"
             class="btn btn-primary"
-            @click="updateProduct"
           >
             確認
           </button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
   <!-- productModal end -->
@@ -277,7 +280,7 @@
         </div>
         <div class="modal-body">
           是否刪除
-          <strong class="text-danger"></strong> 商品(刪除後將無法恢復)。
+          <strong class="text-danger"></strong> {{ tempProduct.title }}(刪除後將無法恢復)。
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -295,7 +298,8 @@
 
 <script>
 import Modal from 'bootstrap/js/dist/modal'
-import BackPagination from '../../components/BackPagination.vue'
+import Swal from 'sweetalert2'
+import BackPagination from '@/components/BackPagination.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
@@ -326,7 +330,7 @@ export default {
           this.isLoading = false
         })
         .catch((err) => {
-          alert(err.data.message)
+          Swal.fire(err.data.message)
         })
     },
     openModal (status, product) {
@@ -350,6 +354,7 @@ export default {
       }
     },
     updateProduct () {
+      this.isLoading = true
       let url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product`
       // 用 this.isNew 判斷 API 要怎麼運行
       let method = 'post'
@@ -357,19 +362,21 @@ export default {
         url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product/${this.tempProduct.id}`
         method = 'put'
       }
-
       // 資料在 data 裡面
       // 用變數 method 來帶入 post
       this.$http[method](url, { data: this.tempProduct })
         .then((res) => {
-          alert(res.data.message)
+          // alert(res.data.message)
+          // console.log(res.data)
           // 重新取得產品列表
           this.getProducts()
+          this.isLoading = false
           // 建立新產品後關閉 modal
           this.productModal.hide()
+          Swal.fire(res.data.message)
         })
         .catch((err) => {
-          alert(err.data.message)
+          Swal.fire(err.data.message)
         })
     },
     createImages () {
@@ -378,15 +385,17 @@ export default {
     },
     deleteProduct () {
       const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product/${this.tempProduct.id}`
+      this.isLoading = true
       this.$http
         .delete(url)
         .then((res) => {
-          alert(res.data.message)
           this.getProducts()
+          this.isLoading = false
           this.delProductModal.hide()
+          Swal.fire(res.data.message)
         })
         .catch((err) => {
-          alert(err.data.message)
+          Swal.fire(err.data.message)
         })
     }
   },

@@ -6,7 +6,9 @@
         <h1 class="text-center fs-2 pb-6 fw-bold">品牌故事</h1>
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            <div>
+            <div data-aos="fade-right"
+                  data-aos-offset="300"
+                  data-aos-easing="ease-in-sine">
               <p class="fs-5 lh-lg">
                 "吉祥粽香藏館"是一家由一位台灣傳統粽子愛好者創立的粽子店。他是個熱愛傳統美食的人，
                 尤其對粽子有著深厚的愛好。在他的小時候，他的奶奶總是在家裡製作粽子，讓他對粽子有著無限的回憶。
@@ -20,12 +22,18 @@
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="d-flex align-items-center h-100">
+            <div  data-aos="flip-left"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000" class="d-flex align-items-center h-100">
               <img class="img-fluid text-center " src="../../assets/images/about2.jpg" alt="about">
             </div>
           </div>
         </div>
-        <div style="border-top: 4px double #000000E5;border-bottom: 4px double #000000E5;" class="text-center py-6 my-6">
+        <div  data-aos="fade-zoom-in"
+              data-aos-easing="ease-in-back"
+              data-aos-delay="300"
+              data-aos-offset="0"
+              style="border-top: 4px double #000000E5;border-bottom: 4px double #000000E5;" class="text-center py-6 my-6">
           <h2 class="fs-4 fw-bold">粽香四溢，滋味無窮</h2>
           <h2 class="fs-4 fw-bold">粽意滿滿，每一口都是用心</h2>
           <h2 class="fs-4 fw-bold">粽子之美，在於傳統</h2>

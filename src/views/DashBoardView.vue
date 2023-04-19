@@ -37,9 +37,15 @@
 
 <script>
 import { RouterView } from 'vue-router'
+import Swal from 'sweetalert2'
 const { VITE_APP_URL } = import.meta.env
 
 export default {
+  data () {
+    return {
+      status: false
+    }
+  },
   components: {
     RouterView
   },
@@ -57,8 +63,16 @@ export default {
         .post(url)
         .then((res) => {
           if (!res.data.success) {
+            Swal.fire(res.data.message)
             this.$router.push('/login')
           }
+          // Swal.fire(res.data.message)
+          // console.log(res)
+          // this.status = true
+        })
+        .catch((err) => {
+          this.$router.push('/')
+          Swal.fire(err.response)
         })
     }
   },

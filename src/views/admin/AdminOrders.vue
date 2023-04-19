@@ -1,5 +1,4 @@
 <template>
-  後台訂單列表
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <div class="container">
     <table class="table mt-4">
@@ -7,7 +6,7 @@
         <tr>
           <th width="120">時間</th>
           <th width="120">email</th>
-          <th width="120">款項</th>
+          <th width="120">購買項目</th>
           <th width="120">金額</th>
           <th width="100">是否付款</th>
           <th width="120">編輯</th>
@@ -198,7 +197,7 @@
         </div>
         <div class="modal-body">
           是否刪除
-          <strong class="text-danger"></strong> 商品(刪除後將無法恢復)。
+          <strong class="text-danger"></strong> 訂單(刪除後將無法恢復)。
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -217,7 +216,8 @@
 </template>
 <script>
 import Modal from 'bootstrap/js/dist/modal'
-import BackPagination from '../../components/BackPagination.vue'
+import Swal from 'sweetalert2'
+import BackPagination from '@/components/BackPagination.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
@@ -249,7 +249,7 @@ export default {
         })
         .catch((err) => {
           this.isLoading = false
-          alert(err.response)
+          Swal.fire(err.response)
         })
     },
     openOrderModal (item) {
@@ -270,13 +270,13 @@ export default {
       this.$http.put(api, { data: paid })
         .then((res) => {
           this.isLoading = false
-          alert(res.data.message)
           this.getOrder()
           this.orderModal.hide()
+          Swal.fire(res.data.message)
         })
         .catch((err) => {
           this.isLoading = false
-          alert(err.response)
+          Swal.fire(err.response)
         })
     },
     delOrder () {
@@ -285,12 +285,12 @@ export default {
       this.$http.delete(api)
         .then((res) => {
           this.isLoading = false
-          alert(res.data.message)
           this.getOrder(this.page)
           this.delOrderModal.hide()
+          Swal.fire(res.data.message)
         })
         .catch((err) => {
-          alert(err.response)
+          Swal.fire(err.response)
         })
     },
     dateFilter (time) {

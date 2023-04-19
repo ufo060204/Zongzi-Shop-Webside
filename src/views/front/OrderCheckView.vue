@@ -1,5 +1,6 @@
 <template>
   <section class="landing-img landing-header"></section>
+  <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <section class="bg-bg">
     <div class="container-lg">
       <main v-if="this.order.user" class="py-8 text-center">
@@ -69,20 +70,25 @@ export default {
   data () {
     return {
       orderId: '',
-      order: []
+      order: [],
+      isLoading: false,
+      color: '#FF700C'
     }
   },
   methods: {
     getOrder () {
+      this.isLoading = true
       this.orderId = this.$route.params.id
       const api = `${VITE_APP_URL}v2/api/${VITE_APP_PATH}/order/${this.orderId}`
       this.$http
         .get(api)
         .then((res) => {
           this.order = res.data.order
+          this.isLoading = false
         })
         .catch((err) => {
-          alert(err.message)
+          this.isLoading = false
+          Swal.fire(err.message)
         })
     },
     pay () {

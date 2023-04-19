@@ -88,6 +88,7 @@
             </div> -->
           </div>
         </div>
+        <BackPagination :pages="page" @emitPages="getProducts"/>
       </main>
     </div>
   </section>
@@ -95,6 +96,7 @@
 
 <script>
 import { mapActions } from 'pinia'
+import BackPagination from '@/components/BackPagination.vue'
 import cartStore from '@/stores/cart'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
@@ -112,31 +114,34 @@ export default {
     }
   },
   components: {
-    Loading
+    Loading,
+    BackPagination
   },
   methods: {
-    getProducts () {
+    getProducts (page = 1) {
       this.isLoading = true
       this.$http
-        .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/all`)
+        .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/?page=${page}`)
         .then((res) => {
           this.products = res.data.products
+          this.page = res.data.pagination
           this.isLoading = false
         })
         .catch((err) => {
           alert(err.response.data.message)
         })
     },
-    productFilter (category) {
+    productFilter (category, page = 1) {
       this.isLoading = true
       this.isActive = category
       if (category === '全部') {
         this.getProducts()
       } else {
         this.$http
-          .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
+          .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?page=${page}&category=${category}`)
           .then((res) => {
             this.products = res.data.products
+            this.page = res.data.pagination
             this.isLoading = false
           })
           .catch((err) => {
@@ -189,5 +194,9 @@ export default {
 .product-text:hover {
   opacity: 1;
   color: #fff;
+}
+.page-item.active .page-link {
+  background-color: #4A3E34;
+  border-color: #4A3E34;
 }
 </style>

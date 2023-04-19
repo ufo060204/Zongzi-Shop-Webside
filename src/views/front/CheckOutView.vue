@@ -20,7 +20,7 @@
                   <tr>
                     <th>圖片</th>
                     <th>品名</th>
-                    <th style="width: 150px">數量</th>
+                    <th style="width: 50px;">數量</th>
                     <th>單價</th>
                   </tr>
                 </thead>
@@ -29,7 +29,7 @@
                     <tr v-for="item in cart" :key="item.id">
                       <td>
                         <img
-                        style="width: 150px"
+                        style="max-width: 100px;"
                         :src="item.product.imageUrl"
                           class="img-fluid"
                           alt="imageUrl"
@@ -188,47 +188,6 @@ export default {
     ...mapState(cartStore, ['cart', 'total', 'final_total'])
   },
   methods: {
-    updateCartItem (item) {
-      const data = {
-        product_id: item.product.id,
-        qty: item.qty
-      }
-      this.loadingItem = item.id
-      this.$http
-        .put(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart/${item.id}`, { data })
-        .then((res) => {
-          this.getCarts()
-          this.loadingItem = ''
-          alert(res.data.message)
-        })
-        .catch((err) => {
-          alert(err.data.message)
-        })
-    },
-    deleteCartItem (item) {
-      this.loadingItem = item.id
-      this.$http
-        .delete(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart/${item.id}`)
-        .then((res) => {
-          this.loadingItem = ''
-          this.getCarts()
-          alert(res.data.message)
-        })
-        .catch((err) => {
-          alert(err.data.message)
-        })
-    },
-    deleteAllCart () {
-      this.$http
-        .delete(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/carts`)
-        .then((res) => {
-          this.getCarts()
-          alert(res.data.message)
-        })
-        .catch((err) => {
-          alert(err.data.message)
-        })
-    },
     isRequired (value) {
       return value ? true : 'This field is required'
     },

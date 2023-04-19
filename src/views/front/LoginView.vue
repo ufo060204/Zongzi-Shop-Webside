@@ -1,10 +1,12 @@
 <template>
   <section class="landing-img landing-header"></section>
+  <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <section style="background-color: #F0EDE5">
     <main>
       <div class="container">
         <div style="height: 100vh;" class="row justify-content-center align-items-center">
-          <div class="col-6">
+          <div class="col-md-4">
+            <h1 class="text-center fs-4">後台管理</h1>
             <form id="form" class="form-signin">
               <div class="form-floating mb-3">
                 <input
@@ -30,7 +32,7 @@
                 <label for="password">Password</label>
               </div>
               <button
-                class="btn btn-lg btn-primary w-100 mt-3"
+                class="btn btn-lg btn-text-dark w-100 mt-3"
                 type="button" @click="login"
                 id="login"
               >
@@ -45,6 +47,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 const { VITE_APP_URL } = import.meta.env
 export default {
   data () {
@@ -52,12 +55,15 @@ export default {
       user: {
         username: '',
         password: ''
-      }
+      },
+      isLoading: false,
+      color: '#FF700C'
     }
   },
   methods: {
     login () {
       const url = `${VITE_APP_URL}admin/signin`
+      this.isLoading = true
       this.$http
         .post(url, this.user)
         .then((res) => {
@@ -66,10 +72,12 @@ export default {
           const { expired, token } = res.data
           // 儲存 token
           document.cookie = `ufoToken=${token}; expires=${new Date(expired)};`
+          this.isLoading = false
           this.$router.push('/admin/products')
         })
         .catch(err => {
-          alert(err.message)
+          this.isLoading = false
+          Swal.fire(err.message)
         })
     }
   },

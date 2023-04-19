@@ -24,6 +24,7 @@
           <td>{{ article.description }}</td>
           <td>{{ article.author }}</td>
           <td>{{ dateFilter(article.create_at) }}</td>
+          <!-- <td>{{ article.create_at }}</td> -->
           <td>
             <span class="text-success" v-if="article.isPublic">已上架</span>
             <span v-else>未上架</span>
@@ -50,6 +51,7 @@
       </tbody>
     </table>
   </div>
+  <BackPagination :pages="page" @emitPages="getArticles"/>
   <!-- articleModal start -->
   <div
     id="articleModal"
@@ -60,7 +62,7 @@
     aria-hidden="true"
   >
     <div class="modal-dialog modal-xl">
-      <div class="modal-content border-0">
+      <form @submit.prevent="updateArticle(this.tempArticle)" class="modal-content border-0">
         <div class="modal-header bg-dark text-white">
           <h5 id="articleModalLabel" class="modal-title">
             <span>{{ isNew ? "新增文章" : "編輯文章" }}</span>
@@ -82,6 +84,7 @@
                   class="form-control"
                   placeholder="請輸入標題"
                   v-model="tempArticle.title"
+                  required
                 />
               </div>
               <div class="mb-3">
@@ -102,6 +105,7 @@
                   id="author"
                   placeholder="請輸入作者"
                   v-model="tempArticle.author"
+                  required
                 />
               </div>
               <div class="mb-3">
@@ -110,7 +114,8 @@
                   type="date"
                   class="form-control"
                   id="create_at"
-                  v-model="tempArticle.create_at"
+                  v-model="create_at"
+                  required
                 />
               </div>
             </div>
@@ -151,16 +156,6 @@
                   </button>
                 </div>
               </div>
-              <div class="mb-3 col-md-6">
-                <label for="price" class="form-label">作者</label>
-                <input
-                  id="author"
-                  type="text"
-                  class="form-control"
-                  placeholder="請輸入作者"
-                  v-model="tempArticle.author"
-                />
-              </div>
               <div class="mb-3">
                 <label for="description" class="form-label">文章描述</label>
                 <textarea
@@ -169,6 +164,7 @@
                   class="form-control"
                   placeholder="請輸入文章描述"
                   v-model="tempArticle.description"
+                  required
                 >
                 </textarea>
               </div>
@@ -180,14 +176,9 @@
                   class="form-control"
                   placeholder="請輸入文章內容"
                   v-model="tempArticle.content"
+                  required
                 >
                 </textarea>
-                <!-- <ckeditor
-                  :editor="editor"
-                  :config="editorConfig"
-                  :v-model="editorData"
-                >
-                </ckeditor> -->
               </div>
               <div class="mb-3">
                 <div class="form-check">
@@ -213,9 +204,9 @@
           >
             取消
           </button>
-          <button @click="() => updateArticle(this.tempArticle)" type="button" class="btn btn-primary">確認</button>
+          <button type="submit" class="btn btn-primary">確認</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
   <!-- articleModal end -->
@@ -233,7 +224,7 @@
         </div>
         <div class="modal-body">
           是否刪除
-          <strong class="text-danger"></strong> 商品(刪除後將無法恢復)。
+          <strong class="text-danger"></strong> {{ tempArticle.title }} (刪除後將無法恢復)。
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -251,13 +242,17 @@
 
 <script>
 import Modal from 'bootstrap/js/dist/modal'
+import Swal from 'sweetalert2'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import BackPagination from '@/components/BackPagination.vue'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
   data () {
     return {
       articles: [],
+      create_at: 0,
+      page: {},
       tempArticle: {
         tag: ['']
       },
@@ -274,26 +269,32 @@ export default {
       }
     }
   },
+  watch: {
+    create_at () {
+      this.tempArticle.create_at = Math.floor(new Date(this.create_at) / 1000)
+    }
+  },
   methods: {
     dateFilter (time) {
       const localDate = new Date(time * 1000)
       return localDate.toLocaleDateString()
     },
     getArticles (page = 1) {
+      this.page = page
       const api = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/articles?page=${page}`
       this.isLoading = true
       this.$http
         .get(api)
         .then((res) => {
-          this.isLoading = false
           if (res.data.success) {
+            this.isLoading = false
             this.articles = res.data.articles
             this.pagination = res.data.pagination
           }
         })
         .catch((err) => {
           this.isLoading = false
-          alert('error', err.response, err.request, err.message)
+          Swal.fire('error', err.response, err.request, err.message)
         })
     },
     getArticle (id) {
@@ -311,7 +312,7 @@ export default {
         })
         .catch((err) => {
           this.isLoading = false
-          alert(err.response)
+          Swal.fire(err.response)
         })
     },
     updateArticle (item) {
@@ -325,18 +326,16 @@ export default {
         method = 'put'
         status = '更新貼文'
       }
-      console.log(this.tempArticle)
       this.$http[method](api, { data: this.tempArticle })
         .then((res) => {
           this.isLoading = false
           this.articleModal.hide()
-          this.getArticles(this.page)
-          console.log(res.data.message, status)
-          alert(res.data.message)
+          this.getArticles()
+          Swal.fire(res.data.message, status)
         })
         .catch((err) => {
           this.isLoading = false
-          console.log(err.response)
+          Swal.fire(err.response)
         })
     },
     openArticleModal (isNew, item) {
@@ -365,15 +364,16 @@ export default {
           this.isLoading = false
           this.delArticleModal.hide()
           this.getArticles(this.page)
-          alert(res.data.message)
+          Swal.fire(res.data.message)
         })
         .catch((err) => {
           this.isLoading = false
-          alert(err.response)
+          Swal.fire(err.response)
         })
     }
   },
   components: {
+    BackPagination
   },
   mounted () {
     this.getArticles()

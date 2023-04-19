@@ -1,5 +1,6 @@
 <template>
   <section class="landing-img landing-header"></section>
+  <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <section class="bg-bg">
     <div class="container-lg">
       <main class="py-8">
@@ -50,7 +51,7 @@
                     <li class="col-md my-1">
                       <div class="input-group input-group-sm">
                         <select name="" id="" class="form-control text-center" v-model="item.qty" @change="_$event =>updateCartItem(item)" v-bind:disabled="item.id === loadingItem">
-                          <option :value="i" v-for="i in 20" :key="i + '1234'">{{ i }}</option>
+                          <option :value="i" v-for="i in 100" :key="i + '1234'">{{ i }}</option>
                         </select>
                       </div>
                     </li>
@@ -71,7 +72,7 @@
                 </div>
               </ul>
             </template>
-            <ul class="list-unstyled row">
+            <ul class="list-unstyled row py-3 mb-0">
               <li class="col-lg-7"></li>
               <li class="col-lg-5">
                 <div class="input-group">
@@ -82,7 +83,9 @@
             </ul>
             <ul class="list-unstyled row mb-0">
               <li class="col-lg-8 py-2 mobile-cart"></li>
-              <li class="col-lg-2 col-6 py-2 bg-text-dark text-white fw-bolder fs-4">總計</li>
+              <li class="col-lg-2 col-6 py-2 bg-text-dark text-white fw-bolder fs-4 d-flex align-items-center justify-content-center">
+                總計
+              </li>
               <li v-if="this.total === this.final_total" class="col-lg-2 py-2 col-6 text-end fs-4 fw-bolder text-black bg-white">NT$ {{ total }}</li>
               <li v-if="this.total !== this.final_total" class="col-lg-2 py-2 col-6 text-end fs-4 fw-bolder text-black bg-white">NT$ <span class="text-danger fs-3">{{ final_total }}</span> <span class="fs-5 text-decoration-line-through"> {{ total }}</span></li>
             </ul>
@@ -109,6 +112,8 @@ export default {
       productId: '',
       loadingItem: '',
       couponCode: '',
+      isLoading: false,
+      color: '#FF700C',
       form: {
         user: {
           name: '',
@@ -144,7 +149,7 @@ export default {
           })
         })
         .catch((err) => {
-          alert(err.data.message)
+          Swal.fire(err.data.message)
         })
     },
     checkCoupon () {
@@ -171,7 +176,7 @@ export default {
           this.getCarts()
         })
         .catch((err) => {
-          alert(err.response.data.message)
+          Swal.fire(err.response.data.message)
         })
     },
     ...mapActions(cartStore, ['deleteCartItem']),
@@ -197,7 +202,7 @@ export default {
               )
             })
             .catch((err) => {
-              alert(err.data.message)
+              Swal.fire(err.data.message)
             })
         }
       })

@@ -1,5 +1,4 @@
 <template>
-  後台優惠券頁面
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <div class="text-end mt-4">
       <button class="btn btn-primary" @click="() => openCouponModal(true)">
@@ -53,7 +52,7 @@
     aria-hidden="true"
     >
     <div class="modal-dialog modal-xl">
-      <div class="modal-content border-0">
+      <form @submit.prevent="updateCoupon(tempCoupon)" class="modal-content border-0">
         <div class="modal-header bg-dark text-white">
           <h5 id="productModalLabel" class="modal-title">
             <span v-if="isNew">新增優惠券</span>
@@ -69,19 +68,19 @@
         <div class="modal-body">
           <div class="mb-3">
             <label for="title">標題</label>
-            <input type="text" class="form-control" id="title" v-model="tempCoupon.title" placeholder="請輸入標題">
+            <input type="text" class="form-control" id="title" v-model="tempCoupon.title" placeholder="請輸入標題" required>
           </div>
           <div class="mb-3">
             <label for="coupon_code">優惠碼</label>
-            <input type="text" class="form-control" id="coupon_code" v-model="tempCoupon.code" placeholder="請輸入優惠碼">
+            <input type="text" class="form-control" id="coupon_code" v-model="tempCoupon.code" placeholder="請輸入優惠碼" required>
           </div>
           <div class="mb-3">
             <label for="due_date">期限</label>
-            <input type="date" class="form-control" id="due_date" v-model="due_date">
+            <input type="date" class="form-control" id="due_date" v-model="due_date" required>
           </div>
           <div class="mb-3">
             <label for="price">折扣百分比例</label>
-            <input type="number" class="form-control" id="price" min="0" v-model="tempCoupon.percent" placeholder="請輸入折扣百分比">
+            <input type="number" class="form-control" id="price" min="0" v-model="tempCoupon.percent" placeholder="請輸入折扣百分比" required>
           </div>
           <div class="mb-3">
             <div class="form-check">
@@ -99,14 +98,13 @@
             取消
           </button>
           <button
-            type="button"
+            type="submit"
             class="btn btn-primary"
-            @click="() => updateCoupon(tempCoupon)"
           >
             {{ isNew ? "新增優惠券" : "更新優惠券" }}
           </button>
         </div>
-      </div>
+      </form>
     </div>
     </div>
     <!-- couponModal start -->
@@ -123,7 +121,7 @@
           </div>
           <div class="modal-body">
             是否刪除
-            <strong class="text-danger"></strong> 商品(刪除後將無法恢復)。
+            <strong class="text-danger"></strong> {{ tempCoupon.title }} (刪除後將無法恢復)。
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
@@ -140,12 +138,14 @@
 </template>
 <script>
 import Modal from 'bootstrap/js/dist/modal'
+import Swal from 'sweetalert2'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
 export default {
   data () {
     return {
       coupons: {},
+      due_date: '',
       tempCoupon: {
         title: '',
         is_enabled: 0,
@@ -159,6 +159,11 @@ export default {
       delCouponModal: ''
     }
   },
+  watch: {
+    due_date () {
+      this.tempCoupon.due_date = Math.floor(new Date(this.due_date) / 1000)
+    }
+  },
   methods: {
     getCoupon () {
       this.isLoading = true
@@ -170,7 +175,7 @@ export default {
         })
         .catch((err) => {
           this.isLoading = false
-          alert(err.response)
+          Swal.fire(err.response)
         })
     },
     openCouponModal (isNew, item) {
@@ -202,11 +207,11 @@ export default {
           this.isLoading = false
           this.getCoupon()
           this.couponModal.hide()
-          alert(res.data.data.message)
+          Swal.fire(res.data.message)
         })
         .catch((err) => {
           this.isLoading = false
-          alert(err.response)
+          Swal.fire(err.response)
         })
     },
     dateFilter (time) {
@@ -221,11 +226,11 @@ export default {
           this.isLoading = false
           this.getCoupon()
           this.delCouponModal.hide()
-          alert(res.data.data.message)
+          Swal.fire(res.data.message)
         })
         .catch((err) => {
           this.isLoading = false
-          alert(err.response)
+          Swal.fire(err.response)
         })
     }
 

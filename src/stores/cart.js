@@ -21,12 +21,14 @@ const cartStore = defineStore('cart', {
   actions: {
     // 可使用 this 使用 state 的資料內容
     getCarts () {
+      this.isLoading = true
       axios
         .get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart`)
         .then((res) => {
           this.cart = res.data.data.carts
           this.total = res.data.data.total
           this.final_total = res.data.data.final_total
+          this.isLoading = false
           // this.status = true
           // console.log('total', this.total)
           // console.log('這是購物車頁面', this.cart)
