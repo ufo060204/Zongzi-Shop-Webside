@@ -18,7 +18,6 @@
               <table class="table align-middle text-center table-borderless">
                 <thead>
                   <tr>
-                    <th>圖片</th>
                     <th>品名</th>
                     <th style="width: 50px;">數量</th>
                     <th>單價</th>
@@ -34,8 +33,7 @@
                           class="img-fluid"
                           alt="imageUrl"
                           />
-                      </td>
-                      <td>
+                          <br>
                         {{ item.product.title }}<br>
                         <span class="text-success fs-6" v-if="item.coupon">已套用優惠券</span>
                       </td>

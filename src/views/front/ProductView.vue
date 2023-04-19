@@ -44,7 +44,7 @@
                               </button>
                             </div>
                           </div>
-                          <span v-if="checkBuyNum.boolean" class="text-danger">{{ checkBuyNum.message }}</span>
+                          <span v-if="checkBuyNum.boolean" class="fs-6 text-danger d-block text-center">{{ checkBuyNum.message }}</span>
                         </h5>
                       </div>
                       <div class="col-7 text-center">
@@ -149,8 +149,8 @@ export default {
     qty () {
       if (this.qty < 1) {
         this.checkBuyNum.boolean = true
-        this.qty = 1
         this.checkBuyNum.message = '數量不能小於0'
+        this.qty = 1
       } else if (this.qty > 1) {
         this.checkBuyNum.boolean = false
       }
