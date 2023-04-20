@@ -16,7 +16,7 @@
 }
 .nav-collapse-menu {
 	@include pad {
-		padding-top: 28px;
+		padding-top: 16px;
 	}
 }
 .nav-ul-mobile {
@@ -35,8 +35,9 @@
 		display: none;
 	}
 }
-.footer-admin {
+.footer-border {
+	border-left: 1px solid #FFFFFF80;
 	@include pad {
-		display: none;
+		border-left: none;
 	}
 }
