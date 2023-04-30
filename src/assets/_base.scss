@@ -4,15 +4,19 @@
 		background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679288876425.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=hCRoGpLv2R7XPjnkFkd%2BP6R7jOPwzFYgWFMgsJjdg%2B9PtlCJgCOqOy9sVROTSGEL1UMQDc2NEFBCUO2rRVeSbOFCpXNe3Pq5KP7pO6mGJ%2BhP51Tavn%2BqkYBoQ75%2BrH8xXZJzzSICFFi57mlh%2BI%2BDTCNa79Ud0OsFjHVA1llII%2Fw8FK73cfoluLt7ld16ZlVAi7%2B4shtFvYaWpyr7kZD%2FCxVxkwieDvN947dLLfpoQBcoufBVm6TuM0DM6lK3P2GqFgY2aR4%2Bj9KjwTgN8Em6tyztih4QBFwAP5tkoOZUZVoP4wwX3DbFverphlqqNS2qb%2FhYghARyZEqqMHM98DfMg%3D%3D');
 	}
 }
-
+.transition {
+	transition: all 0.5s ease;
+}
 .landing-header {
 	height: 88px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: left top;
 	background-attachment: fixed;
+	@include pad {
+		height: 64px;
+	}
 }
-
 .shopping-process-icon {
 	@include pad {
 		transform: rotate(90deg)

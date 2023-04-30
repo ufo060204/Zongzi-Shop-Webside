@@ -1,5 +1,5 @@
 <template>
-  <section class="landing-img landing-header"></section>
+  <section class="landing-img landing-header" />
   <section class="bg-bg">
     <main class="py-8">
       <div class="container-md">

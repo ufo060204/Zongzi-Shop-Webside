@@ -116,7 +116,7 @@
           <div class="modal-content border-0">
             <div class="modal-header bg-danger text-white">
               <h5 id="delCouponModalLabel" class="modal-title">
-                <span>刪除</span>
+                <span>刪除優惠券</span>
               </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>

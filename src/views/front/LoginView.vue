@@ -1,5 +1,5 @@
 <template>
-  <section class="landing-img landing-header"></section>
+  <section class="landing-img landing-header" />
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <section style="background-color: #F0EDE5">
     <main>
@@ -7,7 +7,7 @@
         <div style="height: 100vh;" class="row justify-content-center align-items-center">
           <div style="box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);" class="col-md-4 border border-boderlight py-9">
             <h1 class="text-center fs-4 mb-5">後台管理</h1>
-            <form id="form" class="form-signin">
+            <form id="form" class="form-signin" @submit.prevent="login">
               <div class="form-floating mb-3">
                 <input
                   type="email"
@@ -22,6 +22,7 @@
               </div>
               <div class="form-floating">
                 <input
+                  @keydown.enter="login"
                   type="password"
                   class="form-control"
                   id="password"
@@ -33,7 +34,7 @@
               </div>
               <button
                 class="btn btn-lg btn-text-dark w-100 mt-3"
-                type="button" @click="login"
+                type="submit"
                 id="login"
               >
                 登入

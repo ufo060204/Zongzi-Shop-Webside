@@ -1,5 +1,5 @@
 <template>
-  <section class="landing-img landing-header"></section>
+  <section class="landing-img landing-header" />
   <section class="bg-bg">
     <div class="container-lg">
       <Loading v-model:active="isLoading"
@@ -54,38 +54,6 @@
                 </div>
               </div>
             </router-link>
-            <!-- <div class="border-0 card mb-6 p-0">
-              <router-link :to="`/product/${product.id}`"
-                :style="{ 'background-image': `url(${product.imageUrl})` }"
-                class="product-img d-md-flex justify-content-md-center align-items-md-center text-decoration-none"
-              >
-                <div class="text-decoration-none product-text stretched-link">
-                  查看更多
-                </div>
-              </router-link>
-              <div class="bg-white p-6 card-body">
-                <div class="d-flex flex-column justify-content-between h-100">
-                  <div>
-                    <div class="mb-3">
-                      <h4 class="text-text-dark fw-500 text-center mb-3">
-                        {{ product.title }}
-                        <span style="margin-top: 10px;" class="d-block fs-5">$NT {{ product.price }} 元</span>
-                      </h4>
-                    </div>
-                    <p class="lh-lg">{{ product.content }}</p>
-                  </div>
-                  <div class="text-center">
-                    <button
-                      @click="() => addToCart(product.id)"
-                      type="button"
-                      class="btn btn-text-light cart-hover text-white w-100 d-block py-3 fs-5 fw-bold"
-                    >
-                      加入購物車
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
         <BackPagination :pages="page" @emitPages="getProducts"/>

@@ -317,6 +317,13 @@ export default {
       delProductModal: ''
     }
   },
+  // watch: {
+  //   products (n, o) {
+  //     if (!n) {
+  //       this.getProducts()
+  //     }
+  //   }
+  // },
   methods: {
     getProducts (page = 1) { // 參數預設值，沒有的話會是 undefined
       const url = `${VITE_APP_URL}api/${VITE_APP_PATH}/admin/products/?page=${page}`

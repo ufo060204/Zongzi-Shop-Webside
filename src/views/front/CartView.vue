@@ -1,5 +1,5 @@
 <template>
-  <section class="landing-img landing-header"></section>
+  <section class="landing-img landing-header" />
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <section class="bg-bg">
     <div class="container-lg">

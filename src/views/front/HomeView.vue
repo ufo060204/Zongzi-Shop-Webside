@@ -1,5 +1,5 @@
 <template>
-  <loading v-model:active="isLoading"
+  <Loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"/>
   <main>
@@ -33,7 +33,7 @@
               <h5 style="z-index: 1" class="m-0">
                 <router-link
                   to="/products"
-                  class="banner-link d-block text-decoration-none p-3 text-white"
+                  class="banner-link d-block text-decoration-none p-3 text-white transition"
                   href="#"
                   >探<br />索<br />美<br />味</router-link
                 >
@@ -106,7 +106,7 @@
                     <router-link
                       to="/products"
                       href="#"
-                      class="product-link fw-bold d-block border border-text-dark text-text-dark text-decoration-none p-3">
+                      class="product-link fw-bold d-block border border-text-dark text-text-dark text-decoration-none p-3 transition">
                       更<br>多<br>產<br>品
                     </router-link>
                   </h5>
@@ -128,7 +128,7 @@
                     <router-link
                       to="/products"
                       href="#"
-                      class="product-link fw-bold d-inline-block border border-text-dark  text-text-dark text-decoration-none py-2 px-7">
+                      class="product-link fw-bold d-inline-block border border-text-dark  text-text-dark text-decoration-none py-2 px-7 transition">
                       更多產品
                     </router-link>
                     <div style="top: -52px;" class=" position-absolute d-flex flex-column justify-content-between align-items-center start-50 translate-middle-x">
@@ -191,7 +191,7 @@
                     <router-link
                       to="/products"
                       href="#"
-                      class="product-link fw-bold d-block border border-text-dark text-text-dark text-decoration-none p-3">
+                      class="product-link fw-bold d-block border border-text-dark text-text-dark text-decoration-none p-3 transition">
                       更<br>多<br>產<br>品
                     </router-link>
                   </h5>
@@ -213,7 +213,7 @@
                     <router-link
                       to="/products"
                       href="#"
-                      class="product-link fw-bold d-inline-block border border-text-dark  text-text-dark text-decoration-none py-2 px-7">
+                      class="product-link fw-bold d-inline-block border border-text-dark  text-text-dark text-decoration-none py-2 px-7 transition">
                       更多產品
                     </router-link>
                     <div style="top: -52px;" class=" position-absolute d-flex flex-column justify-content-between align-items-center start-50 translate-middle-x">
@@ -282,7 +282,7 @@
                   <button
                     @click="() => addToCart(`-NM27yCriEAoX1-aPW4j`)"
                     type="button"
-                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark"
+                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
                   >
                     加入購物車
                   </button>
@@ -324,7 +324,7 @@
                   <button
                     @click="() => addToCart(`-NM2d45PodDNatFQYTQ3`)"
                     type="button"
-                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark"
+                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
                   >
                     加入購物車
                   </button>
@@ -366,7 +366,7 @@
                   <button
                     @click="() => addToCart(`-NM2huSRBtLQp39YYdPB`)"
                     type="button"
-                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark"
+                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
                   >
                     加入購物車
                   </button>
