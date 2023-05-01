@@ -1,9 +1,3 @@
-// .mobile-bg {
-// 	@include pad {
-// 		background-color: #F0EDE5;
-// 		background-color: #ffffff;
-// 	}
-// }
 .nav-text-white {
 	@include pad {
 		color: #3D2F24 !important;
@@ -15,32 +9,6 @@
 		display: flex;
 	}
 }
-.nav-bg-mobile {
-	@include pad {
-		background-color: #F0EDE5 !important;
-	}
-}
-// .nav-collapse-menu {
-// 	@include pad {
-// 		padding-top: 16px;
-// 	}
-// }
-// .nav-ul-mobile {
-// 	@include pad {
-// 		text-align: center;
-// 	}
-// }
-// .nav-li-mobile {
-// 	@include pad {
-// 		margin-right: 0 !important;
-// 		padding: 8px 0;
-// 	}
-// }
-// .nav-cart-mobile {
-// 	@include pad {
-// 		display: none;
-// 	}
-// }
 .footer-border {
 	border-left: 1px solid #FFFFFF80;
 	@include pad {

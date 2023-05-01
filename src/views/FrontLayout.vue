@@ -29,7 +29,7 @@
             <li class="d-none d-md-block">
               <router-link to="/cart" class="d-block nav-link text-decoration-none fw-bold me-md-2 py-2 position-relative" :class="{ 'text-text-dark': mobileHeadBg, 'text-white': !mobileHeadBg}">
                 購物車
-                <span v-if="cart.length !== 0" style="transform: translate(-50%, -70%);" class="badge rounded-pill bg-danger position-absolute top-0 start-100">{{ cart.length }}</span>
+                <span v-if="cart.length !== 0" style="transform: translate(-50%, -30%);" class="badge rounded-pill bg-danger position-absolute top-0 start-100">{{ cart.length }}</span>
               </router-link>
             </li>
           </ul>
@@ -146,38 +146,6 @@ export default {
     }
   },
   methods: {
-    scrollHeader () {
-      const collapseMenu = document.querySelector('#collapseMenu')
-      const header = document.querySelector('header')
-      const navIcon = document.querySelectorAll('.nav-icon')
-      const navTextColor = document.querySelectorAll('.nav-text-white')
-      const headerLogoImg = document.querySelector('.header-logo-img')
-      document.addEventListener('scroll', function () {
-        if (window.scrollY > 0) {
-          header.classList.add('scroll-header-bg', 'bg-white')
-          headerLogoImg.style['background-image'] = "url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679115945853.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=hl%2BYMGtpEytDvbP3GhuL%2Bkc6T%2BYsdedskYx1OuLVUpQFu2G8gePCxGoANOZ7WBU1KH6vUG0D4GZtTEHPkEAM6XcX7Ehq3zFg0lPNwJnk2wHLg7T1YUU9Zi613Js3ddxOr4rwZUukUL6elmt85ApZ2G8vMpN24CFwAfh1jecioSsbe2dFFxNjr0FZ5wUAmQdcyzhWiD0Gqp1w0brhx0ZRUg8q6S2YalnmYZw4xsmhPfdIxCfTychXEVb3hESuBMH5PwKdf23wPF5ljMvmAURSEA%2BlDss5b5El5pXQZkWZT3K9HcrN1BNUwcq5QGMwaXwpFYfwbs2XsNEZNTKRoOAR0g%3D%3D')"
-          navTextColor.forEach(function (item) {
-            item.classList.remove('nav-text-white')
-            item.classList.add('nav-text-dark')
-          })
-          navIcon.forEach(function (item) {
-            item.classList.remove('text-white')
-            item.classList.add('text-text-dark')
-          })
-        } else if (window.scrollY === 0 && !collapseMenu.classList.contains('show')) {
-          header.classList.remove('scroll-header-bg', 'bg-white')
-          headerLogoImg.style['background-image'] = "url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679125705044.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=H4qNaamHNCtEoWotN%2BZjgVq9Qol%2FY6jm%2FllSdDj%2BwXuwn13x6YN3ypZShFeO8BX51n6YuWoAdKCbntjUIF4ip2sbmCRP5rNLUJ8bMT48SbAp6Qop%2FfwJf2SCWE6aabeBO7%2FkseGZhZwpYE4jJo317QquAXcPBoMlPcTyQ%2BszbiUfD6koa96ELS8WjU9PWgCQbbt4xT%2BFRnL%2B02vrQvCCx%2F52w%2F5RjMG2AHP7blu2Qa2VI%2BRjbZfis2sSxMbNPelcmrdqUumAXwLIV13KttpQJjiq31czfghNtRuB1meN21%2BBHfel226McNir2D4f%2FIiabFmOZRv8ZKRNquZkKs0QZg%3D%3D')"
-          navTextColor.forEach(function (item) {
-            item.classList.remove('nav-text-dark')
-            item.classList.add('nav-text-white')
-          })
-          navIcon.forEach(function (item) {
-            item.classList.remove('text-text-dark')
-            item.classList.add('text-white')
-          })
-        }
-      })
-    },
     handleScroll () {
       this.scrollY = window.scrollY
       console.log(this.scrollY)
@@ -206,7 +174,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .scroll-header-bg {
     filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.08));
   }

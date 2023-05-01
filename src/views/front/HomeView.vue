@@ -396,7 +396,7 @@
                 class="d-block news-img"
                 src="../../assets/images/img3.png"
                 alt="img3"/>
-              <div class="p-4">
+              <div class="p-4 d-md-flex flex-md-column justify-content-md-between">
                 <h4 class="mb-3 text-text-dark fw-bold">
                   歡慶開館 40 周年紀念，全店商品八折
                 </h4>
@@ -428,7 +428,7 @@
                 class="d-block news-img"
                 src="../../assets/images/img4.png"
                 alt="img3"/>
-              <div class="p-4">
+              <div class="p-4 d-md-flex flex-md-column justify-content-md-between">
                 <h4 class="mb-3 text-text-dark fw-bold">
                   感謝美食節目、新聞媒體報導
                 </h4>
