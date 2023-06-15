@@ -141,21 +141,17 @@ export default {
         this.mobileHeadBg = false
         this.isAlternateBgShown = false
       }
-      console.log(this.mobileHeadBg, this.isAlternateBgShown)
-      console.log(collapseMenu.classList.contains('show'))
     }
   },
   methods: {
     handleScroll () {
       this.scrollY = window.scrollY
-      console.log(this.scrollY)
     },
     collapseHide () {
       this.$refs.navCollapse.classList.remove('show')
     },
     changeHeader () {
       this.isNavIconChange = !this.isNavIconChange
-      console.log(this.isNavIconChange)
       if (this.scrollY > 0) {
         this.mobileHeadBg = true
         this.isAlternateBgShown = true
