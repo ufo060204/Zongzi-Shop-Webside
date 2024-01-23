@@ -13,7 +13,7 @@
       class="d-flex align-items-center landing-img bg-attachment-fixed"
     >
       <div class="container-lg">
-        <div class="row">
+        <div class="row" data-aos="fade-zoom-in" data-aos-duration="3000">
           <div class="col-md-3">
             <div class="d-flex align-items-center justify-content-center position-relative">
               <h1
@@ -56,14 +56,14 @@
     >
       <div class="container-lg">
         <div class="row row-cols-lg-2 row-cols-1 mb-8 align-items-md-center intro-row">
-          <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col">
+          <div data-aos="fade-zoom-in" data-aos-duration="3000" class="col">
             <img
               src="../../assets/images/img1.png"
               alt="img1"
               class="img-fluid intro-img"
             />
           </div>
-          <div data-aos="zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
+          <div data-aos="fade-zoom-in" data-aos-duration="3000" class="col">
             <div
               style="padding: 48px 72px;"
               class="w-100 d-md-flex intro-text-straight">
@@ -150,7 +150,7 @@
           </div>
         </div>
         <div class="row row-cols-lg-2 row-cols-1 align-items-md-center flex-column-reverse flex-lg-row">
-          <div data-aos="zoom-in" data-aos-offset="300" data-aos-easing="ease-in-sine" class="col">
+          <div data-aos="fade-zoom-in" data-aos-duration="3000" class="col">
             <div style="padding: 48px 72px;" class="w-100 d-md-flex intro-text-straight">
               <div class="w-100 d-md-flex justify-content-md-between ">
                 <h3 class="m-0 fw-bold text-text-dark pe-6">
@@ -233,7 +233,7 @@
               </div>
             </div>
           </div>
-          <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="col">
+          <div data-aos="fade-zoom-in" data-aos-duration="3000" class="col">
             <img
               src="../../assets/images/img2.png"
               alt="img1"
@@ -247,28 +247,24 @@
       class="py-8 popular">
       <div class="container-lg">
         <h2 class="mb-10 fw-bold text-center popular-title">熱銷產品</h2>
-        <div class="row">
-          <router-link :to="`/product/-NM27yCriEAoX1-aPW4j`" data-aos="fade-up" data-aos-duration="3000" class="col-lg-4 text-decoration-none"
-          >
-            <div class="border-0 px-7 popular-card">
-              <div class="product-img d-flex justify-content-center align-items-center">
-                <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679122640369.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ECc5CgWHI%2FbzNcrIRXWub01pyFCMkovCLTlZMvLYydlwrKiNhGfBXXfa28UO69YIYEdKuvkVc348mvEStQrDbixqhwq%2Bam4NlDzR4x5SsLm8MA6I2WCZcaV9%2F62igSB1NgcFx6yyHw9rCrWcwxSUDYel6jJaYEGngdeznelcTOdGAAlrLQCD7bRbNf5Q4Th%2FTqdqZiCsLno7SJUFnpJeOlsHL6W8yPDsNu%2FI3EBGpf0BTsYHFWzfc%2FKpg0UhsdTW5AxtMzsJ75LaGWmvlvKmpMf8OXaXCCUJq5P2VUJxSddBgHJgRONKhmLE1vTbReNBQjhFWNmRRj06fn6onQz7Tg%3D%3D" alt="">
-                <router-link
-                  class="text-decoration-none product-text stretched-link"
-                  :to="`/product/-NM27yCriEAoX1-aPW4j`"
-                >
-                  查看更多
-                </router-link>
-                <span
-                  style="font-weight: 900; top: 0; left: 0"
-                  class="position-absolute text-primary fs-1"
-                  >01</span
-                >
-                <img style="bottom: -12px;" class="position-absolute start-50" src="../../assets/images/Rectangle-s.png" alt="">
-              </div>
-              <div>
-                <div class="mb-3">
-                  <h4 class="m-0 text-text-dark fw-bold text-center mb-3">
+        <div class="row row-cols-1 row-cols-md-3">
+          <div class="col mb-7 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
+            <router-link :to="`/product/-NM27yCriEAoX1-aPW4j`" class="text-decoration-none popular-product-link">
+              <div class="border-0 px-7 popular-card">
+                <div class="popular-product-img d-flex justify-content-center align-items-center">
+                  <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679122640369.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ECc5CgWHI%2FbzNcrIRXWub01pyFCMkovCLTlZMvLYydlwrKiNhGfBXXfa28UO69YIYEdKuvkVc348mvEStQrDbixqhwq%2Bam4NlDzR4x5SsLm8MA6I2WCZcaV9%2F62igSB1NgcFx6yyHw9rCrWcwxSUDYel6jJaYEGngdeznelcTOdGAAlrLQCD7bRbNf5Q4Th%2FTqdqZiCsLno7SJUFnpJeOlsHL6W8yPDsNu%2FI3EBGpf0BTsYHFWzfc%2FKpg0UhsdTW5AxtMzsJ75LaGWmvlvKmpMf8OXaXCCUJq5P2VUJxSddBgHJgRONKhmLE1vTbReNBQjhFWNmRRj06fn6onQz7Tg%3D%3D" alt="招牌北部粽">
+                  <div class="text-decoration-none product-product-text">
+                    查看更多
+                  </div>
+                  <span
+                    style="font-weight: 900; top: 0; left: 0"
+                    class="position-absolute text-primary fs-1"
+                    >01</span
+                  >
+                  <img style="bottom: -12px;" class="position-absolute start-50" src="../../assets/images/Rectangle-s.png" alt="rectangle">
+                </div>
+                <div class="mb-6">
+                  <h4 class="text-text-dark fw-bold text-center mb-3">
                     招牌北部粽
                   </h4>
                   <p
@@ -278,38 +274,34 @@
                     $ 75 元
                   </p>
                 </div>
-                <div class="text-center">
-                  <button
-                    @click="() => addToCart(`-NM27yCriEAoX1-aPW4j`)"
-                    type="button"
-                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
-                  >
-                    加入購物車
-                  </button>
-                </div>
               </div>
+            </router-link>
+            <div class="text-center">
+              <button
+                @click.prevent="() => addToCart(`-NM27yCriEAoX1-aPW4j`)"
+                type="button"
+                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
+              >
+                加入購物車
+              </button>
             </div>
-          </router-link>
-          <router-link :to="`/product/-NM2d45PodDNatFQYTQ3`" data-aos="fade-up" data-aos-duration="3000" class="col-lg-4 text-decoration-none"
-          >
-            <div class="border-0 px-7 popular-card">
-              <div class="product-img d-flex justify-content-center align-items-center">
-                <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123198362.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MYX4dfnxJK3TeDhNuC%2BaQy4kWOFQ%2F7oU%2BTwevZErSUjvBzgUsmZEYZLOJDGB0%2Fy272S61yZb8natkAW8hq6sLgm8lanrd32%2By9UZDNDFdJ9qqVcIZozkUzgCcLxsy2PDzMzpMa9R7woX2KotFjOwMW9aPMERoGxmvPwkaLIk4KAjSVUBYc%2F9px%2BRFCbgYxAdke5bDK89UMhDu0tEhTGHeDjD5RWPlLiIZ%2FusWjwInOM%2F1lDToTc5F%2FwT%2F4jR11Ezu6tEELwdMIDSSetB80VXrJWBM9tZS%2FS7Q2K2xDt%2B65MNUNQ%2FEQL7cI2MoL4HbswnBb67Glv%2BfmL%2Bq5qbGy%2FqJg%3D%3D" alt="">
-                <router-link
-                  class="text-decoration-none product-text stretched-link"
-                  :to="`/product/-NM2d45PodDNatFQYTQ3`"
-                >
-                  查看更多
-                </router-link>
-                <span
-                  style="font-weight: 900; top: 0; left: 0"
-                  class="position-absolute text-primary fs-1"
-                  >02</span
-                >
-                <img style="bottom: -12px;" class="position-absolute start-50" src="../../assets/images/Rectangle-s.png" alt="">
-              </div>
-              <div>
-                <div class="mb-3">
+          </div>
+          <div class="col mb-7 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
+            <router-link :to="`/product/-NM2d45PodDNatFQYTQ3`" class="text-decoration-none popular-product-link">
+              <div class="border-0 px-7 popular-card">
+                <div class="popular-product-img d-flex justify-content-center align-items-center">
+                  <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123198362.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MYX4dfnxJK3TeDhNuC%2BaQy4kWOFQ%2F7oU%2BTwevZErSUjvBzgUsmZEYZLOJDGB0%2Fy272S61yZb8natkAW8hq6sLgm8lanrd32%2By9UZDNDFdJ9qqVcIZozkUzgCcLxsy2PDzMzpMa9R7woX2KotFjOwMW9aPMERoGxmvPwkaLIk4KAjSVUBYc%2F9px%2BRFCbgYxAdke5bDK89UMhDu0tEhTGHeDjD5RWPlLiIZ%2FusWjwInOM%2F1lDToTc5F%2FwT%2F4jR11Ezu6tEELwdMIDSSetB80VXrJWBM9tZS%2FS7Q2K2xDt%2B65MNUNQ%2FEQL7cI2MoL4HbswnBb67Glv%2BfmL%2Bq5qbGy%2FqJg%3D%3D" alt="傳統南部粽">
+                  <div class="text-decoration-none product-product-text">
+                    查看更多
+                  </div>
+                  <span
+                    style="font-weight: 900; top: 0; left: 0"
+                    class="position-absolute text-primary fs-1"
+                    >02</span
+                  >
+                  <img style="bottom: -12px;" class="position-absolute start-50" src="../../assets/images/Rectangle-s.png" alt="rectangle">
+                </div>
+                <div class="mb-6">
                   <h4 class="m-0 text-text-dark fw-bold text-center mb-3">
                     傳統南部粽
                   </h4>
@@ -320,38 +312,34 @@
                     $ 75 元
                   </p>
                 </div>
-                <div class="text-center">
-                  <button
-                    @click="() => addToCart(`-NM2d45PodDNatFQYTQ3`)"
-                    type="button"
-                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
-                  >
-                    加入購物車
-                  </button>
-                </div>
               </div>
+            </router-link>
+            <div class="text-center">
+              <button
+                @click.prevent="() => addToCart(`-NM2d45PodDNatFQYTQ3`)"
+                type="button"
+                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
+              >
+                加入購物車
+              </button>
             </div>
-          </router-link>
-          <router-link :to="`/product/-NM2huSRBtLQp39YYdPB`" data-aos="fade-up" data-aos-duration="3000" class="col-lg-4 text-decoration-none"
-          >
-            <div class="border-0 px-7 popular-card">
-              <div class="product-img d-flex justify-content-center align-items-center">
-                <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123253511.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fPsA7BdvnNZ93zAvJ9EqPUBvv4Qu6scveM2Y8N79L%2FXHJbmBCAazitevPvkaaGn2EAYKzYtTadJX5qJCeE15ohTkqaWUfefIrJVvZWc%2BNDhDFNCOQnbu8ExrPJbb0n%2Fis0q5AwZwhHNLCgzulYtf0s%2BS8o0NPhr8HNSsfHZm%2BRnrhwsNxzSzooHvMgxBzODzZQn7InMqueIIYeVAYsjjyBMN6pNJchPrO0BsCtNT64yjmVoCNMM8cKVroxR0igBK9T131UO6%2FA%2BxNHVLGhhiHvXApfe83mJZ024gKRr%2FGKt6DdBIJUXzA9YG4g1jaf4TdQe4bsm1N4Y%2FM5qpKVJppw%3D%3D" alt="">
-                <router-link
-                  class="text-decoration-none product-text stretched-link"
-                  :to="`/product/-NM2huSRBtLQp39YYdPB`"
-                >
-                  查看更多
-                </router-link>
-                <span
-                  style="font-weight: 900; top: 0; left: 0"
-                  class="position-absolute text-primary fs-1"
-                  >03</span
-                >
-                <img style="bottom: -12px;" class="position-absolute start-50" src="../../assets/images/Rectangle-s.png" alt="">
-              </div>
-              <div>
-                <div class="mb-3">
+          </div>
+          <div class="col" data-aos="fade-up" data-aos-duration="3000">
+            <router-link :to="`/product/-NM2huSRBtLQp39YYdPB`"  class="text-decoration-none popular-product-link">
+              <div class="border-0 px-7 popular-card">
+                <div class="popular-product-img d-flex justify-content-center align-items-center">
+                  <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123253511.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fPsA7BdvnNZ93zAvJ9EqPUBvv4Qu6scveM2Y8N79L%2FXHJbmBCAazitevPvkaaGn2EAYKzYtTadJX5qJCeE15ohTkqaWUfefIrJVvZWc%2BNDhDFNCOQnbu8ExrPJbb0n%2Fis0q5AwZwhHNLCgzulYtf0s%2BS8o0NPhr8HNSsfHZm%2BRnrhwsNxzSzooHvMgxBzODzZQn7InMqueIIYeVAYsjjyBMN6pNJchPrO0BsCtNT64yjmVoCNMM8cKVroxR0igBK9T131UO6%2FA%2BxNHVLGhhiHvXApfe83mJZ024gKRr%2FGKt6DdBIJUXzA9YG4g1jaf4TdQe4bsm1N4Y%2FM5qpKVJppw%3D%3D" alt="秘傳醬汁">
+                  <div class="text-decoration-none product-product-text">
+                    查看更多
+                  </div>
+                  <span
+                    style="font-weight: 900; top: 0; left: 0"
+                    class="position-absolute text-primary fs-1"
+                    >03</span
+                  >
+                  <img style="bottom: -12px;" class="position-absolute start-50" src="../../assets/images/Rectangle-s.png" alt="rectangle">
+                </div>
+                <div class="mb-6">
                   <h4 class="m-0 text-text-dark fw-bold text-center mb-3">
                     秘傳醬汁
                   </h4>
@@ -362,18 +350,18 @@
                     $ 90 元
                   </p>
                 </div>
-                <div class="text-center">
-                  <button
-                    @click="() => addToCart(`-NM2huSRBtLQp39YYdPB`)"
-                    type="button"
-                    class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
-                  >
-                    加入購物車
-                  </button>
-                </div>
               </div>
+            </router-link>
+            <div class="text-center">
+              <button
+                @click.prevent="() => addToCart(`-NM2huSRBtLQp39YYdPB`)"
+                type="button"
+                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
+              >
+                加入購物車
+              </button>
             </div>
-          </router-link>
+          </div>
         </div>
       </div>
     </section>
@@ -389,7 +377,7 @@
       <div class="container-lg">
         <h2 class="mb-10 text-center fw-bold news-title">最新消息</h2>
         <div class="row">
-          <div data-aos="zoom-in" data-aos-duration="2000" class="col-lg-6">
+          <div data-aos="fade-zoom-in" data-aos-duration="3000" class="col-lg-6">
             <div class="d-lg-flex border-0 m-0 h-100">
               <img
                 style="max-width: 270px; object-fit: cover"
@@ -413,7 +401,7 @@
                     src="../../assets/images/Rectangle-m.png"
                     alt="Rectangle-m"
                   />
-                  <router-link to="/home/-NR8JzTIYKZ08sSYBdjQ" class="text-decoration-none fw-bold fs-5 stretched-link"
+                  <router-link to="/home/-NR8JzTIYKZ08sSYBdjQ" class="text-decoration-none fw-bold fs-5"
                       href="#">
                       查看更多
                   </router-link>
@@ -421,7 +409,7 @@
               </div>
             </div>
           </div>
-          <div data-aos="zoom-in" data-aos-duration="2000" class="col-lg-6">
+          <div data-aos="fade-zoom-in" data-aos-duration="3000" class="col-lg-6">
             <div class="d-lg-flex border-0 m-0 h-100">
               <img
                 style="max-width: 270px; object-fit: cover"
@@ -445,7 +433,7 @@
                     src="../../assets/images/Rectangle-m.png"
                     alt="Rectangle-m"
                   />
-                  <router-link to="/home/-NR8M15bmBcBIIfsBqid" class="text-decoration-none fw-bold fs-5 stretched-link"
+                  <router-link to="/home/-NR8M15bmBcBIIfsBqid" class="text-decoration-none fw-bold fs-5"
                     href="#">
                     查看更多
                   </router-link>
@@ -508,7 +496,7 @@ export default {
   background-color: #BD5309;
 }
 .product-link:hover {
-  background-color: #FF700C;
+  background-color: #FFE8D9;
 }
 .cart-hover:hover {
   background-color: #FFE8D9;
@@ -516,7 +504,7 @@ export default {
 .drop-shadow {
   filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.48));
 }
-.product-img {
+.popular-product-img {
   width: 100%;
   aspect-ratio: 1/1;
   position: relative;
@@ -527,7 +515,7 @@ export default {
   margin-bottom: 32px;
   border-radius: 50%
 }
-.product-img::after {
+.popular-product-img::after {
   content: '';
   background-color: #00000080;
   display: block;
@@ -537,12 +525,10 @@ export default {
   width: 100%;
   height: 100%;
   opacity: 0;
-  border-radius: 50%
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
 }
-.product-img:hover:after {
-  opacity: 1;
-}
-.product-text {
+.product-product-text {
   padding: 16px 48px;
   font-size: 20px;
   color: #fff;
@@ -550,8 +536,10 @@ export default {
   border: 1px solid #fff;
   opacity: 0;
   z-index: 10;
+  transition: opacity 0.3s ease;
 }
-.product-text:hover {
+.popular-product-link:hover .popular-product-img::after,
+.popular-product-link:hover .product-product-text {
   opacity: 1;
 }
 </style>
