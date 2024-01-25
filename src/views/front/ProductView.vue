@@ -18,7 +18,7 @@
           <div class="card border-0 mb-3">
             <div class="row g-0">
               <div class="col-lg-6">
-                <img :src="product.imageUrl" class="img-fluid one-product-img" alt="imageUrl">
+                <img :src="product.imageUrl" class="img-fluid one-product-img" alt="產品圖片">
               </div>
               <div class="col-lg-6">
                 <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
@@ -59,9 +59,12 @@
               </div>
             </div>
           </div>
-          <button class="btn d-block py-3 fs-5 w-100 fw-bold text-decoration-none border border-text-dark" type="button">
-            <router-link class="text-decoration-none text-text-dark" to="/products" title="回到產品頁面">返回產品</router-link>
-          </button>
+          <router-link to="/products" class="btn d-flex aligns-center py-3 fs-5 fw-bold text-text-dark border border-text-dark" title="前往產品頁面">
+            <span class="mx-auto">返回產品</span>
+            <span class="material-symbols-outlined">
+              arrow_back
+            </span>
+          </router-link>
         </main>
       </div>
     </section>

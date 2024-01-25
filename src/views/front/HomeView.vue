@@ -1,7 +1,7 @@
 <template>
-  <Loading v-model:active="isLoading"
+  <!-- <Loading v-model:active="isLoading"
                 :can-cancel="false"
-                :color="color"/>
+                :color="color"/> -->
   <main>
     <section
       style="
@@ -378,7 +378,7 @@
         <h2 class="mb-10 text-center fw-bold news-title">最新消息</h2>
         <div class="row">
           <div data-aos="fade-zoom-in" data-aos-duration="3000" class="col-lg-6">
-            <div class="d-lg-flex border-0 m-0 h-100">
+            <router-link to="/home/-NR8JzTIYKZ08sSYBdjQ" class="d-lg-flex border-0 m-0 h-100">
               <img
                 style="max-width: 270px; object-fit: cover"
                 class="d-block news-img"
@@ -401,16 +401,15 @@
                     src="../../assets/images/Rectangle-m.png"
                     alt="Rectangle-m"
                   />
-                  <router-link to="/home/-NR8JzTIYKZ08sSYBdjQ" class="text-decoration-none fw-bold fs-5"
-                      href="#">
-                      查看更多
-                  </router-link>
+                  <p class="fw-bold fs-5">
+                    查看更多
+                  </p>
                 </div>
               </div>
-            </div>
+            </router-link>
           </div>
           <div data-aos="fade-zoom-in" data-aos-duration="3000" class="col-lg-6">
-            <div class="d-lg-flex border-0 m-0 h-100">
+            <router-link to="/home/-NR8M15bmBcBIIfsBqid" class="d-lg-flex border-0 m-0 h-100">
               <img
                 style="max-width: 270px; object-fit: cover"
                 class="d-block news-img"
@@ -433,13 +432,12 @@
                     src="../../assets/images/Rectangle-m.png"
                     alt="Rectangle-m"
                   />
-                  <router-link to="/home/-NR8M15bmBcBIIfsBqid" class="text-decoration-none fw-bold fs-5"
-                    href="#">
+                  <p class="fw-bold fs-5">
                     查看更多
-                  </router-link>
+                  </p>
                 </div>
               </div>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -450,7 +448,7 @@
 <script>
 import { mapActions } from 'pinia'
 import cartStore from '@/stores/cart'
-import Loading from 'vue-loading-overlay'
+// import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -465,7 +463,7 @@ export default {
     }
   },
   components: {
-    Loading
+    // Loading
   },
   methods: {
     getProducts () {

@@ -19,7 +19,7 @@
             <div class="col-lg-9">
               <img style="height: 100%;" :src="article.imageUrl" class="text-center img-fluid rounded-start" alt="imageUrl">
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 mb-3">
               <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
                 <div>
                   <h1 class="fw-bolder fs-4 py-4 text-center">{{ article.description }}</h1>
@@ -27,9 +27,20 @@
                 </div>
               </div>
             </div>
-            <button class="col-lg-9 btn d-block py-3 fs-5 fw-bold text-decoration-none border border-text-dark" type="button">
+            <div class="col-lg-9">
+              <router-link to="/products" class="btn d-flex aligns-center py-3 fs-5 fw-bold text-text-dark border border-text-dark" title="前往產品頁面">
+                <span class="mx-auto">前往產品</span>
+                <span class="material-symbols-outlined">
+                  arrow_forward
+                </span>
+              </router-link>
+            </div>
+            <!-- <button class="col-lg-9 btn d-block py-3 fs-5 fw-bold text-decoration-none border border-text-dark" type="button">
               <router-link class="text-decoration-none text-text-dark" to="/products" title="前往產品頁面">前往產品</router-link>
-            </button>
+              <span class="material-symbols-outlined">
+                arrow_forward
+              </span>
+            </button> -->
           </div>
         </main>
       </div>

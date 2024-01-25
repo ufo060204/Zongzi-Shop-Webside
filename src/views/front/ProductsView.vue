@@ -22,18 +22,18 @@
             :key="product.id"
             class="col d-md-flex"
           >
-            <router-link :to="`/product/${product.id}`" class="border-0 card mb-6 p-0">
+            <router-link :to="`/product/${product.id}`" class="border-0 card mb-6 p-0 product-item">
               <div
                 :style="{ 'background-image': `url(${product.imageUrl})` }"
-                class="product-img d-md-flex justify-content-md-center align-items-md-center text-decoration-none"
+                class="product-img d-md-flex justify-content-md-center align-items-md-center"
               >
-                <div class="text-decoration-none product-text stretched-link">
+                <div class="text-decoration-none product-text">
                   查看更多
                 </div>
               </div>
               <div class="bg-white p-6 card-body">
                 <div class="d-flex flex-column justify-content-between h-100">
-                  <div>
+                  <div class="mb-3">
                     <div class="mb-3">
                       <h4 class="text-text-dark fw-500 text-center mb-3">
                         {{ product.title }}
@@ -94,6 +94,7 @@ export default {
           this.products = res.data.products
           this.page = res.data.pagination
           this.isLoading = false
+          console.log(this.products)
         })
         .catch((err) => {
           alert(err.response.data.message)
@@ -126,6 +127,10 @@ export default {
 </script>
 
 <style>
+.product-item:hover .product-img:after,
+.product-item:hover .product-text {
+  opacity: 1;
+}
 .product-img {
   width: 100%;
   height: 320px;
@@ -134,7 +139,6 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* padding: 60px; */
 }
 .product-img::after {
   content: "";
@@ -147,9 +151,6 @@ export default {
   height: 100%;
   opacity: 0;
 }
-.product-img:hover:after {
-  opacity: 1;
-}
 .product-text {
   padding: 16px 48px;
   font-size: 20px;
@@ -158,10 +159,6 @@ export default {
   border: 1px solid #fff;
   opacity: 0;
   z-index: 10;
-}
-.product-text:hover {
-  opacity: 1;
-  color: #fff;
 }
 .page-item.active .page-link {
   background-color: #4A3E34;
