@@ -4,7 +4,7 @@
   <section class="bg-bg py-8 h-100">
     <div class="container h-100">
       <div v-if="cart.length === 0" class="row h-100">
-        <div class="col-6 offset-3 text-center my-auto">
+        <div class="col-md-6 offset-md-3 text-center my-auto">
           <div style="background-color: #F99;" class="d-flex justify-content-center align-items-center text-white py-2 mb-3">
             <span class="material-symbols-outlined me-3">
               warning
