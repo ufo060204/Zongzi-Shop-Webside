@@ -18,7 +18,7 @@
           <div class="card border-0 mb-3">
             <div class="row g-0">
               <div class="col-lg-6">
-                <img :src="product.imageUrl" class="img-fluid one-product-img" alt="產品圖片">
+                <img :src="product.imageUrl" class="one-product-img" alt="產品圖片">
               </div>
               <div class="col-lg-6">
                 <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
@@ -27,11 +27,11 @@
                     <p class="card-text fs-5 lh-lg">{{ product.description }}</p>
                     <div class="row g-0">
                       <div class="col-5">
-                        <h5 class="py-3 mb-0 border-boderlight border-bottom">種類：</h5>
-                        <h5 class="py-3 mb-0 border-boderlight border-bottom">產地：</h5>
-                        <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">價格：</h4>
-                        <h5 class="py-3 mb-0 mt-3">
-                          <div class="input-group">
+                        <h5 class="py-3 border-boderlight border-bottom">種類：</h5>
+                        <h5 class="py-3 border-boderlight border-bottom">產地：</h5>
+                        <h4 class="py-3 mb-3 border-boderlight border-bottom fw-bold">價格：</h4>
+                        <h5 class="py-3">
+                          <div class="input-group mb-1">
                             <div class="input-group-prepend">
                               <button type="button" class="btn btn-outline-primary" :disabled="qty <= 1" @click="() => qty -= 1" id="button-addon1">
                                 <i class="bi bi-dash"></i>
@@ -45,13 +45,14 @@
                             </div>
                           </div>
                           <span v-if="checkBuyNum.boolean" class="fs-6 text-danger d-block text-center">{{ checkBuyNum.message }}</span>
+                          <span v-else class="fs-6 text-danger d-block invisible text-center">數量不能小於0</span>
                         </h5>
                       </div>
                       <div class="col-7 text-center">
-                        <h5 class="py-3 mb-0 border-boderlight border-bottom">{{ product.category }}</h5>
-                        <h5 class="py-3 mb-0 border-boderlight border-bottom">台灣在地生產</h5>
-                        <h4 class="py-3 mb-0 border-boderlight border-bottom fw-bold">NT$ {{ product.price }}  <span class="text-decoration-line-through fs-6">{{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
-                        <button type="button" style="width: 90%;" class="btn btn-primary add-cart-text text-white py-3 mt-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id, qty)">加入購物車</button>
+                        <h5 class="py-3 border-boderlight border-bottom">{{ product.category }}</h5>
+                        <h5 class="py-3 border-boderlight border-bottom">台灣在地生產</h5>
+                        <h4 class="py-3 mb-3 border-boderlight border-bottom fw-bold">NT$ {{ product.price }}  <span class="text-decoration-line-through fs-6">{{ product.origin_price }}</span> 元 / {{ product.unit }}</h4>
+                        <button type="button" style="width: 90%;" class="btn btn-primary add-cart-text text-white py-3 fs-5 fw-bold text-decoration-none" @click="() => addToCart(product.id, qty)">加入購物車</button>
                       </div>
                     </div>
                   </div>
@@ -59,7 +60,7 @@
               </div>
             </div>
           </div>
-          <router-link to="/products" class="btn d-flex aligns-center py-3 fs-5 fw-bold text-text-dark border border-text-dark" title="前往產品頁面">
+          <router-link to="/products" class="btn d-flex aligns-center py-3 fs-5 fw-bold text-text-dark border border-text-light" title="前往產品頁面">
             <span class="mx-auto">返回產品</span>
             <span class="material-symbols-outlined">
               arrow_back
@@ -182,10 +183,10 @@ export default {
     }
   .one-product-img {
     object-fit: cover;
+    width: 100%;
     height: 100%;
   }
   .product-category-img {
-  /* height: 320px; */
   height: 250px;
   position: relative;
   background-color: #f0ede5;

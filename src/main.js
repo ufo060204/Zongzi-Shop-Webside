@@ -7,6 +7,9 @@ import 'hover.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 
+// 引入 swiper
+import { register } from 'swiper/element/bundle'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -62,6 +65,7 @@ app.component('VForm', Form)
 app.component('VField', Field)
 app.component('ErrorMessage', ErrorMessage)
 app.component('VueLoading', Loading) // 全域元件
+app.use(register)
 app.use(VueAxios, axios) // 套件
 app.use(pinia)
 app.use(router)

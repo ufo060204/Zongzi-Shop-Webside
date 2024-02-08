@@ -1,7 +1,4 @@
 <template>
-  <!-- <Loading v-model:active="isLoading"
-                :can-cancel="false"
-                :color="color"/> -->
   <main>
     <section
       style="
@@ -18,12 +15,12 @@
             <div class="d-flex align-items-center justify-content-center position-relative">
               <h1
                 style="border-right: 1px solid #FFFFFF66; z-index: 1"
-                class="mb-0 me-6 py-3 pe-3 text-white fw-bold drop-shadow"
+                class="me-6 py-3 pe-3 text-white fw-bold drop-shadow"
               >
                 吉<br />祥<br />粽<br />香<br />藏<br />館
               </h1>
               <div style="z-index: 1" class="d-flex me-7">
-                <h4 style="color: #e6e6e6" class="mb-0 me-3 drop-shadow">
+                <h4 style="color: #e6e6e6" class="me-3 drop-shadow">
                   傳<br />統<br />粽<br />香<br />，<br />新<br />潮<br />食<br />趣
                 </h4>
                 <h4 style="color: #e6e6e6" class="m-0 drop-shadow">
@@ -87,7 +84,7 @@
                   <h5 class="m-0 text-text-light">
                     工<br>製<br>作<br>方<br>式<br>製<br>作<br>，<br>保<br>證
                   </h5>
-                  <h5 class="mx-0 mb-0 text-text-light">
+                  <h5 class="mx-0 text-text-light">
                     口<br>感<br>道<br>地<br>。
                   </h5>
                 </div>
@@ -172,7 +169,7 @@
                   <h5 class="m-0 text-text-light">
                     顧<br>客<br>能<br>夠<br>安<br>心<br>享<br>用<br>到<br>新
                   </h5>
-                  <h5 class="mx-0 mb-0 text-text-light">
+                  <h5 class="mx-0 text-text-light">
                     鮮<br>美<br>味<br>的<br>粽<br>子<br>。
                   </h5>
                 </div>
@@ -257,7 +254,7 @@
                     查看更多
                   </div>
                   <span
-                    style="font-weight: 900; top: 0; left: 0"
+                    style="font-weight: 900; top: 0; left: 0; z-index: 1;"
                     class="position-absolute text-primary fs-1"
                     >01</span
                   >
@@ -295,7 +292,7 @@
                     查看更多
                   </div>
                   <span
-                    style="font-weight: 900; top: 0; left: 0"
+                    style="font-weight: 900; top: 0; left: 0; z-index: 1"
                     class="position-absolute text-primary fs-1"
                     >02</span
                   >
@@ -333,7 +330,7 @@
                     查看更多
                   </div>
                   <span
-                    style="font-weight: 900; top: 0; left: 0"
+                    style="font-weight: 900; top: 0; left: 0; z-index: 1"
                     class="position-absolute text-primary fs-1"
                     >03</span
                   >
@@ -448,7 +445,6 @@
 <script>
 import { mapActions } from 'pinia'
 import cartStore from '@/stores/cart'
-// import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 
@@ -463,7 +459,6 @@ export default {
     }
   },
   components: {
-    // Loading
   },
   methods: {
     getProducts () {

@@ -3,7 +3,7 @@
   <section class="bg-bg">
     <div class="container-lg">
       <main class="py-8">
-        <ul class="list-unstyled d-md-flex justify-content-center text-center">
+        <ul class="list-unstyled d-md-flex justify-content-center text-center mb-3">
           <li class="border border-boderlight py-3 px-7">確認商品</li>
           <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="bg-white border border-boderlight py-3 px-7">填寫資料</li>

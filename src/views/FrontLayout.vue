@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column vh-100">
-    <header :class="{ 'bg-white': mobileHeadBg }" class="fixed-top transition">
+    <header :class="{ 'bg-white scroll-header-bg': mobileHeadBg }" class="fixed-top transition">
       <div class="container-md">
         <div class="d-md-flex justify-content-between align-items-center">
           <h2 class="mb-0 d-flex justify-content-between align-items-center py-3 py-md-5">

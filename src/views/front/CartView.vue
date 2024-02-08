@@ -24,13 +24,13 @@
           <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">完成付款</li>
         </ul>
-        <div class="text-end mb-3">
+        <div class="text-end my-3">
           <button class="btn btn-outline-danger rounded-0" type="button" @click="() => deleteAllCart()">
             清空購物車
           </button>
         </div>
         <div class="text-center container-lg border border-white border-2 mb-3">
-          <ul class="bg-text-dark list-unstyled row mobile-cart mb-0">
+          <ul class="bg-text-dark list-unstyled row mobile-cart">
             <li class="fs-5 fw-bold text-white py-2 col-4 border-end border-white">圖片</li>
             <li class="fs-5 fw-bold text-white py-2 col-2 border-end border-white">品名</li>
             <li class="fs-5 fw-bold text-white py-2 col-2 border-end border-white">單價</li>
@@ -39,7 +39,7 @@
             <li class="fs-5 fw-bold text-white py-2 col-1">刪除</li>
           </ul>
           <template v-if="cart">
-            <ul class="fs-4 list-unstyled row align-items-center border-bottom py-3 mb-0 border-white" v-for="item in cart" :key="item.id">
+            <ul class="fs-4 list-unstyled row align-items-center border-bottom py-3 border-white" v-for="item in cart" :key="item.id">
               <li class="col-md-4 col-6">
                 <img :src="item.product.imageUrl" class="table-image" alt="imageUrl">
               </li>
@@ -74,7 +74,7 @@
               </div>
             </ul>
           </template>
-          <ul class="list-unstyled row py-3 mb-0">
+          <ul class="list-unstyled row py-3">
             <li class="col-lg-7"></li>
             <li class="col-lg-5">
               <div class="input-group">
@@ -83,7 +83,7 @@
               </div>
             </li>
           </ul>
-          <ul class="list-unstyled row mb-0">
+          <ul class="list-unstyled row">
             <li class="col-lg-8 py-2 mobile-cart"></li>
             <li class="col-lg-2 col-6 py-2 bg-text-dark text-white fw-bolder fs-4 d-flex align-items-center justify-content-center">
               總計

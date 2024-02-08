@@ -94,7 +94,6 @@ export default {
           this.products = res.data.products
           this.page = res.data.pagination
           this.isLoading = false
-          console.log(this.products)
         })
         .catch((err) => {
           alert(err.response.data.message)
@@ -150,6 +149,7 @@ export default {
   width: 100%;
   height: 100%;
   opacity: 0;
+  transition: opacity 0.3s ease;
 }
 .product-text {
   padding: 16px 48px;
@@ -159,6 +159,7 @@ export default {
   border: 1px solid #fff;
   opacity: 0;
   z-index: 10;
+  transition: opacity 0.3s ease;
 }
 .page-item.active .page-link {
   background-color: #4A3E34;

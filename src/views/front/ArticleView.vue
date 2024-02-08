@@ -28,19 +28,13 @@
               </div>
             </div>
             <div class="col-lg-9">
-              <router-link to="/products" class="btn d-flex aligns-center py-3 fs-5 fw-bold text-text-dark border border-text-dark" title="前往產品頁面">
+              <router-link to="/products" class="btn d-flex aligns-center py-3 fs-5 fw-bold text-text-dark border border-text-light" title="前往產品頁面">
                 <span class="mx-auto">前往產品</span>
                 <span class="material-symbols-outlined">
                   arrow_forward
                 </span>
               </router-link>
             </div>
-            <!-- <button class="col-lg-9 btn d-block py-3 fs-5 fw-bold text-decoration-none border border-text-dark" type="button">
-              <router-link class="text-decoration-none text-text-dark" to="/products" title="前往產品頁面">前往產品</router-link>
-              <span class="material-symbols-outlined">
-                arrow_forward
-              </span>
-            </button> -->
           </div>
         </main>
       </div>

@@ -4,7 +4,7 @@
   <section class="bg-bg">
     <div class="container-lg">
       <main v-if="this.order.user" class="py-8 text-center">
-        <ul class="list-unstyled d-md-flex justify-content-center">
+        <ul class="list-unstyled d-md-flex justify-content-center mb-3">
           <li class="border border-boderlight py-3 px-7">確認商品</li>
           <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">填寫資料</li>
@@ -38,7 +38,7 @@
               <tr class="row border-bottom py-3 m-0 align-items-center">
                 <th class="col-md-5">訂購產品</th>
                 <td class="col-md-7">
-                  <ul class="list-unstyled bg-white mb-0">
+                  <ul class="list-unstyled bg-white">
                     <li v-for="product in this.order.products" :key="product.id">
                       {{ product.product.title }} X {{ product.qty }}
                     </li>
