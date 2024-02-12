@@ -78,9 +78,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .product-img {
-    object-fit: cover;
-  }
-</style>

@@ -15,7 +15,7 @@
         </div>
       </div>
       <div v-else>
-        <ul class="list-unstyled d-md-flex justify-content-center text-center">
+        <ul class="d-md-flex justify-content-center text-center">
           <li class="bg-white border border-boderlight py-3 px-7">確認商品</li>
           <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
           <li class="border border-boderlight py-3 px-7">填寫資料</li>
@@ -30,7 +30,7 @@
           </button>
         </div>
         <div class="text-center container-lg border border-white border-2 mb-3">
-          <ul class="bg-text-dark list-unstyled row mobile-cart">
+          <ul class="bg-text-dark row d-none d-md-flex">
             <li class="fs-5 fw-bold text-white py-2 col-4 border-end border-white">圖片</li>
             <li class="fs-5 fw-bold text-white py-2 col-2 border-end border-white">品名</li>
             <li class="fs-5 fw-bold text-white py-2 col-2 border-end border-white">單價</li>
@@ -39,9 +39,9 @@
             <li class="fs-5 fw-bold text-white py-2 col-1">刪除</li>
           </ul>
           <template v-if="cart">
-            <ul class="fs-4 list-unstyled row align-items-center border-bottom py-3 border-white" v-for="item in cart" :key="item.id">
+            <ul class="fs-4 row align-items-center border-bottom py-3 border-white" v-for="item in cart" :key="item.id">
               <li class="col-md-4 col-6">
-                <img :src="item.product.imageUrl" class="table-image" alt="imageUrl">
+                <img :src="item.product.imageUrl" class="mw-100 mw-lg-200px mh-200px object-fit-cover table-image" alt="產品圖片">
               </li>
               <div class="col-md-8 col-6">
                 <div class="row align-items-center">
@@ -74,7 +74,7 @@
               </div>
             </ul>
           </template>
-          <ul class="list-unstyled row py-3">
+          <ul class="row py-3">
             <li class="col-lg-7"></li>
             <li class="col-lg-5">
               <div class="input-group">
@@ -83,8 +83,8 @@
               </div>
             </li>
           </ul>
-          <ul class="list-unstyled row">
-            <li class="col-lg-8 py-2 mobile-cart"></li>
+          <ul class="row">
+            <li class="col-lg-8 py-2 d-none d-md-flex"></li>
             <li class="col-lg-2 col-6 py-2 bg-text-dark text-white fw-bolder fs-4 d-flex align-items-center justify-content-center">
               總計
             </li>
@@ -183,13 +183,14 @@ export default {
     ...mapActions(cartStore, ['deleteCartItem']),
     deleteAllCart () {
       Swal.fire({
-        title: '刪除確認?',
+        title: '刪除確認？',
         text: '確定要清除購物車的所有商品嗎？',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: '是的'
+        confirmButtonText: '是的',
+        cancelButtonText: '取消'
       }).then((result) => {
         if (result.isConfirmed) {
           this.$http
@@ -214,17 +215,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .table-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  .add-cart-text {
-    background-color: #FF700C;
-  }
-  .add-cart-text:hover {
-    background-color: #BD5309;
-  }
-</style>

@@ -6,7 +6,7 @@
         <h1 class="text-center fs-2 pb-6 fw-bold">品牌故事</h1>
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            <div>
+            <div class="mb-3 mb-lg-0">
               <p class="fs-5 lh-lg">
                 "吉祥粽香藏館"是一家由一位台灣傳統粽子愛好者創立的粽子店。他是個熱愛傳統美食的人，
                 尤其對粽子有著深厚的愛好。在他的小時候，他的奶奶總是在家裡製作粽子，讓他對粽子有著無限的回憶。
@@ -25,7 +25,7 @@
             </div>
           </div>
         </div>
-        <div style="border-top: 4px double #000000E5;border-bottom: 4px double #000000E5;" class="text-center py-6 my-6">
+        <div style="border-top: 4px double #3D2F24;border-bottom: 4px double #3D2F24;" class="text-center py-6 my-6">
           <img class="mb-3" src="../../assets/images/zongzi-icon.png" alt="品牌icon">
           <h2 class="fs-4 fw-bold">粽香四溢，滋味無窮</h2>
           <h2 class="fs-4 fw-bold">粽意滿滿，每一口都是用心</h2>

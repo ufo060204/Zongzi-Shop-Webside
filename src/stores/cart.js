@@ -17,9 +17,7 @@ const cartStore = defineStore('cart', {
       qty: 1
     }
   },
-  // actions 概念同「methods」
   actions: {
-    // 可使用 this 使用 state 的資料內容
     getCarts () {
       this.isLoading = true
       axios
@@ -106,7 +104,6 @@ const cartStore = defineStore('cart', {
       })
     }
   },
-  // getters 概念同「computed」
   getters: {
   }
 })
