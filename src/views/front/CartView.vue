@@ -1,7 +1,7 @@
 <template>
   <section class="landing-img landing-header" />
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
-  <section class="bg-bg py-8 h-100">
+  <section class="bg-bg py-7 py-lg-8 h-100">
     <div class="container h-100">
       <div v-if="cart.length === 0" class="row h-100">
         <div class="col-md-6 offset-md-3 text-center my-auto">
@@ -126,9 +126,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState(cartStore, ['cart', 'total', 'final_total'])
-  },
   methods: {
     ...mapActions(cartStore, ['getCarts']),
     updateCartItem (item) {
@@ -161,20 +158,29 @@ export default {
       this.$http.post(api, { data })
         .then((res) => {
           if (res.data.success === true) {
-            Swal.fire(
-              '套用成功',
-              '已套用優惠券 zongzi40',
-              'success'
-            )
+            Swal.fire({
+              showConfirmButton: false,
+              icon: 'success',
+              title: '套用成功',
+              text: '已套用優惠券 zongzi40',
+              timer: 1000
+            })
           } else if (res.data.success === false) {
             Swal.fire({
               icon: 'error',
               title: '套用失敗',
-              text: '找不到優惠券QQ',
-              footer: '<a href="https://ufo060204.github.io/Zongzi-Shop-Webside/#/home/-NR8JzTIYKZ08sSYBdjQ">前往領取優惠碼'
+              text: '找不到優惠券',
+              footer: '<a href="#" class="goGetCoupon">前往領取優惠碼</a>',
+              didOpen: () => {
+                const goGetCoupon = Swal.getPopup().querySelector('.goGetCoupon')
+                goGetCoupon.addEventListener('click', (e) => {
+                  e.preventDefault()
+                  this.$router.push('/home/-NR8JzTIYKZ08sSYBdjQ')
+                  Swal.close()
+                })
+              }
             })
           }
-          this.getCarts()
         })
         .catch((err) => {
           Swal.fire(err.response.data.message)
@@ -209,6 +215,9 @@ export default {
         }
       })
     }
+  },
+  computed: {
+    ...mapState(cartStore, ['cart', 'total', 'final_total'])
   },
   mounted () {
     this.getCarts()

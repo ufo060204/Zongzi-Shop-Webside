@@ -3,7 +3,7 @@
   <VueLoading :active="isLoading" :color="color" :z-index="9999"/>
   <section class="bg-bg">
     <div class="container-lg">
-      <main v-if="this.order.user" class="py-8 text-center">
+      <main v-if="this.order.user" class="py-7 py-lg-8 text-center">
         <ul class="list-unstyled d-md-flex justify-content-center mb-3">
           <li class="border border-boderlight py-3 px-7">確認商品</li>
           <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
@@ -99,7 +99,8 @@ export default {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: '確認'
+        confirmButtonText: '確認',
+        cancelButtonText: '取消'
       }).then((result) => {
         if (result.isConfirmed) {
           const api = `${VITE_APP_URL}v2/api/${VITE_APP_PATH}/pay/${this.orderId}`

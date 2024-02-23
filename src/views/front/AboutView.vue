@@ -1,7 +1,7 @@
 <template>
   <section class="landing-img landing-header" />
   <section class="bg-bg">
-    <main class="py-8">
+    <main class="py-7 py-lg-8">
       <div class="container-md">
         <h1 class="text-center fs-2 pb-6 fw-bold">品牌故事</h1>
         <div class="row justify-content-center">

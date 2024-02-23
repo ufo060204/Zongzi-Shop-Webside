@@ -6,7 +6,7 @@
                 :can-cancel="false"
                 :color="color"/>
         <main class="pb-7">
-          <div class="pt-8 d-flex align-items-end">
+          <div class="pt-7 pt-lg-8 d-flex align-items-end">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><router-link to="/">首頁</router-link></li>
@@ -85,7 +85,7 @@
     </section>
     <section>
       <div class="container-lg">
-        <main class="py-8 text-center">
+        <main class="py-7 py-lg-8 text-center">
           <h4 class="text-text-dark mb-7">還想來點...你怎能錯過！</h4>
           <hr>
           <SwiperView :categoryProducts='categoryProducts'/>

@@ -4,7 +4,6 @@ import Swal from 'sweetalert2'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 const cartStore = defineStore('cart', {
-  // state 概念同「data」，在此可以使用箭頭函式
   state: () => {
     return {
       // status: false,

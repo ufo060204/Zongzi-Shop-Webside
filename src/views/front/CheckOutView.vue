@@ -2,7 +2,7 @@
   <section class="landing-img landing-header" />
   <section class="bg-bg">
     <div class="container-lg">
-      <main class="py-8">
+      <main class="py-7 py-lg-8">
         <ul class="list-unstyled d-md-flex justify-content-center text-center mb-3">
           <li class="border border-boderlight py-3 px-7">確認商品</li>
           <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>
@@ -104,7 +104,7 @@
                   <v-field
                     id="tel"
                     name="電話"
-                    type="text"
+                    type="number"
                     class="form-control"
                     :class="{ 'is-invalid': errors['電話'] }"
                     placeholder="請輸入電話"

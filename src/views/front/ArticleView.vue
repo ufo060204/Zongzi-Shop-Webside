@@ -5,8 +5,8 @@
         <loading v-model:active="isLoading"
                 :can-cancel="false"
                 :color="color"/>
-        <main class="pb-8">
-          <div class="pt-8 d-flex align-items-end">
+        <main class="pb-7 pb-lg-8">
+          <div class="pt-7 pt-lg-8 d-flex align-items-end">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><router-link to="/">首頁</router-link></li>
@@ -17,12 +17,15 @@
           </div>
           <div class="row g-0 justify-content-center">
             <div class="col-lg-9">
-              <img style="height: 100%;" :src="article.imageUrl" class="text-center img-fluid rounded-start" alt="imageUrl">
+              <img :src="article.imageUrl" class="text-center img-fluid rounded-start h-100" alt="imageUrl">
             </div>
             <div class="col-lg-9 mb-3">
               <div class="card-body h-100 bg-bg border-0 d-md-flex flex-column justify-content-between">
                 <div>
-                  <h1 class="fw-bolder fs-4 py-4 text-center">{{ article.description }}</h1>
+                  <h1 class="fw-bolder fs-4 pt-4 pb-2 text-center">{{ article.description }}</h1>
+                  <div class="text-center pb-2">
+                    <button @click="copyCouponCode('zongzi40')" type="button" class="btn btn-zongzi">馬上領取週年優惠！</button>
+                  </div>
                   <div class="zongzi-text fs-5"></div>
                 </div>
               </div>
@@ -43,6 +46,7 @@
 
 <script>
 import Loading from 'vue-loading-overlay'
+import Swal from 'sweetalert2'
 import 'vue-loading-overlay/dist/css/index.css'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
 export default {
@@ -70,6 +74,18 @@ export default {
         })
         .catch((err) => {
           alert(err.message)
+        })
+    },
+    copyCouponCode (text) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          // console.log('優惠碼', text)
+          Swal.fire({
+            icon: 'success',
+            showConfirmButton: false,
+            title: '優惠碼複製成功！',
+            timer: 1000
+          })
         })
     }
   },

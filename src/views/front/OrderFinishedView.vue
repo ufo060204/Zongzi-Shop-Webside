@@ -2,7 +2,7 @@
   <section class="landing-img landing-header" />
   <section class="bg-bg">
     <div class="container-lg">
-      <main class="py-8 text-center">
+      <main class="py-7 py-lg-8 text-center">
         <ul class="list-unstyled d-md-flex justify-content-center">
           <li class="border border-boderlight py-3 px-7">確認商品</li>
           <li class="d-flex align-items-center justify-content-center px-1"><i class="bi bi-chevron-right fs-4 text-text-light shopping-process-icon"></i></li>

@@ -6,7 +6,7 @@
                 :can-cancel="false"
                 :color="color"
                 :is-full-page="fullPage"/>
-      <main class="py-8">
+      <main class="py-7 py-lg-8">
         <h1 class="text-center fs-2 pb-6 fw-bold">產品一覽</h1>
         <div class="row">
           <div class="btn-group mb-4 mx-auto col-lg-6">
