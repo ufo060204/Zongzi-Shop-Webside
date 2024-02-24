@@ -20,6 +20,8 @@ import { faTwitter, faFacebook, faInstagram } from '@fortawesome/free-brands-svg
 
 import { createPinia } from 'pinia'
 
+import { currency } from './methods/filter'
+
 // 加入 CKEditor
 import CKEditor from '@ckeditor/ckeditor5-vue'
 
@@ -54,6 +56,10 @@ setLocale('zh_TW')
 
 const pinia = createPinia()
 const app = createApp(App)
+
+app.config.globalProperties.$filter = {
+  currency
+}
 
 app.use(LoadingPlugin, {
   color: '##FF700C'

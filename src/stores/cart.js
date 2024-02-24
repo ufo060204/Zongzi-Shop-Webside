@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import router from '../router'
 import Swal from 'sweetalert2'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
@@ -11,6 +12,7 @@ const cartStore = defineStore('cart', {
       total: 0, // 先試試看 pinia 有無正確運作
       final_total: 0,
       isLoading: false,
+      couponCode: '',
       color: '#FF700C',
       fullPage: true,
       qty: 1
@@ -26,9 +28,6 @@ const cartStore = defineStore('cart', {
           this.total = res.data.data.total
           this.final_total = res.data.data.final_total
           this.isLoading = false
-          // this.status = true
-          // console.log('total', this.total)
-          // console.log('這是購物車頁面', this.cart)
         })
         .catch((err) => {
           alert(err.data.message)
@@ -72,6 +71,44 @@ const cartStore = defineStore('cart', {
         })
         .catch((err) => {
           alert(err.data.message)
+        })
+    },
+    checkCoupon () {
+      const data = {
+        code: this.couponCode
+      }
+      const api = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`
+      axios
+        .post(api, { data })
+        .then((res) => {
+          if (res.data.success === true) {
+            this.getCarts()
+            Swal.fire({
+              showConfirmButton: false,
+              icon: 'success',
+              title: '套用成功',
+              text: '已套用優惠券 zongzi40',
+              timer: 1000
+            })
+          } else if (res.data.success === false) {
+            Swal.fire({
+              icon: 'error',
+              title: '套用失敗',
+              text: '找不到優惠券',
+              footer: '<a href="#" class="goGetCoupon">前往領取優惠碼</a>',
+              didOpen: () => {
+                const goGetCoupon = Swal.getPopup().querySelector('.goGetCoupon')
+                goGetCoupon.addEventListener('click', (e) => {
+                  e.preventDefault()
+                  router.push('/home/-NR8JzTIYKZ08sSYBdjQ')
+                  Swal.close()
+                })
+              }
+            })
+          }
+        })
+        .catch((err) => {
+          Swal.fire(err.response.data.message)
         })
     },
     pay () {

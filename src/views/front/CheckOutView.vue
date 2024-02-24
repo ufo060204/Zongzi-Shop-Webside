@@ -18,12 +18,42 @@
               <table class="table align-middle text-center table-borderless">
                 <thead>
                   <tr>
+                    <th colspan="2">內容</th>
+                    <th>小計</th>
+                  </tr>
+                </thead>
+                <!-- <thead>
+                  <tr>
                     <th>品名</th>
                     <th style="width: 50px;">數量</th>
                     <th>單價</th>
                   </tr>
-                </thead>
+                </thead> -->
                 <tbody class="border-bottom border-top border-text-light border-2">
+                  <template v-if="cart">
+                    <tr v-for="item in cart" :key="item.id">
+                      <td>
+                        <img style="max-width: 100px;" :src="item.product.imageUrl" class="img-fluid" alt="產品圖片"/>
+                        <br>
+                        <span class="d-lg-none">{{ item.product.title }}</span>
+                      </td>
+                      <td>
+                        <span class="d-none d-lg-block">{{ item.product.title }}</span>
+                        <br class="d-none d-lg-block">
+                        NT$ {{ item.product.price }} X {{ item.qty }}
+                      </td>
+                      <td v-if="item.total === item.final_total">
+                        NT$ {{ item.total }}
+                      </td>
+                      <td v-if="item.total !== item.final_total">
+                        NT$ {{ item.final_total }}
+                        <br>
+                        <span class="text-success fs-12" v-if="item.coupon">已用優惠券</span>
+                      </td>
+                    </tr>
+                  </template>
+                </tbody>
+                <!-- <tbody class="border-bottom border-top border-text-light border-2">
                   <template v-if="cart">
                     <tr v-for="item in cart" :key="item.id">
                       <td>
@@ -31,25 +61,25 @@
                         style="max-width: 100px;"
                         :src="item.product.imageUrl"
                           class="img-fluid"
-                          alt="imageUrl"
+                          alt="產品圖片"
                           />
                           <br>
                         {{ item.product.title }}<br>
-                        <span class="text-success fs-6" v-if="item.coupon">已套用優惠券</span>
+                        <span class="text-success fs-12" v-if="item.coupon">已套用優惠券</span>
                       </td>
                       <td>
                         {{ item.qty }}
                       </td>
                       <td>
-                        NT$ {{ item.total }}
+                        NT$ {{ item.product.price }}
                       </td>
                     </tr>
                   </template>
-                </tbody>
+                </tbody> -->
                 <tfoot>
                   <tr>
                     <td colspan="2" class="text-end">總計</td>
-                    <td colspan="2" class="text-end fw-bold fs-5 text-danger">NT$ {{ final_total }}</td>
+                    <td class="text-end text-nowrap fw-bold fs-5 text-danger">NT$ {{ final_total }}</td>
                   </tr>
                 </tfoot>
               </table>
@@ -104,11 +134,11 @@
                   <v-field
                     id="tel"
                     name="電話"
-                    type="number"
+                    type="tel"
                     class="form-control"
                     :class="{ 'is-invalid': errors['電話'] }"
                     placeholder="請輸入電話"
-                    rules="required|min:8|max:10"
+                    rules="required|numeric|min:8|max:10"
                     v-model="form.user.tel"
                   ></v-field>
                   <error-message

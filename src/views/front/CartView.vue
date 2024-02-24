@@ -41,7 +41,7 @@
           <template v-if="cart">
             <ul class="fs-4 row align-items-center border-bottom py-3 border-white" v-for="item in cart" :key="item.id">
               <li class="col-md-4 col-6">
-                <img :src="item.product.imageUrl" class="mw-100 mw-lg-200px mh-200px object-fit-cover table-image" alt="產品圖片">
+                <img :src="item.product.imageUrl" class="mw-100 mw-lg-200px mh-150px" alt="產品圖片">
               </li>
               <div class="col-md-8 col-6">
                 <div class="row align-items-center">
@@ -57,11 +57,11 @@
                       </select>
                     </div>
                   </li>
-                  <li class="fw-bold col-md-3 my-1" v-if="this.total === this.final_total">
-                    NT$ {{ item.total }}
+                  <li v-if="item.total === item.final_total" class="fw-bold col-md-3 my-1">
+                    NT$ {{ $filter.currency(item.total) }}
                   </li>
-                  <li class="fw-bold col-md-3 my-1" v-if="this.total !== this.final_total">
-                    NT$ {{ item.final_total }} <span class="fs-6 text-decoration-line-through">{{ item.total }}</span>
+                  <li v-if="item.total !== item.final_total" class="fw-bold col-md-3 my-1" >
+                    NT$ {{ $filter.currency(item.final_total) }} <span class="fs-6 text-decoration-line-through">{{ $filter.currency(item.total) }}</span>
                   </li>
                   <li class="col-md my-1">
                     <button type="button" class="btn btn-outline-text-dark btn-sm" @click="() => deleteCartItem(item)"
@@ -88,8 +88,8 @@
             <li class="col-lg-2 col-6 py-2 bg-text-dark text-white fw-bolder fs-4 d-flex align-items-center justify-content-center">
               總計
             </li>
-            <li v-if="this.total === this.final_total" class="col-lg-2 py-2 col-6 text-end fs-4 fw-bolder text-black bg-white">NT$ {{ total }}</li>
-            <li v-if="this.total !== this.final_total" class="col-lg-2 py-2 col-6 text-end fs-4 fw-bolder text-black bg-white">NT$ <span class="text-danger fs-3">{{ final_total }}</span> <span class="fs-5 text-decoration-line-through"> {{ total }}</span></li>
+            <li v-if="this.total === this.final_total" class="col-lg-2 py-2 col-6 text-end fs-4 fw-bolder text-black bg-white">NT$ {{ $filter.currency(this.total) }}</li>
+            <li v-if="this.total !== this.final_total" class="col-lg-2 py-2 col-6 text-end fs-4 fw-bolder text-black bg-white">NT$ <span class="text-danger fs-4">{{ $filter.currency(this.final_total) }}</span> <span class="fs-5 text-decoration-line-through"> {{ $filter.currency(this.total) }}</span></li>
           </ul>
         </div>
         <div class="d-flex justify-content-between align-items-center">
@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'pinia'
+import { mapActions, mapState, mapWritableState } from 'pinia'
 import cartStore from '@/stores/cart'
 import Swal from 'sweetalert2'
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
@@ -112,7 +112,7 @@ export default {
       products: [],
       productId: '',
       loadingItem: '',
-      couponCode: '',
+      // couponCode: '',
       isLoading: false,
       color: '#FF700C',
       form: {
@@ -127,7 +127,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(cartStore, ['getCarts']),
+    ...mapActions(cartStore, ['getCarts', 'checkCoupon', 'deleteCartItem']),
     updateCartItem (item) {
       const data = {
         product_id: item.product.id,
@@ -150,43 +150,45 @@ export default {
           Swal.fire(err.data.message)
         })
     },
-    checkCoupon () {
-      const data = {
-        code: this.couponCode
-      }
-      const api = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`
-      this.$http.post(api, { data })
-        .then((res) => {
-          if (res.data.success === true) {
-            Swal.fire({
-              showConfirmButton: false,
-              icon: 'success',
-              title: '套用成功',
-              text: '已套用優惠券 zongzi40',
-              timer: 1000
-            })
-          } else if (res.data.success === false) {
-            Swal.fire({
-              icon: 'error',
-              title: '套用失敗',
-              text: '找不到優惠券',
-              footer: '<a href="#" class="goGetCoupon">前往領取優惠碼</a>',
-              didOpen: () => {
-                const goGetCoupon = Swal.getPopup().querySelector('.goGetCoupon')
-                goGetCoupon.addEventListener('click', (e) => {
-                  e.preventDefault()
-                  this.$router.push('/home/-NR8JzTIYKZ08sSYBdjQ')
-                  Swal.close()
-                })
-              }
-            })
-          }
-        })
-        .catch((err) => {
-          Swal.fire(err.response.data.message)
-        })
-    },
-    ...mapActions(cartStore, ['deleteCartItem']),
+    // checkCoupon () {
+    //   const data = {
+    //     code: this.couponCode
+    //   }
+    //   const api = `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`
+    //   this.$http.post(api, { data })
+    //     .then((res) => {
+    //       if (res.data.success === true) {
+    //         console.log(res.data)
+    //         this.isCoupon = true
+    //         Swal.fire({
+    //           showConfirmButton: false,
+    //           icon: 'success',
+    //           title: '套用成功',
+    //           text: '已套用優惠券 zongzi40',
+    //           timer: 1000
+    //         })
+    //       } else if (res.data.success === false) {
+    //         Swal.fire({
+    //           icon: 'error',
+    //           title: '套用失敗',
+    //           text: '找不到優惠券',
+    //           footer: '<a href="#" class="goGetCoupon">前往領取優惠碼</a>',
+    //           didOpen: () => {
+    //             const goGetCoupon = Swal.getPopup().querySelector('.goGetCoupon')
+    //             goGetCoupon.addEventListener('click', (e) => {
+    //               e.preventDefault()
+    //               this.$router.push('/home/-NR8JzTIYKZ08sSYBdjQ')
+    //               Swal.close()
+    //             })
+    //           }
+    //         })
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       Swal.fire(err.response.data.message)
+    //     })
+    // },
+    // ...mapActions(cartStore, ['deleteCartItem']),
     deleteAllCart () {
       Swal.fire({
         title: '刪除確認？',
@@ -217,7 +219,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(cartStore, ['cart', 'total', 'final_total'])
+    ...mapState(cartStore, ['cart', 'total', 'final_total']),
+    ...mapWritableState(cartStore, ['couponCode'])
   },
   mounted () {
     this.getCarts()
