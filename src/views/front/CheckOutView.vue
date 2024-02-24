@@ -22,13 +22,6 @@
                     <th>小計</th>
                   </tr>
                 </thead>
-                <!-- <thead>
-                  <tr>
-                    <th>品名</th>
-                    <th style="width: 50px;">數量</th>
-                    <th>單價</th>
-                  </tr>
-                </thead> -->
                 <tbody class="border-bottom border-top border-text-light border-2">
                   <template v-if="cart">
                     <tr v-for="item in cart" :key="item.id">
@@ -53,29 +46,6 @@
                     </tr>
                   </template>
                 </tbody>
-                <!-- <tbody class="border-bottom border-top border-text-light border-2">
-                  <template v-if="cart">
-                    <tr v-for="item in cart" :key="item.id">
-                      <td>
-                        <img
-                        style="max-width: 100px;"
-                        :src="item.product.imageUrl"
-                          class="img-fluid"
-                          alt="產品圖片"
-                          />
-                          <br>
-                        {{ item.product.title }}<br>
-                        <span class="text-success fs-12" v-if="item.coupon">已套用優惠券</span>
-                      </td>
-                      <td>
-                        {{ item.qty }}
-                      </td>
-                      <td>
-                        NT$ {{ item.product.price }}
-                      </td>
-                    </tr>
-                  </template>
-                </tbody> -->
                 <tfoot>
                   <tr>
                     <td colspan="2" class="text-end">總計</td>
@@ -104,6 +74,7 @@
                     placeholder="請輸入 Email"
                     rules="email|required"
                     v-model="form.user.email"
+                    inputmode="email"
                   ></v-field>
                   <error-message
                     name="email"
@@ -140,6 +111,7 @@
                     placeholder="請輸入電話"
                     rules="required|numeric|min:8|max:10"
                     v-model="form.user.tel"
+                    inputmode="tel"
                   ></v-field>
                   <error-message
                     name="電話"

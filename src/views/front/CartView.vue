@@ -78,7 +78,7 @@
             <li class="col-lg-7"></li>
             <li class="col-lg-5">
               <div class="input-group">
-                <input type="text" class="form-control rounded-0 py-2" placeholder="請輸入優惠代碼" v-model="couponCode">
+                <input type="text" class="form-control rounded-0 py-2" placeholder="請輸入優惠代碼" v-model="couponCode" @keyup.enter="checkCoupon()">
                 <button type="btn" class="btn btn-outline-zongzi rounded-0" @click="() => checkCoupon()">套用優惠碼</button>
               </div>
             </li>
