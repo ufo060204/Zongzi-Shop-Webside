@@ -10,15 +10,12 @@
     >
       <div class="container">
         <div class="row" data-aos="fade-zoom-in" data-aos-duration="3000">
-          <div class="col-lg-3">
+          <div class="col-lg-3 offset-lg-2 offset-xl-0">
             <div class="d-flex align-items-center justify-content-center position-relative">
-              <h1
-                style="z-index: 1; border-right: 1px solid #FFFFFF66;"
-                class="me-6 py-3 pe-3 text-white fw-bold drop-shadow"
-              >
+              <h1 class="z-1 me-6 py-3 pe-3 text-white fw-bold border-end border-white border-opacity-40 drop-shadow">
                 吉<br />祥<br />粽<br />香<br />藏<br />館
               </h1>
-              <div style="z-index: 1" class="d-flex me-7">
+              <div class="z-1 d-flex me-7">
                 <h4 class="me-3 drop-shadow lh-lg text-slogan">
                   傳<br />統<br />粽<br />香<br />，<br />新<br />潮<br />食<br />趣
                 </h4>
@@ -26,14 +23,12 @@
                   品<br />嘗<br />傳<br />承<br />40<br />年<br />故<br />鄉<br />的<br />好<br />味<br />道
                 </h4>
               </div>
-              <h5 style="z-index: 1" class="m-0">
-                <router-link
-                  to="/products"
-                  class="banner-link d-block text-decoration-none p-3 text-white transition"
-                  href="#"
-                  >探<br />索<br />美<br />味</router-link
-                >
-              </h5>
+              <router-link
+                to="/products"
+                class="z-1 banner-link d-block fw-bold fs-5 lh-lg p-3 text-white transition"
+                href="#"
+                >探<br />索<br />美<br />味</router-link
+              >
               <img style="max-width: 492px; top: 16px;left: -104px" class="d-none d-lg-block position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679126327757.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Y9t61UDHGiR5%2F2TwMpjrwEqdvna8exV5dXECGOLNDy%2BL3t8bcU0nvKppTOBivtBRh3ueo%2Fd7cVsVoJk0rVDCQIh5j1bMcOcduNtQOP5znDnXHICs%2BwmvVTTs0jfmcxWFpFh83O3rnwVSuR35mtdUjeja2fAm9MRMT2%2FIIW4wOXZtYWEidohp7KAadIJgVkL3DkLjmUJGjD6kBvKO1tIYtaCN%2F2lg%2BYuXomhP4jBQEDVfBNvu5UN8fwEKhgdwG%2Fia3MFKD4TXkdrTVh2hVJCKzW0lzVu%2BSTLhjaWYp1aZXMgeO9o6MUlnTqY1TeXGTKUqw4%2FVobddnQphdiFEdlk15g%3D%3D" alt="品牌背景圖-pc">
               <img style="max-width: 492px;" class="d-block d-lg-none position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679203122619.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=gWZHiAskR%2FLpUBvRgmXkE59cubDM7EFiIf9fZ14YSX8D7y%2B4FcyQGqjDNIYWN6atWlalA6bbzvzLxKzO10exy6nfK7AQyzS5hzmTJt5pF3kPHSxRbzdsiiO1SgnGkbFSF%2BgTa964jG7FJlqhWL5zI1VfFwTU9eAIC26Kh%2B%2F8aknXcj%2BYYGBHJ5S1zaiv13ivTGFMvQ8D1KUhcx32nf%2FJuY%2BWf2%2Fi76X%2BQY1snYXVaEMV%2F%2BW%2BG0QP2ETh2LC9iH9BeYMomPHNGIDjB3J9SHZIYgeVNeiAqlIkNbV00uAwBhKZHveTYTplc8bvQ5YXkbVvM1HOpTYvVLy06KKKTWdfAw%3D%3D" alt="品牌背景圖-md">
             </div>
@@ -98,7 +93,7 @@
                     <router-link
                       to="/products"
                       href="#"
-                      class="product-link fw-bold d-block border border-text-dark text-text-dark text-decoration-none p-3 transition">
+                      class="product-link fw-bold d-block border border-text-dark text-text-dark p-3 transition">
                       更<br>多<br>產<br>品
                     </router-link>
                   </h5>
@@ -120,7 +115,7 @@
                     <router-link
                       to="/products"
                       href="#"
-                      class="product-link fw-bold d-inline-block border border-text-dark  text-text-dark text-decoration-none py-2 px-7 transition">
+                      class="product-link fw-bold d-inline-block border border-text-dark  text-text-dark py-2 px-7 transition">
                       更多產品
                     </router-link>
                     <div style="top: -52px;" class="position-absolute d-flex flex-column justify-content-between align-items-center start-50 translate-middle-x">
@@ -181,7 +176,7 @@
                     <router-link
                       to="/products"
                       href="#"
-                      class="product-link fw-bold d-block border border-text-dark text-text-dark text-decoration-none p-3 transition">
+                      class="product-link fw-bold d-block border border-text-dark text-text-dark p-3 transition">
                       更<br>多<br>產<br>品
                     </router-link>
                   </h5>
@@ -203,7 +198,7 @@
                     <router-link
                       to="/products"
                       href="#"
-                      class="product-link fw-bold d-inline-block border border-text-dark  text-text-dark text-decoration-none py-2 px-7 transition">
+                      class="product-link fw-bold d-inline-block border border-text-dark  text-text-dark py-2 px-7 transition">
                       更多產品
                     </router-link>
                     <div style="top: -52px;" class="position-absolute d-flex flex-column justify-content-between align-items-center start-50 translate-middle-x">
@@ -239,11 +234,11 @@
         <h2 class="mb-7 mb-lg-10 fw-bold text-center">熱銷產品</h2>
         <div class="row row-cols-1 row-cols-md-3">
           <div class="col mb-7 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
-            <router-link :to="`/product/-NM27yCriEAoX1-aPW4j`" class="text-decoration-none popular-product-link">
+            <router-link :to="`/product/-NM27yCriEAoX1-aPW4j`" class="popular-product-link">
               <div class="border-0 px-7 popular-card">
                 <div class="popular-product-img d-flex justify-content-center align-items-center">
                   <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679122640369.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ECc5CgWHI%2FbzNcrIRXWub01pyFCMkovCLTlZMvLYydlwrKiNhGfBXXfa28UO69YIYEdKuvkVc348mvEStQrDbixqhwq%2Bam4NlDzR4x5SsLm8MA6I2WCZcaV9%2F62igSB1NgcFx6yyHw9rCrWcwxSUDYel6jJaYEGngdeznelcTOdGAAlrLQCD7bRbNf5Q4Th%2FTqdqZiCsLno7SJUFnpJeOlsHL6W8yPDsNu%2FI3EBGpf0BTsYHFWzfc%2FKpg0UhsdTW5AxtMzsJ75LaGWmvlvKmpMf8OXaXCCUJq5P2VUJxSddBgHJgRONKhmLE1vTbReNBQjhFWNmRRj06fn6onQz7Tg%3D%3D" alt="招牌北部粽">
-                  <div class="text-decoration-none product-product-text">
+                  <div class="product-product-text">
                     查看更多
                   </div>
                   <span
@@ -266,18 +261,18 @@
               <button
                 @click.prevent="() => addToCart(`-NM27yCriEAoX1-aPW4j`)"
                 type="button"
-                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
+                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold border border-text-dark transition"
               >
                 加入購物車
               </button>
             </div>
           </div>
           <div class="col mb-7 mb-lg-0" data-aos="fade-up" data-aos-duration="3000">
-            <router-link :to="`/product/-NM2d45PodDNatFQYTQ3`" class="text-decoration-none popular-product-link">
+            <router-link :to="`/product/-NM2d45PodDNatFQYTQ3`" class="popular-product-link">
               <div class="border-0 px-7 popular-card">
                 <div class="popular-product-img d-flex justify-content-center align-items-center">
                   <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123198362.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=MYX4dfnxJK3TeDhNuC%2BaQy4kWOFQ%2F7oU%2BTwevZErSUjvBzgUsmZEYZLOJDGB0%2Fy272S61yZb8natkAW8hq6sLgm8lanrd32%2By9UZDNDFdJ9qqVcIZozkUzgCcLxsy2PDzMzpMa9R7woX2KotFjOwMW9aPMERoGxmvPwkaLIk4KAjSVUBYc%2F9px%2BRFCbgYxAdke5bDK89UMhDu0tEhTGHeDjD5RWPlLiIZ%2FusWjwInOM%2F1lDToTc5F%2FwT%2F4jR11Ezu6tEELwdMIDSSetB80VXrJWBM9tZS%2FS7Q2K2xDt%2B65MNUNQ%2FEQL7cI2MoL4HbswnBb67Glv%2BfmL%2Bq5qbGy%2FqJg%3D%3D" alt="傳統南部粽">
-                  <div class="text-decoration-none product-product-text">
+                  <div class="product-product-text">
                     查看更多
                   </div>
                   <span
@@ -300,18 +295,18 @@
               <button
                 @click.prevent="() => addToCart(`-NM2d45PodDNatFQYTQ3`)"
                 type="button"
-                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
+                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold border border-text-dark transition"
               >
                 加入購物車
               </button>
             </div>
           </div>
           <div class="col" data-aos="fade-up" data-aos-duration="3000">
-            <router-link :to="`/product/-NM2huSRBtLQp39YYdPB`"  class="text-decoration-none popular-product-link">
+            <router-link :to="`/product/-NM2huSRBtLQp39YYdPB`"  class="popular-product-link">
               <div class="border-0 px-7 popular-card">
                 <div class="popular-product-img d-flex justify-content-center align-items-center">
                   <img class="img-fluid p-9 position-absolute" src="https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679123253511.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=fPsA7BdvnNZ93zAvJ9EqPUBvv4Qu6scveM2Y8N79L%2FXHJbmBCAazitevPvkaaGn2EAYKzYtTadJX5qJCeE15ohTkqaWUfefIrJVvZWc%2BNDhDFNCOQnbu8ExrPJbb0n%2Fis0q5AwZwhHNLCgzulYtf0s%2BS8o0NPhr8HNSsfHZm%2BRnrhwsNxzSzooHvMgxBzODzZQn7InMqueIIYeVAYsjjyBMN6pNJchPrO0BsCtNT64yjmVoCNMM8cKVroxR0igBK9T131UO6%2FA%2BxNHVLGhhiHvXApfe83mJZ024gKRr%2FGKt6DdBIJUXzA9YG4g1jaf4TdQe4bsm1N4Y%2FM5qpKVJppw%3D%3D" alt="秘傳醬汁">
-                  <div class="text-decoration-none product-product-text">
+                  <div class="product-product-text">
                     查看更多
                   </div>
                   <span
@@ -334,7 +329,7 @@
               <button
                 @click.prevent="() => addToCart(`-NM2huSRBtLQp39YYdPB`)"
                 type="button"
-                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold text-decoration-none border border-text-dark transition"
+                class="cart-hover text-text-dark d-inline-block py-3 px-7 fs-5 fw-bold border border-text-dark transition"
               >
                 加入購物車
               </button>

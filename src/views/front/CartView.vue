@@ -64,10 +64,12 @@
                     NT$ {{ $filter.currency(item.final_total) }} <span class="fs-6 text-decoration-line-through">{{ $filter.currency(item.total) }}</span>
                   </li>
                   <li class="col-md my-1">
-                    <button type="button" class="btn btn-outline-text-dark btn-sm" @click="() => deleteCartItem(item)"
+                    <button type="button" class="btn btn-sm" @click="() => deleteCartItem(item)"
                     v-bind:disabled="item.id === loadingItem">
                       <i class="fas fa-spinner fa-pulse" v-if="loadingItem === item.id"></i>
-                      x
+                      <span class="material-symbols-outlined lh-1">
+                        close
+                      </span>
                     </button>
                   </li>
                 </div>
@@ -112,7 +114,6 @@ export default {
       products: [],
       productId: '',
       loadingItem: '',
-      // couponCode: '',
       isLoading: false,
       color: '#FF700C',
       form: {

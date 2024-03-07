@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column vh-100">
-    <header :class="{ 'bg-white scroll-header-bg': mobileHeadBg }" class="fixed-top transition">
+    <header :class="{ 'bg-white scroll-header-shadow': mobileHeadBg }" class="fixed-top transition">
       <div class="container-md">
         <div class="d-md-flex justify-content-between align-items-center">
           <h2 class="mb-0 d-flex justify-content-between align-items-center py-3 py-md-5">
@@ -61,8 +61,8 @@
               <router-link to="/" class="d-block mb-md-10 mb-6" style="width: 299px;height: 48px; background-image:url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679126542123.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ErtmdGsStSzMTGeJbXm5FK%2F1qtn4%2BSJ98A%2B9YgyHA0l2egaQ1vJuJxiC2kyVOnxEUyf641bSK7CtTv7ebmGHNdEmeyfG18%2B%2B%2FbQHzW1WjZdx%2Ft4VYXt40P4KvVxI2D7HdboWyzHCAM%2BoilHaEWRUhAj0QSEqbkAfEnSH9W45agK%2B4M6qwxvUI1fnn29zvV6LfWsfFfE8kCek5tUhLPbNe7%2BpPCS4K0Ra1n9nKGyil8PUAiyASht1k5CgU2SkIF%2F3htwDnqVg6Bj%2BDCH45L61zAJByiuwn4WZpo0EyTskxe1w9jXGBeTmk8xhFt3IssQboiFAcNLPkxcqOSYEJKPJhw%3D%3D'); background-repeat: no-repeat; background-size: cover;"></router-link>
             </h2>
             <div class="d-md-flex d-none align-items-md-center">
-              <router-link to="/login" class="footer-link text-white fs-12 bg-white bg-opacity-20 p-2 me-2 fw-bold transition">後台管理</router-link>
-              <p class="m-0 fs-14 text-white text-opacity-50">此專題僅供作品展示，非商業用途使用</p>
+              <router-link to="/login" class="d-none footer-link text-white fs-12 bg-white bg-opacity-20 p-2 me-2 fw-bold transition">後台管理</router-link>
+              <p class="mx-auto m-0 fs-14 text-white text-opacity-50">此專題僅供作品展示，非商業用途使用</p>
             </div>
           </div>
           <div class="d-md-flex mb-md-0 mb-6">
@@ -179,18 +179,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  // .scroll-header-bg {
-  //   filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.08));
-  // }
-  // .nav-text-white {
-  //   color: #FFFFFF;
-  // }
-  // .nav-text-white:hover {
-  //   color: #FF700C;
-  // }
-  // .nav-text-dark {
-  //   color: #3D2F24;
-  // }
+  .scroll-header-shadow {
+    box-shadow: 0px 0px 16px 0px #00000014;
+  }
   .nav-link:hover {
   color: #FF700C !important;
   }
