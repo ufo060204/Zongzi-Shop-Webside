@@ -88,7 +88,7 @@
             </div>
           </div>
           <div class="d-flex d-md-none align-items-center">
-            <router-link to="/login" class="footer-link text-white bg-white bg-opacity-20 p-2 me-2 fw-bold fs-12">後台管理</router-link>
+            <router-link to="/login" class="d-none footer-link text-white bg-white bg-opacity-20 p-2 me-2 fw-bold fs-12">後台管理</router-link>
             <p class="m-0 fs-14 text-white text-opacity-50">此專題僅供作品展示，非商業用途使用</p>
           </div>
         </div>
