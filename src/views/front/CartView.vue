@@ -44,16 +44,19 @@
                 <img :src="item.product.imageUrl" class="mw-100 mw-lg-200px mh-150px" alt="產品圖片">
               </li>
               <div class="col-md-8 col-6">
-                <div class="row align-items-center">
+                <ul class="row align-items-center text-start text-md-center">
                   <li class="col-md-3 my-1">
                     {{ item.product.title }}
                     <span class="text-success d-block fs-6" v-if="item.coupon">已套用優惠券</span>
                   </li>
-                  <li class="col-md-3 my-1">NT$ {{ item.product.price }}</li>
+                  <li class="col-md-3 my-1 d-none d-md-block">
+                    <span>NT$ {{ item.product.price }}</span>
+                  </li>
                   <li class="col-md my-1">
-                    <div class="input-group input-group-sm">
+                    <div class="input-group input-group-sm bg">
+                      <span class="input-group-text bg-text-light text-white d-inline d-md-none">數量</span>
                       <select name="" id="" class="form-control text-center" v-model="item.qty" @change="_$event =>updateCartItem(item)" v-bind:disabled="item.id === loadingItem">
-                        <option :value="i" v-for="i in 100" :key="i + '1234'">{{ i }}</option>
+                        <option class="text-center" :value="i" v-for="i in 100" :key="i + '1234'">{{ i }}</option>
                       </select>
                     </div>
                   </li>
@@ -63,16 +66,17 @@
                   <li v-if="item.total !== item.final_total" class="fw-bold col-md-3 my-1" >
                     NT$ {{ $filter.currency(item.final_total) }} <span class="fs-6 text-decoration-line-through">{{ $filter.currency(item.total) }}</span>
                   </li>
-                  <li class="col-md my-1">
+                  <li class="col-md my-1 d-flex justify-content-end align-items-center d-md-block">
                     <button type="button" class="btn btn-sm" @click="() => deleteCartItem(item)"
                     v-bind:disabled="item.id === loadingItem">
                       <i class="fas fa-spinner fa-pulse" v-if="loadingItem === item.id"></i>
-                      <span class="material-symbols-outlined lh-1">
+                      <span class="text-decoration-underline d-block d-md-none">刪除</span>
+                      <span class="material-symbols-outlined lh-1 d-none d-md-block">
                         close
                       </span>
                     </button>
                   </li>
-                </div>
+                </ul>
               </div>
             </ul>
           </template>

@@ -33,7 +33,9 @@
                       <td>
                         <span class="d-none d-lg-block">{{ item.product.title }}</span>
                         <br class="d-none d-lg-block">
-                        NT$ {{ item.product.price }} X {{ item.qty }}
+                        NT$ {{ item.product.price }}
+                        <br class="d-block d-md-none">
+                        <span>數量：{{ item.qty }}</span>
                       </td>
                       <td v-if="item.total === item.final_total">
                         NT$ {{ item.total }}
