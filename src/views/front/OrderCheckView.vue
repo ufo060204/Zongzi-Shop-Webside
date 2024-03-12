@@ -54,6 +54,10 @@
                 <td class="col-md-7" v-if="!this.order.is_paid">未付款</td>
                 <td class="col-md-7" v-else>已付款</td>
               </tr>
+              <tr class="row border-bottom py-3 m-0 align-items-center">
+                <th class="col-md-5">留言</th>
+                <td class="col-md-7">{{ this.order.message}}</td>
+              </tr>
             </table>
           </div>
         </div>
