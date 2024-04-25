@@ -600,6 +600,32 @@ $utilities: map-merge(
         100: 1
       )
     ),
+    "bg-attachment": (
+      responsive: true,
+      property: background-attachment,
+      class: bg-attachment,
+      values: (
+      scroll: scroll,
+      fixed: fixed,
+      )
+    ),
+    "bg-repeat": (
+      responsive: true,
+      property: background-repeat,
+      class: bg-repeat,
+      values: (
+      repeat: repeat,
+      no-repeat: no-repeat,
+      )
+    ),
+    "bg-size": (
+      responsive: true,
+      property: background-size,
+      class: bg-size,
+      values: (
+      cover: cover,
+      )
+    ),
     // scss-docs-end utils-bg-color
     "gradient": (
       property: background-image,

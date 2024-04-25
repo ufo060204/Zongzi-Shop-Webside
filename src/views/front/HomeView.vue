@@ -1,13 +1,6 @@
 <template>
   <main>
-    <section
-      style="
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-      "
-      class="vh-100 d-flex align-items-center landing-img bg-attachment-fixed"
-    >
+    <section class="vh-100 d-flex align-items-center landing-img bg-repeat-no-repeat bg-size-cover bg-attachment-scroll bg-attachment-lg-fixed">
       <div class="container">
         <div class="row" data-aos="fade-zoom-in" data-aos-duration="3000">
           <div class="col-lg-3 offset-lg-2 offset-xl-0">
@@ -37,11 +30,9 @@
       </div>
     </section>
     <section
-      class="py-7 py-lg-8"
+      class="py-7 py-lg-8 bg-size-cover bg-repeat-no-repeat"
       style="
         background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/ufo060204/1679115636333.png?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=WyBEJKfQTROnLwKr7SXyrWBqGPVWgYoo%2FkZfarfV4F0zXaVkwW%2BoXHaPDat7hLVAHb66GmAR2JDYzPtEiBy9Ibtcixs%2Fzx2K3J%2BwUEumgcRuCicXs8lqVN7iezp0IJCzGxhxPm0rj5LsteuA7qywatbc5L4gPUJa5%2FYCZoVjcZF6Tka6HXBrTvixlH%2FIg9NAJRNcWNglxJy7luxKpxUtUFCdCyCWH8w00QGzWhXLQQnbb9h9Ro9v%2F2JAdQPAyLPhCCr3pMXRI3zZAaqw73j7xw0weorzF4Am4vcaOcIy%2FNK5czPF3ubjVfs46t25qqiod5xZvJOLeLY%2BVtx06O5PCQ%3D%3D');
-        background-repeat: no-repeat;
-        background-size: cover;
         background-position: left top;
       "
     >
